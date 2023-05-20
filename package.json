@@ -18,9 +18,12 @@
     "eslint-config-prettier": "^8.5.0",
     "mobx-react-lite": "^3.4.0",
     "next": "^13.0.7",
+    "next-auth": "^4.22.1",
     "next-seo": "^5.15.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "spotify-web-api-js": "^1.5.2",
+    "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.16.1",

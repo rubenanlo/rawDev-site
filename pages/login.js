@@ -10,7 +10,7 @@ const login = ({ providers }) => {
             className="border bg-slate-600 text-gray-100 rounded-md px-5 py-3"
             onClick={() => signIn(provider.id, { callbackUrl: "/" })}
           >
-            Log In with {provider.name}
+            <p>Log In with {provider.name}</p>
           </button>
         </div>
       ))}

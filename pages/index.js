@@ -14,7 +14,7 @@ const Playlists = () => {
         className="border bg-slate-600 text-gray-100 rounded-md px-5 py-3"
         onClick={() => signOut()}
       >
-        Log out
+        <p>Log out</p>
       </button>
     </div>
   );

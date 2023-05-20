@@ -1,3 +1,4 @@
+import { signOut } from "next-auth/react";
 import Head from "next/head";
 
 const Playlists = () => {
@@ -9,6 +10,12 @@ const Playlists = () => {
       </Head>
       <h1 className="mx-auto">Playlists</h1>
       <p>hello</p>
+      <button
+        className="border bg-slate-600 text-gray-100 rounded-md px-5 py-3"
+        onClick={() => signOut()}
+      >
+        Log out
+      </button>
     </div>
   );
 };

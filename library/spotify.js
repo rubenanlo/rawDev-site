@@ -1,5 +1,7 @@
 import SpotifyWebApi from "spotify-web-api-node";
 
+// For the scopes, please refer to the following link to find out what scopes
+// you'll want to addd for your application: https://developer.spotify.com/documentation/web-api/concepts/scopes
 const scopes = [
   "user-read-private",
   "user-read-email",

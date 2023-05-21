@@ -1,6 +1,6 @@
 import { getProviders, signIn } from "next-auth/react";
 
-const login = ({ providers }) => {
+const Login = ({ providers }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full">
       {/* I'm passing any providers with the code below, rather than using a custom button */}
@@ -18,10 +18,11 @@ const login = ({ providers }) => {
   );
 };
 
-export default login;
+export default Login;
 
 export async function getServerSideProps() {
   const providers = await getProviders();
+
   return {
     props: {
       providers,

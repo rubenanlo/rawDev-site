@@ -39,9 +39,10 @@ export const authOptions = {
     // ...add more providers here
   ],
   secret: process.env.JWT_SECRET,
-  // pages: {
-  //   signIn: "/login",
-  // },
+  pages: {
+    signIn: "/login",
+  },
+  session: { strategy: "jwt" },
   callbacks: {
     // Source: https://next-auth.js.org/v3/tutorials/refresh-token-rotation
     async jwt({ token, account, user }) {

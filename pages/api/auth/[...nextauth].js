@@ -7,7 +7,7 @@ const refreshAccessToken = async (token) => {
     // these methods come from spotify documentation?
     // source: https://github.com/thelinmichael/spotify-web-api-node
     spotifyApi.setAccessToken(token.accessToken);
-    spotifyApi.setRefresshToken(token.refreshToken);
+    spotifyApi.setRefreshToken(token.refreshToken);
     const { body: refreshToken } = await spotifyApi.refreshAccessToken();
     console.log(
       "🚀 ~ file: [...nextauth].js:12 ~ refreshAccessToken ~ refreshToken:",
@@ -15,9 +15,9 @@ const refreshAccessToken = async (token) => {
     );
     return {
       ...token,
-      acessToken: refreshToken.access_token,
+      accessToken: refreshToken.access_token,
       accessTokenExpires: Date.now + refreshToken.expires_in * 1000, // = 1 hour
-      refreshToken: refreshToken.refresh_token || token.refreshToken, // fall back to old refresh token
+      refreshToken: refreshToken.refresh_token ?? token.refreshToken, // fall back to old refresh token
     };
   } catch (error) {
     console.log(error);
@@ -39,12 +39,13 @@ export const authOptions = {
     // ...add more providers here
   ],
   secret: process.env.JWT_SECRET,
-  pages: {
-    signIn: "/login",
-  },
+  // pages: {
+  //   signIn: "/login",
+  // },
   callbacks: {
     // Source: https://next-auth.js.org/v3/tutorials/refresh-token-rotation
     async jwt({ token, account, user }) {
+      // initial signin:
       if (account && user) {
         return {
           ...token,
@@ -59,13 +60,16 @@ export const authOptions = {
         console.log("token not expired");
         return token;
       }
-      //   access token expires:
+      //   access token expires, we will refresh it:
+      console.log("token expired, refreshing");
       return await refreshAccessToken(token);
     },
     async session({ session, token }) {
       session.user.accessToken = token.accessToken;
       session.user.refreshToken = token.refreshToken;
       session.user.username = token.username;
+
+      return session;
     },
   },
 };

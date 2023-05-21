@@ -1,4 +1,5 @@
 import { getProviders, signIn } from "next-auth/react";
+import { getRedirectUrl } from "helpers/getRedirectUrl";
 
 const Login = ({ providers }) => {
   return (
@@ -8,7 +9,9 @@ const Login = ({ providers }) => {
         <div key={provider.name}>
           <button
             className="border bg-slate-600 text-gray-100 rounded-md px-5 py-3"
-            onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+            onClick={() =>
+              signIn(provider.id, { callbackUrl: getRedirectUrl(provider.id) })
+            }
           >
             <p>Log In with {provider.name}</p>
           </button>

@@ -1,12 +1,13 @@
 import Head from "next/head";
 import { TITLE, META_DESCRIPTION, META_IMAGE, URL } from "root/config";
 import { DefaultSeo } from "next-seo";
+import { SessionProvider } from "next-auth/react";
 import "styles/globals.css";
 import { useEffect } from "react";
 import { Router } from "next/router";
 import * as gtag from "helpers/gtag";
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   // Track pages with google analytics
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -31,7 +32,9 @@ const App = ({ Component, pageProps }) => {
           twitter={{ cardType: "summary_large_image" }}
         />
       </Head>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   );
 };

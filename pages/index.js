@@ -10,7 +10,7 @@ const Playlists = () => {
       </Head>
       <button
         className="border bg-slate-600 text-gray-100 rounded-md px-5 py-3"
-        onClick={() => signOut({ callbackUrl: "/login" })}
+        onClick={() => signOut()}
       >
         <p>Log out from Spotify</p>
       </button>

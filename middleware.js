@@ -1,3 +1,7 @@
+// For more information on middleware, check this source:
+// https://vercel.com/docs/concepts/functions/edge-middleware/middleware-api
+// https://nextjs.org/docs/pages/building-your-application/routing/middleware
+
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 

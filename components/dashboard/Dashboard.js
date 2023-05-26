@@ -9,17 +9,17 @@ import ButtonOpenDrawer from "components/dashboard/sidebar/ButtonOpenDrawer";
 import SideBarMobile from "components/dashboard/sidebar/SideBarMobile";
 import SideBarDesktop from "components/dashboard/sidebar/SideBarDesktop";
 import MainContent from "components/dashboard/MainContent";
-import { playlistIdState } from "atoms/playlistAtom";
 import { openDrawerSideBar } from "atoms/openDrawerSideBar";
 import useSpotify from "helpers/useSpotify";
 
 const Dashboard = ({ providers }) => {
+  // to allow open the side bar in mobile version
   const [sidebarOpen, setSidebarOpen] = useRecoilState(openDrawerSideBar);
+
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
-  console.log("🚀 ~ file: Dashboard.js:18 ~ Dashboard ~ playlists:", playlists);
+  console.log("🚀 ~ file: Dashboard.js:21 ~ Dashboard ~ playlists:", playlists);
   // const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
-  const [searchedArtist, setSearchedArtist] = useRecoilState(playlistIdState);
   const spotifyApi = useSpotify();
 
   useEffect(() => {
@@ -29,13 +29,8 @@ const Dashboard = ({ providers }) => {
       spotifyApi.getUserPlaylists({ limit: 50 }).then((data) => {
         setPlaylists(data.body.items);
       });
-      spotifyApi
-        .getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE", { limit: 10 })
-        .then((data) => {
-          setSearchedArtist(data.body.artists);
-        });
     }
-  }, [session, spotifyApi, searchedArtist]);
+  }, [session, spotifyApi]);
 
   // console.log("🚀 ~ file: SideBar.js:25 ~ SideBar ~ playlists:", playlists);
   // console.log(searchedArtist);

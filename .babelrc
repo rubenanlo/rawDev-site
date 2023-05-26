@@ -12,7 +12,8 @@
           "root": "./",
           "layouts": "./layouts",
           "helpers": "./helpers",
-          "library": "./library"
+          "library": "./library",
+          "atoms": "/atoms"
         }
       }
     ]

@@ -4,7 +4,6 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 
 const ButtonOpenDrawer = () => {
   const [, setSidebarOpen] = useRecoilState(openDrawerSideBar);
-
   return (
     <button
       type="button"

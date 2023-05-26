@@ -2,12 +2,9 @@ import Image from "next/image";
 import { teams, navigation } from "static/sidebar/SIDEBAR";
 import { classNames } from "helpers/setClassNames";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
-import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-const SideBarDesktop = ({ providers }) => {
-  const { data: session } = useSession();
-
+const SideBarDesktop = () => {
   return (
     <>
       {/* Static sidebar for desktop */}
@@ -30,7 +27,7 @@ const SideBarDesktop = ({ providers }) => {
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className={classNames(
                           item.current
@@ -49,7 +46,7 @@ const SideBarDesktop = ({ providers }) => {
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -61,7 +58,7 @@ const SideBarDesktop = ({ providers }) => {
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
                   {teams.map((team) => (
                     <li key={team.name}>
-                      <a
+                      <Link
                         href={team.href}
                         className={classNames(
                           team.current
@@ -81,7 +78,7 @@ const SideBarDesktop = ({ providers }) => {
                           {team.initial}
                         </span>
                         <span className="truncate">{team.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -93,7 +90,7 @@ const SideBarDesktop = ({ providers }) => {
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
                   {teams.map((team) => (
                     <li key={team.name}>
-                      <a
+                      <Link
                         href={team.href}
                         className={classNames(
                           team.current
@@ -113,7 +110,7 @@ const SideBarDesktop = ({ providers }) => {
                           {team.initial}
                         </span>
                         <span className="truncate">{team.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -129,31 +126,6 @@ const SideBarDesktop = ({ providers }) => {
                   />
                   Settings
                 </Link>
-                {session ? (
-                  <button
-                    href="#"
-                    className="w-full group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
-                    onClick={() => signOut()}
-                  >
-                    <Cog6ToothIcon
-                      className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
-                      aria-hidden="true"
-                    />
-                    Log out
-                  </button>
-                ) : (
-                  <button
-                    href="#"
-                    className="w-full group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
-                    onClick={() => signIn(providers)}
-                  >
-                    <Cog6ToothIcon
-                      className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
-                      aria-hidden="true"
-                    />
-                    Log in
-                  </button>
-                )}
               </li>
             </ul>
           </nav>

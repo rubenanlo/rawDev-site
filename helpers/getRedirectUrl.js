@@ -1,6 +1,6 @@
 export const getRedirectUrl = (provider) => {
   const redirectUrl = {
-    spotify: "/playlists",
+    spotify: "/",
   };
   return redirectUrl[provider];
 };

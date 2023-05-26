@@ -15,7 +15,6 @@ import TopBarMobileLayout from "layouts/dashboard/topbar/TopBarMobileLayout";
 import MainContent from "components/dashboard/MainContent";
 
 const Dashboard = ({ providers }) => {
-  console.log(providers);
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
   // const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
@@ -51,7 +50,7 @@ const Dashboard = ({ providers }) => {
           <ButtonOpenDrawer />
           <TopBarLayout>
             <SearchBar />
-            <ProfileDropDown />
+            <ProfileDropDown providers={providers} />
           </TopBarLayout>
         </TopBarMobileLayout>
 

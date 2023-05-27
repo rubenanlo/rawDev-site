@@ -3,14 +3,15 @@ import useSpotify from "helpers/useSpotify";
 import { classNames } from "helpers/setClassNames";
 import { useSession } from "next-auth/react";
 import { useRecoilState } from "recoil";
-import { playlistIdState, startPlaying } from "atoms/playlistAtom";
+import { playlistIdState } from "atoms/playlistAtom";
+import { isPlayingState } from "atoms/songAtom";
 
 const PlaylistSpotify = () => {
   const [playlists, setPlaylists] = useState([]);
   const { data: session } = useSession();
   const spotifyApi = useSpotify();
   const [, setPlaylistId] = useRecoilState(playlistIdState);
-  const [, setStartPlaying] = useRecoilState(startPlaying);
+  const [, setIsPlaying] = useRecoilState(isPlayingState);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
@@ -37,7 +38,7 @@ const PlaylistSpotify = () => {
               <button
                 onClick={() => {
                   setPlaylistId(playlist.id);
-                  setStartPlaying(true);
+                  setIsPlaying(true);
                 }}
                 className={classNames(
                   playlist.current

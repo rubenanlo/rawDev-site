@@ -8,15 +8,17 @@ import { PauseIcon } from "@heroicons/react/24/outline";
 import useSpotify from "helpers/useSpotify";
 import { isPlayingState } from "atoms/songAtom";
 import { playlistIdState } from "atoms/playlistAtom";
-// import { pauseSong, playSong } from "../helpers/setPlayerSpotify";
-// import { startPlaying } from "../atoms/playlistAtom";
+import { playSong } from "helpers/setPlayerSpotify";
 
 const PlayerSpotify = () => {
   // Get the current playlist ID from Recoil state
   const playlistId = useRecoilValue(playlistIdState);
   const [playlist, setPlaylist] = useState(playlistId);
 
-  // const isStartPlaying = useRecoilValue(startPlaying);
+  // Get the current song playing state from Recoil state for when the plalistId
+  // changes or when the user clicks on the play/pause button
+  // const [currentSongId, setCurrentSongId] = useRecoilState(currentSongIdState);
+  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
 
   // Get the Spotify API instance
   const spotifyApi = useSpotify();
@@ -25,6 +27,7 @@ const PlayerSpotify = () => {
   const fetchPlaylist = async () => {
     try {
       const { body } = await spotifyApi.getPlaylist(playlistId);
+      isPlaying && playSong(spotifyApi, body);
       setPlaylist(body);
     } catch (error) {
       console.log(error);
@@ -35,13 +38,10 @@ const PlayerSpotify = () => {
     fetchPlaylist();
   }, [playlistId, spotifyApi]);
 
-  // Get the current song playing state from Recoil state
-  // const [currentSongId, setCurrentSongId] = useRecoilState(currentSongIdState);
-  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
-
   // Function to play or pause the song
   const playPauseSong = () => {
     // setCurrentSongId(playlist?.tracks?.items?.[0].track.id);
+    setIsPlaying(false);
     setIsPlaying(!isPlaying);
 
     // Pause the song if it is currently playing or

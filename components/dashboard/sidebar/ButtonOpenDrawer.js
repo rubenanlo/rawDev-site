@@ -1,6 +1,6 @@
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useRecoilState } from "recoil";
 import { openDrawerSideBar } from "atoms/openDrawerSideBar";
-import { Bars3Icon } from "@heroicons/react/24/outline";
 
 const ButtonOpenDrawer = () => {
   const [, setSidebarOpen] = useRecoilState(openDrawerSideBar);

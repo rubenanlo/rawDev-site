@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import PlaylistSpotify from "components/PlaylistSpotify";
+import PlayerSpotify from "components/PlayerSpotify";
 import { classNames } from "helpers/setClassNames";
 import { teams, navigation } from "static/sidebar/SIDEBAR";
-import PlayerSpotify from "components/PlayerSpotify";
 
 const SideBarDesktop = () => {
   const { data: session } = useSession();

@@ -1,14 +1,14 @@
+import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { BellIcon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/24/solid";
-import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import { Fragment } from "react";
 import { classNames } from "helpers/setClassNames";
-import Link from "next/link";
-import { userNavigation } from "static/sidebar/SIDEBAR.JS";
 import { SignIn } from "helpers/setSignIn";
+import { userNavigation } from "static/sidebar/SIDEBAR.JS";
 
 const ProfileDropDown = ({ providers }) => {
   const { data: session } = useSession();

@@ -1,5 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { Fragment } from "react";
 import { useRecoilState } from "recoil";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -10,31 +9,10 @@ import SideBarMobile from "components/dashboard/sidebar/SideBarMobile";
 import SideBarDesktop from "components/dashboard/sidebar/SideBarDesktop";
 import MainContent from "components/dashboard/MainContent";
 import { openDrawerSideBar } from "atoms/openDrawerSideBar";
-import useSpotify from "helpers/useSpotify";
 
 const Dashboard = ({ providers }) => {
   // to allow open the side bar in mobile version
   const [sidebarOpen, setSidebarOpen] = useRecoilState(openDrawerSideBar);
-
-  const { data: session } = useSession();
-  const [playlists, setPlaylists] = useState([]);
-  console.log("🚀 ~ file: Dashboard.js:21 ~ Dashboard ~ playlists:", playlists);
-  // const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
-  const spotifyApi = useSpotify();
-
-  useEffect(() => {
-    if (spotifyApi.getAccessToken()) {
-      // getUserPlaylists() returns 20 playlists by default, by adding an object
-      // as a parameter and specifying the limit, we can get up to 50 playlists
-      spotifyApi.getUserPlaylists({ limit: 50 }).then((data) => {
-        setPlaylists(data.body.items);
-      });
-    }
-  }, [session, spotifyApi]);
-
-  // console.log("🚀 ~ file: SideBar.js:25 ~ SideBar ~ playlists:", playlists);
-  // console.log(searchedArtist);
-
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>

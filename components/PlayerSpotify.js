@@ -9,6 +9,7 @@ import useSpotify from "helpers/useSpotify";
 import { isPlayingState } from "atoms/songAtom";
 import { playlistIdState } from "atoms/playlistAtom";
 import { playSong } from "helpers/setPlayerSpotify";
+import { pauseSong } from "../helpers/setPlayerSpotify";
 
 const PlayerSpotify = () => {
   // Get the current playlist ID from Recoil state
@@ -41,16 +42,11 @@ const PlayerSpotify = () => {
   // Function to play or pause the song
   const playPauseSong = () => {
     // setCurrentSongId(playlist?.tracks?.items?.[0].track.id);
-    setIsPlaying(false);
     setIsPlaying(!isPlaying);
 
     // Pause the song if it is currently playing or
     // Play the first song in the playlist if it is not playing
-    isPlaying
-      ? spotifyApi.pause()
-      : spotifyApi.play({
-          uris: [playlist?.tracks?.items?.[0].track?.uri],
-        });
+    isPlaying ? pauseSong(spotifyApi) : playSong(spotifyApi, playlist);
   };
 
   return (

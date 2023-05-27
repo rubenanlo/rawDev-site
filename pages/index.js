@@ -6,13 +6,10 @@ const Homepage = ({ providers }) => {
   return (
     <>
       <Dashboard providers={providers} />
-      <div className="flex flex-col items-center justify-center h-screen">
-        <Head>
-          <title></title>
-          {/* <link rel="icon" href="/favicon.ico" /> */}
-        </Head>
-        <p>Homepage</p>
-      </div>
+      <Head>
+        <title></title>
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+      </Head>
     </>
   );
 };

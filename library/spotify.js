@@ -19,6 +19,7 @@ const scopes = [
   // "user-follow-modify",
   "playlist-read-private",
   "playlist-read-collaborative",
+  "user-modify-playback-state",
 ].join(",");
 
 const params = {

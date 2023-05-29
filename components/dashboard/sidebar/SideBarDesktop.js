@@ -87,8 +87,8 @@ const SideBarDesktop = () => {
                   ))}
                 </ul>
               </li>
-              <PlaylistSpotify />
               <li className="mt-auto">
+                <PlaylistSpotify />
                 {session && <PlayerSpotify />}
                 <Link
                   href="#"

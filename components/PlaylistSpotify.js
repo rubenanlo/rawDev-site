@@ -31,7 +31,7 @@ const PlaylistSpotify = () => {
         </div>
         <ul
           role="list"
-          className="-mx-2 mt-2 space-y-1 h-96 overflow-y-scroll overflow-x-hidden scrollbar-hide"
+          className="-mx-2 mt-2 mb-2 space-y-1 h-44 overflow-y-scroll overflow-x-hidden scrollbar-hide"
         >
           {playlists.map((playlist) => (
             <li key={playlist.id}>
@@ -61,7 +61,7 @@ const PlaylistSpotify = () => {
           ))}
         </ul>
       </li>
-      <div className="border-b w-20 mx-auto" />
+      <div className="border-b w-20 mb-5 mx-auto" />
     </>
   );
 };

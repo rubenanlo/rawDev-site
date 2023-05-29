@@ -12,7 +12,7 @@ import { playlistIdState } from "atoms/playlistAtom";
 import useSpotify from "helpers/useSpotify";
 import { playSong } from "helpers/setPlayerSpotify";
 import { pauseSong } from "helpers/setPlayerSpotify";
-import { skipSong } from "../helpers/setPlayerSpotify";
+import { skipSong } from "helpers/setPlayerSpotify";
 
 const PlayerSpotify = () => {
   // Get the current playlist ID from Recoil state
@@ -60,7 +60,7 @@ const PlayerSpotify = () => {
       setShowErrorModalPlay(true);
       setErrorMessage(error.message);
       setIsPlaying(false);
-      console.log(error);
+      throw error;
     }
   };
 
@@ -88,12 +88,13 @@ const PlayerSpotify = () => {
       {showErrorModalPlay && <ErrorNoDeviceFound errorMessage={errorMessage} />}
       <div className="flex flex-col justify-center mb-10 w-52 mx-auto">
         <Image
+          loading="lazy"
           width={300}
           height={300}
           // to check if images exists below
           src={playlist?.images?.[0].url}
           alt="player"
-          className="group rounded-lg mb-10 shadow-md w-52 mx-auto"
+          className="group rounded-lg mb-5 shadow-md w-52 mx-auto"
         />
         <div className="flex justify-between px-2">
           <button onClick={""}>

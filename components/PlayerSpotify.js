@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-// import axios from "axios";
-// import { useSession } from "next-auth/react";
 import ErrorNoDeviceFound from "components/error-handling/ErrorNoDeviceFound";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { ForwardIcon, PlayIcon } from "@heroicons/react/20/solid";
-import { BackwardIcon } from "@heroicons/react/24/solid";
+import { PlayIcon } from "@heroicons/react/20/solid";
 import { PauseIcon } from "@heroicons/react/24/outline";
 import { isPlayingState } from "atoms/songAtom";
 import { playlistIdState } from "atoms/playlistAtom";
 import useSpotify from "helpers/useSpotify";
 import { playSong } from "helpers/setPlayerSpotify";
 import { pauseSong } from "helpers/setPlayerSpotify";
-// import { skipSong } from "helpers/setPlayerSpotify";
+import { getCurrentPlayingSong } from "helpers/setPlayerSpotify";
 
 const PlayerSpotify = () => {
   // Get the current playlist ID from Recoil state
   const playlistId = useRecoilValue(playlistIdState);
   const [playlist, setPlaylist] = useState(playlistId);
+  const [currentSong, setCurrentSong] = useState("");
+  console.log(
+    "🚀 ~ file: PlayerSpotify.js:21 ~ PlayerSpotify ~ currentSong:",
+    currentSong
+  );
 
   // Get the current song playing state from Recoil state for when the plalistId
   // changes or when the user clicks on the play/pause button
@@ -42,8 +44,20 @@ const PlayerSpotify = () => {
     }
   };
 
+  const fetchCurrentSong = async () => {
+    try {
+      const {
+        body: { item },
+      } = await getCurrentPlayingSong(spotifyApi);
+      setCurrentSong(item);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchPlaylist();
+    fetchCurrentSong();
   }, [playlistId, spotifyApi]);
 
   // Function to play or pause the song
@@ -66,25 +80,6 @@ const PlayerSpotify = () => {
     }
   };
 
-  // const { data: session } = useSession();
-  // console.log(
-  //   "🚀 ~ file: PlayerSpotify.js:53 ~ PlayerSpotify ~ session:",
-  //   session
-  // );
-
-  // const skipNextSong = async () => {
-  //   try {
-  //     console.log("yay");
-  //     const response = await axios.post(
-  //       "https://api.spotify.com/v1/me/player/next",
-  //       { headers: { Authorization: `Bearer ${session?.user?.refreshToken}` } }
-  //     );
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   return (
     <>
       {showErrorModalPlay && <ErrorNoDeviceFound errorMessage={errorMessage} />}
@@ -100,19 +95,23 @@ const PlayerSpotify = () => {
             className="group rounded-lg mb-5 shadow-md w-52 mx-auto"
           />
         )}
-        <div className="flex justify-between px-2">
-          <button onClick={""}>
-            <BackwardIcon className="w-9 text-gray-900" />
-          </button>
+        <div className="flex justify-between items-center px-2">
+          <Image
+            src={currentSong?.album?.images?.[0].url}
+            alt=""
+            width={20}
+            height={20}
+            className="border w-8 rounded-sm"
+          />
+          <p className="truncate ml-2 text-xs text-gray-800">
+            {currentSong.name}
+          </p>
           <button onClick={playPauseSong}>
             {isPlaying ? (
-              <PauseIcon className="w-9 text-gray-900" />
+              <PauseIcon className="w-6 text-gray-900" />
             ) : (
-              <PlayIcon className="w-9 text-gray-900" />
+              <PlayIcon className="w-6 text-gray-900" />
             )}
-          </button>
-          <button onClick={""}>
-            <ForwardIcon className="w-9 text-gray-900" />
           </button>
         </div>
       </div>

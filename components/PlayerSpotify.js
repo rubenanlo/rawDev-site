@@ -12,6 +12,7 @@ import { playlistIdState } from "atoms/playlistAtom";
 import useSpotify from "helpers/useSpotify";
 import { playSong } from "helpers/setPlayerSpotify";
 import { pauseSong } from "helpers/setPlayerSpotify";
+import { skipSong } from "../helpers/setPlayerSpotify";
 
 const PlayerSpotify = () => {
   // Get the current playlist ID from Recoil state
@@ -62,7 +63,6 @@ const PlayerSpotify = () => {
       console.log(error);
     }
   };
-  console.log(errorMessage);
 
   // const { data: session } = useSession();
   // console.log(
@@ -85,7 +85,7 @@ const PlayerSpotify = () => {
 
   return (
     <>
-      {showErrorModalPlay && <ErrorNoDeviceFound />}
+      {showErrorModalPlay && <ErrorNoDeviceFound errorMessage={errorMessage} />}
       <div className="flex flex-col justify-center mb-10 w-52 mx-auto">
         <Image
           width={300}
@@ -106,7 +106,7 @@ const PlayerSpotify = () => {
               <PlayIcon className="w-9 text-gray-900" />
             )}
           </button>
-          <button onClick={""}>
+          <button onClick={skipSong}>
             <ForwardIcon className="w-9 text-gray-900" />
           </button>
         </div>

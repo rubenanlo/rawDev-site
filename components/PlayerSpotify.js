@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+// import axios from "axios";
+// import { useSession } from "next-auth/react";
+import ErrorNoDeviceFound from "components/error-handling/ErrorNoDeviceFound";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ForwardIcon, PlayIcon } from "@heroicons/react/20/solid";
 import { BackwardIcon } from "@heroicons/react/24/solid";
@@ -20,6 +23,9 @@ const PlayerSpotify = () => {
   // const [currentSongId, setCurrentSongId] = useRecoilState(currentSongIdState);
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showErrorModalPlay, setShowErrorModalPlay] = useState(false);
+
   // Get the Spotify API instance
   const spotifyApi = useSpotify();
 
@@ -30,6 +36,7 @@ const PlayerSpotify = () => {
       isPlaying && playSong(spotifyApi, body);
       setPlaylist(body);
     } catch (error) {
+      setErrorMessage(error.message);
       console.log(error);
     }
   };
@@ -39,40 +46,72 @@ const PlayerSpotify = () => {
   }, [playlistId, spotifyApi]);
 
   // Function to play or pause the song
-  const playPauseSong = () => {
-    setIsPlaying(!isPlaying);
+  const playPauseSong = async () => {
+    try {
+      setIsPlaying(!isPlaying);
 
-    // Pause the song if it is currently playing or
-    // Play the first song in the playlist if it is not playing
-    isPlaying ? pauseSong(spotifyApi) : playSong(spotifyApi, playlist);
+      // Pause the song if it is currently playing or
+      // Play the first song in the playlist if it is not playing
+      isPlaying
+        ? await pauseSong(spotifyApi)
+        : await playSong(spotifyApi, playlist);
+    } catch (error) {
+      setShowErrorModalPlay(true);
+      setErrorMessage(error.message);
+      setIsPlaying(false);
+      console.log(error);
+    }
   };
+  console.log(errorMessage);
+
+  // const { data: session } = useSession();
+  // console.log(
+  //   "🚀 ~ file: PlayerSpotify.js:53 ~ PlayerSpotify ~ session:",
+  //   session
+  // );
+
+  // const skipNextSong = async () => {
+  //   try {
+  //     console.log("yay");
+  //     const response = await axios.post(
+  //       "https://api.spotify.com/v1/me/player/next",
+  //       { headers: { Authorization: `Bearer ${session?.user?.refreshToken}` } }
+  //     );
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
-    <div className="flex flex-col justify-center mb-10 w-52 mx-auto">
-      <Image
-        width={300}
-        height={300}
-        // to check if images exists below
-        src={playlist?.images?.[0].url}
-        alt="player"
-        className="group rounded-lg mb-10 shadow-md w-52 mx-auto"
-      />
-      <div className="flex justify-between px-2">
-        <button>
-          <BackwardIcon className="w-9 text-gray-900" />
-        </button>
-        <button onClick={playPauseSong}>
-          {isPlaying ? (
-            <PauseIcon className="w-9 text-gray-900" />
-          ) : (
-            <PlayIcon className="w-9 text-gray-900" />
-          )}
-        </button>
-        <button>
-          <ForwardIcon className="w-9 text-gray-900" />
-        </button>
+    <>
+      {showErrorModalPlay && <ErrorNoDeviceFound />}
+      <div className="flex flex-col justify-center mb-10 w-52 mx-auto">
+        <Image
+          width={300}
+          height={300}
+          // to check if images exists below
+          src={playlist?.images?.[0].url}
+          alt="player"
+          className="group rounded-lg mb-10 shadow-md w-52 mx-auto"
+        />
+        <div className="flex justify-between px-2">
+          <button onClick={""}>
+            <BackwardIcon className="w-9 text-gray-900" />
+          </button>
+          <button onClick={playPauseSong}>
+            {isPlaying ? (
+              <PauseIcon className="w-9 text-gray-900" />
+            ) : (
+              <PlayIcon className="w-9 text-gray-900" />
+            )}
+          </button>
+          <button onClick={""}>
+            <ForwardIcon className="w-9 text-gray-900" />
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

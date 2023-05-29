@@ -16,7 +16,7 @@ export const middleware = async (req) => {
 
   // Redirect to login page if no token. Remember that
   // nextjs requires absolute urls
-  return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/`);
+  return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/login`);
 };
 
 export const config = {
@@ -27,5 +27,5 @@ export const config = {
   // _next/image and api. With the middleware above, and without excluding these
   // last pathnames, the middleware would redirect to /login, causing the app to
   // not work. Source: https://github.com/vercel/next.js/pull/42320/commits/a08905bae6a07f78832ec89c0fd75dc68ee919bf
-  matcher: "/((?!|api|_next/static|_next/image|favicon.ico).*)",
+  matcher: "/((?!login|api|_next/static|_next/image|favicon.ico).*)",
 };

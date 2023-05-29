@@ -83,7 +83,7 @@ const ProfileDropDown = ({ providers }) => {
                         active ? "bg-gray-50" : "",
                         "block px-3 py-1 text-sm leading-6 text-gray-900 w-32 text-left"
                       )}
-                      onClick={() => signOut({ callbackUrl: "/" })}
+                      onClick={() => signOut({ callbackUrl: "/login" })}
                     >
                       Sing out
                     </button>

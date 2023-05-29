@@ -12,20 +12,15 @@ import { pauseSong } from "helpers/setPlayerSpotify";
 import { getCurrentPlayingSong } from "helpers/setPlayerSpotify";
 
 const PlayerSpotify = () => {
-  // Get the current playlist ID from Recoil state
+  // set useStates for playlistId that we select from the PlaylistSpotify
+  // component, what playlist will be playing, the currentSong that is playing
+  // so we render information about it, the isPlaying state to know if the song
+  // is playing or not, and the errorMessage and showErrorModalPlay for error
+  // handling purposes when there is no token refreshed or no device found
   const playlistId = useRecoilValue(playlistIdState);
   const [playlist, setPlaylist] = useState(playlistId);
   const [currentSong, setCurrentSong] = useState("");
-  console.log(
-    "🚀 ~ file: PlayerSpotify.js:21 ~ PlayerSpotify ~ currentSong:",
-    currentSong
-  );
-
-  // Get the current song playing state from Recoil state for when the plalistId
-  // changes or when the user clicks on the play/pause button
-  // const [currentSongId, setCurrentSongId] = useRecoilState(currentSongIdState);
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
-
   const [errorMessage, setErrorMessage] = useState("");
   const [showErrorModalPlay, setShowErrorModalPlay] = useState(false);
 
@@ -44,6 +39,8 @@ const PlayerSpotify = () => {
     }
   };
 
+  // fetch the current song that is playing so that we show information in the
+  // player section
   const fetchCurrentSong = async () => {
     try {
       const {

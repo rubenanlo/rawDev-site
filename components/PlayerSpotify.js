@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import ErrorNoDeviceFound from "components/error-handling/ErrorNoDeviceFound";
+import ErrorSpotify from "components/error-handling/ErrorSpotify";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { PlayIcon } from "@heroicons/react/20/solid";
 import { PauseIcon } from "@heroicons/react/24/outline";
@@ -79,7 +79,7 @@ const PlayerSpotify = () => {
 
   return (
     <>
-      {showErrorModalPlay && <ErrorNoDeviceFound errorMessage={errorMessage} />}
+      {showErrorModalPlay && <ErrorSpotify errorMessage={errorMessage} />}
       <div className="flex flex-col justify-center mb-10 w-52 mx-auto">
         {playlist?.images?.[0].url && (
           <Image

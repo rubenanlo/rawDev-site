@@ -3,9 +3,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 
-const ErrorNoDeviceFound = ({ errorMessage }) => {
+const ErrorSpotify = ({ errorMessage }) => {
   const router = useRouter();
   const [open, setOpen] = useState(true);
+  errorMessage.includes("RefreshAccessTokenError");
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -84,4 +85,4 @@ const ErrorNoDeviceFound = ({ errorMessage }) => {
   );
 };
 
-export default ErrorNoDeviceFound;
+export default ErrorSpotify;

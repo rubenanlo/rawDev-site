@@ -10,7 +10,7 @@ export const middleware = async (req) => {
   const token = await getToken({ req, secret: process.env.JWT_SECRET });
 
   // Allow requests if the token exists or it's an excluded path
-  if (token) {
+  if (token || token?.error !== "RefreshAccessTokenError") {
     return NextResponse.next();
   }
 

@@ -10,7 +10,7 @@ import useSpotify from "helpers/useSpotify";
 import { playSong } from "helpers/setPlayerSpotify";
 import { pauseSong } from "helpers/setPlayerSpotify";
 import { getCurrentPlayingSong } from "helpers/setPlayerSpotify";
-
+import SPOTIFY_LOGO from "static/assets/spotify-logo.jpeg";
 const PlayerSpotify = () => {
   // set useStates for playlistId that we select from the PlaylistSpotify
   // component, what playlist will be playing, the currentSong that is playing
@@ -93,13 +93,23 @@ const PlayerSpotify = () => {
           />
         )}
         <div className="flex justify-between items-center px-2">
-          <Image
-            src={currentSong?.album?.images?.[0].url}
-            alt=""
-            width={20}
-            height={20}
-            className="border w-8 rounded-sm"
-          />
+          {currentSong?.album?.images ? (
+            <Image
+              src={currentSong?.album?.images?.[0].url}
+              alt=""
+              width={20}
+              height={20}
+              className="border w-8 rounded-sm"
+            />
+          ) : (
+            <Image
+              width={20}
+              height={20}
+              alt="spotify logo"
+              src={SPOTIFY_LOGO}
+              className="w-8 h-8 rounded-sm bg-lime-900"
+            ></Image>
+          )}
           <p className="truncate ml-2 text-xs text-gray-800">
             {currentSong.name}
           </p>

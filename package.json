@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "optimize": "cd helpers && chmod +x optimizeImages.sh && ./optimizeImages.sh && cd ..",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",

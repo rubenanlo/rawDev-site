@@ -12,7 +12,7 @@
 
 
 directories=(
-  "../public/assets" 
+  "../public/static/assets" 
 )
 
 for dir in "${directories[@]}"

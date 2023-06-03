@@ -5,9 +5,6 @@ import { useSession } from "next-auth/react";
 import { useRecoilState } from "recoil";
 import { playlistIdState } from "atoms/playlistAtom";
 import { isPlayingState } from "atoms/songAtom";
-import { errorMessageState } from "atoms/errorHandling";
-import { showErrorModalPlayState } from "atoms/errorHandling";
-import ErrorSpotify from "components/error-handling/ErrorSpotify";
 
 const PlaylistSpotify = () => {
   const [playlists, setPlaylists] = useState([]);
@@ -15,24 +12,14 @@ const PlaylistSpotify = () => {
   const spotifyApi = useSpotify();
   const [, setPlaylistId] = useRecoilState(playlistIdState);
   const [, setIsPlaying] = useRecoilState(isPlayingState);
-  const [errorMessage, setErrorMessage] = useRecoilState(errorMessageState);
-  const [showErrorModalPlay, setShowErrorModalPlay] = useRecoilState(
-    showErrorModalPlayState
-  );
 
   const fetchPlaylist = async () => {
-    try {
-      if (spotifyApi.getAccessToken()) {
-        // getUserPlaylists() returns 20 playlists by default, by adding an object
-        // as a parameter and specifying the limit, we can get up to 50 playlists
-        await spotifyApi.getUserPlaylists({ limit: 50 }).then((data) => {
-          setPlaylists(data.body.items);
-        });
-      }
-    } catch (error) {
-      console.log(error);
-      setShowErrorModalPlay(true);
-      setErrorMessage(error.message);
+    if (spotifyApi.getAccessToken()) {
+      // getUserPlaylists() returns 20 playlists by default, by adding an object
+      // as a parameter and specifying the limit, we can get up to 50 playlists
+      await spotifyApi.getUserPlaylists({ limit: 50 }).then((data) => {
+        setPlaylists(data.body.items);
+      });
     }
   };
   useEffect(() => {
@@ -41,7 +28,6 @@ const PlaylistSpotify = () => {
 
   return (
     <>
-      {showErrorModalPlay && <ErrorSpotify errorMessage={errorMessage} />}
       <div className="text-xs font-semibold leading-6 text-gray-400">
         Your Playlists
       </div>

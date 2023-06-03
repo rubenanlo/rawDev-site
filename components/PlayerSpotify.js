@@ -31,10 +31,16 @@ const PlayerSpotify = () => {
   const fetchPlaylist = async () => {
     try {
       const { body } = await spotifyApi.getPlaylist(playlistId);
-      isPlaying && playSong(spotifyApi, body);
+      isPlaying && (await playSong(spotifyApi, body));
       setPlaylist(body);
     } catch (error) {
+      setShowErrorModalPlay(true);
       setErrorMessage(error.message);
+      setIsPlaying(false);
+
+      // TODO: to show the error modal, we need to set the state of the error
+      // message and the state of the error modal to true. We also need to set
+      // the isPlaying state to false so that the play button is shown again in
       console.log(error);
     }
   };

@@ -1,6 +1,7 @@
 export const getRedirectUrl = (provider) => {
   const redirectUrl = {
-    spotify: "/dashboard",
+    // spotify: "/dashboard",
+    credentials: "/dashboard",
   };
   return redirectUrl[provider];
 };

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { classNames } from "helpers/setClassNames";
 import { teams, navigation } from "static/sidebar/SIDEBAR";
+import Logo from "components/Logo";
 
 const SideBarDesktop = () => {
   return (
@@ -9,17 +9,8 @@ const SideBarDesktop = () => {
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
-          <div className="flex h-16 shrink-0 items-center gap-x-2">
-            <Image
-              width={400}
-              height={400}
-              className="h-6 w-auto"
-              src="static/assets/logo.png"
-              alt="rawDev"
-            />
-            <p className="text-sm -mb-3">rawDev</p>
-          </div>
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto dark:border-gray-500 bg-backgroundLight dark:bg-backgroundDark px-6 pb-4">
+          <Logo />
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>

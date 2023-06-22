@@ -1,12 +1,25 @@
-import { getProviders, signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import LOGIN_IMAGE from "static/assets/login.avif";
 import LOGO from "static/assets/logo.png";
 import { useState } from "react";
 
-const Login = ({ providers }) => {
-  const [username, setUsername] = useState("");
+const Login = () => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await signIn("credentials", {
+      email: email,
+      password: password,
+      redirect: true,
+      callbackUrl: "/dashboard",
+    });
+  };
+
+  const { data: session } = useSession();
+  console.log("🚀 ~ file: login.js:22 ~ Login ~ session:", session);
 
   return (
     <div className="flex h-screen flex-1 ">
@@ -33,18 +46,7 @@ const Login = ({ providers }) => {
 
           <div className="mt-5">
             <div>
-              <form
-                className="space-y-6"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  signIn(providers.id, {
-                    username: username,
-                    password: password,
-                    redirect: true,
-                    callbackUrl: "/dashboard",
-                  });
-                }}
-              >
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
                     htmlFor="username"
@@ -55,12 +57,12 @@ const Login = ({ providers }) => {
                   <div className="mt-2">
                     <input
                       onChange={(e) => {
-                        setUsername(e.target.value);
+                        setEmail(e.target.value);
                       }}
-                      id="username"
-                      name="username"
-                      type="username"
-                      autoComplete="username"
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
                       required
                       className="block w-full rounded-sm border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-700 sm:text-sm sm:leading-6"
                     />
@@ -151,13 +153,3 @@ const Login = ({ providers }) => {
 };
 
 export default Login;
-
-export async function getServerSideProps() {
-  const providers = await getProviders();
-
-  return {
-    props: {
-      providers,
-    },
-  };
-}

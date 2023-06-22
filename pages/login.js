@@ -1,4 +1,4 @@
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import LOGIN_IMAGE from "static/assets/login.avif";
 import LOGO from "static/assets/logo.png";
@@ -7,19 +7,6 @@ import { useState } from "react";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await signIn("credentials", {
-      email: email,
-      password: password,
-      redirect: true,
-      callbackUrl: "/dashboard",
-    });
-  };
-
-  const { data: session } = useSession();
-  console.log("🚀 ~ file: login.js:22 ~ Login ~ session:", session);
 
   return (
     <div className="flex h-screen flex-1 ">
@@ -46,7 +33,18 @@ const Login = () => {
 
           <div className="mt-5">
             <div>
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  signIn("credentials", {
+                    email: email,
+                    password: password,
+                    redirect: true,
+                    callbackUrl: "/dashboard",
+                  });
+                }}
+              >
                 <div>
                   <label
                     htmlFor="username"

@@ -1,9 +1,9 @@
+// pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyCredentials } from "helpers/verifyCredentials";
 
-export const authOptions = {
-  // Configure one or more authentication providers
+export default NextAuth({
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
@@ -29,11 +29,11 @@ export const authOptions = {
       },
     }),
   ],
-  secret: process.env.JWT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/login",
+    signIn: "/",
   },
-  session: { strategy: "jwt" },
-};
-
-export default NextAuth(authOptions);
+  session: {
+    strategy: "jwt",
+  },
+});

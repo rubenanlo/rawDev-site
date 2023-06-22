@@ -13,9 +13,9 @@ const Login = () => {
       <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
-            <div className="flex items-end gap-x-2">
+            <div className="flex items-end gap-x-3">
               <Image className="h-10 w-auto" src={LOGO} alt="Your Company" />
-              <p className=" font-orbitron -mb-1">rawDev</p>
+              <p className=" text-xl -mb-1">rawDev</p>
             </div>
             <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account

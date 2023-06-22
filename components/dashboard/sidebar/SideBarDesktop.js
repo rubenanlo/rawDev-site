@@ -18,7 +18,7 @@ const SideBarDesktop = () => {
               src="static/assets/logo.png"
               alt="rawDev"
             />
-            <p className="text-sm font-orbitron -mb-3">rawDev</p>
+            <p className="text-sm -mb-3">rawDev</p>
           </div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">

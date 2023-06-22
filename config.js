@@ -1,5 +1,5 @@
 // The app title
-export const TITLE = "Next & Tailwind | Starter Template";
+export const TITLE = "Ruben Andino";
 
 // The favicon
 export const ICON = "static/favicon.ico";

@@ -1,5 +1,3 @@
-const AppLayout = ({ children }) => (
-  <div className="font-didact">{children}</div>
-);
+const AppLayout = ({ children }) => <div>{children}</div>;
 
 export default AppLayout;

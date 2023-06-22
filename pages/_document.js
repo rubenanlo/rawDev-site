@@ -8,14 +8,6 @@ const Document = () => (
   <Html lang="en">
     <Head>
       <link rel="icon" href={ICON} />
-      {/* Google font */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap"
-        rel="stylesheet"
-      />
-      {/* End of Google font */}
       {/* Global Site Tag - Google Analytics */}
       <Script
         async

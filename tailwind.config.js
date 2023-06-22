@@ -5,9 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['"Poppins"', "sans-serif"],
+    },
     extend: {
       fontFamily: {
-        didact: ["Didact Gothic", "sans-serif"],
+        orbitron: ["Orbitron", "sans-serif"],
       },
     },
   },

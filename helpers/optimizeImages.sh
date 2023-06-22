@@ -9,8 +9,6 @@
 
 # This script will optimize all images in the specified directories
 
-
-
 directories=(
   "../public/static/assets" 
 )

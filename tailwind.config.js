@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        osans: ['"Open Sans"'],
+        didact: ["Didact Gothic", "sans-serif"],
       },
     },
   },

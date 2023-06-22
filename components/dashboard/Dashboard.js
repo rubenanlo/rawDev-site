@@ -13,6 +13,8 @@ import { openDrawerSideBar } from "atoms/openDrawerSideBar";
 const Dashboard = ({ providers }) => {
   // to allow open the side bar in mobile version
   const [sidebarOpen, setSidebarOpen] = useRecoilState(openDrawerSideBar);
+  // SignIn(providers, null, null, session);
+
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>

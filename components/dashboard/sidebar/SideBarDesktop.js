@@ -1,14 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { Cog6ToothIcon } from "@heroicons/react/24/outline";
-import PlaylistSpotify from "components/PlaylistSpotify";
-import PlayerSpotify from "components/PlayerSpotify";
 import { classNames } from "helpers/setClassNames";
 import { teams, navigation } from "static/sidebar/SIDEBAR";
 
 const SideBarDesktop = () => {
-  const { data: session } = useSession();
   return (
     <>
       {/* Static sidebar for desktop */}
@@ -86,24 +81,6 @@ const SideBarDesktop = () => {
                     </li>
                   ))}
                 </ul>
-              </li>
-              <li className="mt-auto">
-                {session && (
-                  <>
-                    <PlaylistSpotify />
-                    <PlayerSpotify />
-                  </>
-                )}
-                <Link
-                  href="#"
-                  className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
-                >
-                  <Cog6ToothIcon
-                    className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
-                    aria-hidden="true"
-                  />
-                  Settings
-                </Link>
               </li>
             </ul>
           </nav>

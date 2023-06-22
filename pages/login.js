@@ -1,16 +1,12 @@
-import { getProviders, useSession } from "next-auth/react";
+import { getProviders, signIn } from "next-auth/react";
 import Image from "next/image";
 import LOGIN_IMAGE from "static/assets/login.avif";
 import LOGO from "static/assets/logo.png";
-import { SignIn } from "helpers/setSignIn";
 import { useState } from "react";
-// import { getRedirectUrl } from "helpers/getRedirectUrl";
 
 const Login = ({ providers }) => {
-  console.log("🚀 ~ file: login.js:10 ~ Login ~ providers:", providers);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { data: session } = useSession();
 
   return (
     <div className="flex h-screen flex-1 ">
@@ -41,7 +37,12 @@ const Login = ({ providers }) => {
                 className="space-y-6"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  SignIn(providers, username, password, session);
+                  signIn(providers.id, {
+                    username: username,
+                    password: password,
+                    redirect: true,
+                    callbackUrl: "/dashboard",
+                  });
                 }}
               >
                 <div>
@@ -148,23 +149,6 @@ const Login = ({ providers }) => {
     </div>
   );
 };
-
-//   <div className="flex flex-col items-center justify-center min-h-screen w-full">
-//     {/* I'm passing any providers with the code below, rather than using a custom button */}
-//     {Object.values(providers).map((provider) => (
-//       <div key={provider.name}>
-//         <button
-//           className="border bg-slate-600 text-gray-100 rounded-md px-5 py-3"
-//           onClick={() =>
-//             signIn(provider.id, { callbackUrl: getRedirectUrl(provider.id) })
-//           }
-//         >
-//           <p>Log In with {provider.name}</p>
-//         </button>
-//       </div>
-//     ))}
-//   </div>
-// );
 
 export default Login;
 

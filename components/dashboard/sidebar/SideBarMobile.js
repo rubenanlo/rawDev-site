@@ -12,9 +12,9 @@ const SideBarMobile = () => {
           width={200}
           className="h-8 w-auto"
           src="static/assets/logo.png"
-          alt="RAW-Dev"
+          alt="rawDev"
         />
-        <p className="text-sm">RAW-Dev</p>
+        <p className="text-sm">rawDev</p>
       </div>
       <nav className="flex flex-1 flex-col">
         <ul role="list" className="flex flex-1 flex-col gap-y-7">

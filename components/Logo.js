@@ -4,8 +4,8 @@ import { isDarkMode } from "helpers/isDarkMode";
 
 const Logo = () => {
   const logo = isDarkMode()
-    ? "static/assets/logo.png"
-    : "static/assets/logo-white.png";
+    ? "static/assets/logo-white.png"
+    : "static/assets/logo.png";
   return (
     <Link href="/" className="flex h-16 shrink-0 items-center gap-x-2 ">
       <Image
@@ -15,7 +15,7 @@ const Logo = () => {
         src={logo}
         alt="rawDev"
       />
-      <p className="text-sm -mb-3 text-textLight dark:text-textDark">rawDev</p>
+      <p className="text-sm -mb-3 font-comforta">rawDev</p>
     </Link>
   );
 };

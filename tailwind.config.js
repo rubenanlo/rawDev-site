@@ -3,20 +3,20 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ['"Poppins"', "sans-serif"],
-    },
     extend: {
       fontFamily: {
-        orbitron: ["Orbitron", "sans-serif"],
+        comforta: ["Comfortaa", "cursive"],
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
-        backgroundLight: "#FFFFFF",
-        backgroundDark: "#000000",
-        textLight: "#9199A5",
-        textDark: "#E0E2E7",
+        blue: "#00A8E8",
+        green: "#7BC043",
+        orange: "#FF6F40",
+        yellow: "#FDD835",
+        gray: "#707070",
       },
     },
   },

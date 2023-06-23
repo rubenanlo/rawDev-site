@@ -4,7 +4,13 @@ export const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
 ];
 export const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
+  {
+    id: 1,
+    name: "Your GitHub Projects",
+    href: "dashboard/github",
+    initial: "G",
+    current: false,
+  },
 ];
 
 export const userNavigation = [

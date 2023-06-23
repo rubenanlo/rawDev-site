@@ -8,6 +8,13 @@ const Document = () => (
   <Html lang="en">
     <Head>
       <link rel="icon" href={ICON} />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&display=swap"
+        rel="stylesheet"
+      />
+
       {/* Global Site Tag - Google Analytics */}
       <Script
         async
@@ -31,7 +38,7 @@ const Document = () => (
       />
       {/* End of Global Site Tag - Google Analytics */}
     </Head>
-    <body>
+    <body className="">
       <Main />
       <NextScript />
     </body>

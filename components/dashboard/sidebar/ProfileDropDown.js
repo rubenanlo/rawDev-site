@@ -7,10 +7,9 @@ import { BellIcon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { classNames } from "helpers/setClassNames";
-import { SignIn } from "helpers/setSignIn";
 import { userNavigation } from "static/sidebar/SIDEBAR.JS";
 
-const ProfileDropDown = ({ providers }) => {
+const ProfileDropDown = () => {
   const { data: session } = useSession();
   return (
     <div className="flex items-center gap-x-4 lg:gap-x-6">
@@ -93,7 +92,9 @@ const ProfileDropDown = ({ providers }) => {
                         active ? "bg-gray-50" : "",
                         "block px-3 py-1 text-sm leading-6 text-gray-900 w-32 text-left"
                       )}
-                      onClick={() => SignIn(providers)}
+                      onClick={() => {
+                        "";
+                      }}
                     >
                       Sing in
                     </button>

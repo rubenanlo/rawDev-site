@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { Router } from "next/router";
 import * as gtag from "helpers/gtag";
 import { RecoilRoot } from "recoil";
+import "tailwindcss/tailwind.css";
+import AppLayout from "layouts/AppLayout";
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   // Track pages with google analytics
@@ -35,7 +37,9 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
       </Head>
       <SessionProvider session={session}>
         <RecoilRoot>
-          <Component {...pageProps} />
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
         </RecoilRoot>
       </SessionProvider>
     </>

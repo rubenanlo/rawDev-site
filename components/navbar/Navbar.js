@@ -62,12 +62,12 @@ const Navbar = () => {
           </div>
           <Transition
             as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-x-0"
-            enterTo="opacity-100 translate-x-1"
-            leave="transition ease-in duration-150"
+            enter="transition ease-out duration-150"
+            enterFrom="opacity-0 -translate-x-full"
+            enterTo="opacity-100 translate-x-0"
+            leave="transition ease-in duration-50"
             leaveFrom="opacity-100 translate-x-0"
-            leaveTo="opacity-0 translate-x-1"
+            leaveTo="opacity-0 -translate-x-full"
           >
             <Popover.Panel className="sm:hidden bg-orange-quaternary w-3/4 rounded-r-xl transition ease-in-out duration-1000">
               <div className="space-y-1 pb-4 pt-2">

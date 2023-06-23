@@ -99,7 +99,7 @@ const Login = () => {
                     />
                     <label
                       htmlFor="remember-me"
-                      className="ml-3 block pointer-cursor text-sm leading-6 text-orange-tertiary hover:text-orange-quaternary focus:ring-blue-secondary"
+                      className="ml-3 block cursor-pointer text-sm leading-6 text-orange-tertiary hover:text-orange-quaternary focus:ring-blue-secondary"
                     >
                       Remember me
                     </label>

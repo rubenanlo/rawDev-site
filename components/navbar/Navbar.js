@@ -41,7 +41,7 @@ const Navbar = () => {
                         pathname == href
                           ? "border-orange-primary"
                           : "border-transparent",
-                        "inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-orange-quaternary"
+                        "h-full inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary"
                       )}
                     >
                       {name}{" "}
@@ -49,7 +49,7 @@ const Navbar = () => {
                   ))}
                   <Link
                     href={clientPortal.href}
-                    className="inline-flex items-center  px-1 pt-1 text-sm font-medium text-orange-quaternary"
+                    className="h-full inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary"
                   >
                     {clientPortal.name}
                   </Link>

@@ -4,8 +4,8 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const ContactMeMenu = ({ contactMe }) => {
   return (
-    <Popover className="relative">
-      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-orange-quaternary">
+    <Popover className="relative h-full">
+      <Popover.Button className="inline-flex h-full items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary">
         <span>Contact me</span>
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
       </Popover.Button>
@@ -27,16 +27,16 @@ const ContactMeMenu = ({ contactMe }) => {
                   key={item.name}
                   className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50 items-center"
                 >
-                  <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white">
+                  <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg group-hover:bg-gray-50">
                     <item.icon
-                      className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                      className="h-6 w-6 text-gray-600 group-hover:text-orange-primary"
                       aria-hidden="true"
                     />
                   </div>
                   <div>
                     <a
                       href={item.href}
-                      className="font-semibold text-gray-900 mr-10"
+                      className="font-semibold text-gray-900 mr-20"
                     >
                       {item.name}
                       <span className="absolute inset-0" />

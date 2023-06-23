@@ -1,4 +1,4 @@
-import { ChartPieIcon } from "@heroicons/react/24/outline";
+import { AtSymbolIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
 
 export const mainNavigation = [
   {
@@ -15,12 +15,12 @@ export const contactMe = [
   {
     name: "Email",
     href: "mailto:ruben.raw.dev@gmail.com",
-    icon: ChartPieIcon,
+    icon: AtSymbolIcon,
   },
   {
     name: "Schedule a call",
     href: "https://calendly.com/raw-dev/30min",
-    icon: ChartPieIcon,
+    icon: CalendarDaysIcon,
   },
 ];
 

@@ -14,7 +14,7 @@ const Introduction = () => (
                   are committed to help small businesses with creating web
                   applications. From static and ecommerce websites to complex
                   web applications, we provide tailored services, so that
-                  business can improve their supply chain, create business
+                  businesses can improve their supply chain, create business
                   awareness, and reach more users.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">

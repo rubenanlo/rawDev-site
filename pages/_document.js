@@ -38,7 +38,7 @@ const Document = () => (
       />
       {/* End of Global Site Tag - Google Analytics */}
     </Head>
-    <body className="">
+    <body>
       <Main />
       <NextScript />
     </body>

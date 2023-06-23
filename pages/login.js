@@ -1,8 +1,9 @@
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import LOGIN_IMAGE from "static/assets/login.avif";
-import LOGO from "static/assets/logo.png";
 import { useState } from "react";
+import Logo from "../components/Logo";
+import Link from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,20 +15,19 @@ const Login = () => {
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <div className="flex items-end gap-x-3">
-              <Image className="h-10 w-auto" src={LOGO} alt="Your Company" />
-              <p className=" text-xl -mb-1">rawDev</p>
+              <Logo size="big" />
             </div>
-            <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-light ">
               Sign in to your account
             </h2>
-            <p className="mt-2 text-sm leading-6 text-gray-500">
+            <p className="mt-2 text-sm leading-6 text-gray-400">
               Interested in this web app?{" "}
-              <a
+              <Link
                 href="#"
-                className="font-semibold text-lime-600 hover:text-lime-700"
+                className="font-semibold text-orange-tertiary hover:text-orange-quaternary"
               >
                 contact me
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -48,7 +48,7 @@ const Login = () => {
                 <div>
                   <label
                     htmlFor="username"
-                    className="block text-sm font-medium leading-6 text-gray-500 relative top-5 left-2 px-2 bg-white max-w-max"
+                    className="block text-sm font-medium leading-6 text-gray-400 bg-blue-primary relative top-5 left-2 px-2 max-w-max"
                   >
                     Email address
                   </label>
@@ -62,7 +62,7 @@ const Login = () => {
                       type="email"
                       autoComplete="email"
                       required
-                      className="block w-full rounded-sm border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-700 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-sm border-0 py-1.5 shadow-sm bg-blue-primary ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -70,7 +70,7 @@ const Login = () => {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block text-sm font-medium leading-6 text-gray-500 relative top-5 left-2 px-2 bg-white max-w-max"
+                    className="block text-sm font-medium leading-6 text-gray-400 relative top-5 left-2 px-2 bg-blue-primary max-w-max"
                   >
                     Password
                   </label>
@@ -84,7 +84,7 @@ const Login = () => {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="block w-full rounded-sm border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-700 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-sm border-0 py-1.5 shadow-sm bg-blue-primary ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -95,30 +95,30 @@ const Login = () => {
                       id="remember-me"
                       name="remember-me"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-lime-700 focus:ring-lime-600"
+                      className="h-4 w-4 rounded border-gray-30"
                     />
                     <label
                       htmlFor="remember-me"
-                      className="ml-3 block text-sm leading-6 text-gray-700"
+                      className="ml-3 block pointer-cursor text-sm leading-6 text-orange-tertiary hover:text-orange-quaternary focus:ring-blue-secondary"
                     >
                       Remember me
                     </label>
                   </div>
 
                   <div className="text-sm leading-6">
-                    <a
+                    <Link
                       href="#"
-                      className="font-semibold text-lime-600 hover:text-lime-700"
+                      className="font-semibold text-orange-tertiary hover:text-orange-quaternary"
                     >
                       Forgot password?
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md bg-lime-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600"
+                    className="flex w-full justify-center rounded-md text-orange-primary bg-orange-tertiary hover:bg-orange-quaternary px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-secondary"
                   >
                     Sign in
                   </button>

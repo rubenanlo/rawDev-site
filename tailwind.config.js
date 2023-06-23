@@ -6,17 +6,21 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      comfortaa: ["Comfortaa", "sans-serif"],
+    },
     extend: {
-      fontFamily: {
-        comforta: ["Comfortaa", "cursive"],
-        roboto: ["Roboto", "sans-serif"],
-      },
       colors: {
-        blue: "#00A8E8",
-        green: "#7BC043",
-        orange: "#FF6F40",
-        yellow: "#FDD835",
-        gray: "#707070",
+        blue: {
+          primary: "#00416a",
+        },
+        orange: {
+          primary: "#934C0D",
+          secondary: "#ed872d",
+          tertiary: "#F3B177",
+          quaternary: "#FBE5D2",
+        },
+        light: "#fffaf0",
       },
     },
   },

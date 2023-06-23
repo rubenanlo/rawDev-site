@@ -3,12 +3,13 @@ import { useRouter } from "next/router";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "components/Logo";
-import { mainNavigation, contactMe, clientPortal } from "static/navbar/NAVBAR";
 import ContactMeMenu from "components/navbar/ContactMeMenu";
+import { mainNavigation, contactMe, clientPortal } from "static/navbar/NAVBAR";
 import { classNames } from "helpers/setClassNames";
 
 const Navbar = () => {
   const { pathname } = useRouter();
+  const fullNavigation = [...mainNavigation, clientPortal, ...contactMe];
 
   return (
     <Disclosure as="nav">
@@ -59,17 +60,17 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="sm:hidden bg-orange-quaternary w-3/4 rounded-r-xl transition ease-in-out duration-1000">
             <div className="space-y-1 pb-4 pt-2">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-              {mainNavigation.map(({ name, href }) => (
+              {fullNavigation.map(({ name, href }) => (
                 <Disclosure.Button
                   as="a"
                   key={name}
                   href={href}
-                  className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                  className="block py-2 pl-3 pr-4 text-base font-medium text-gray-700"
                 >
-                  {name}{" "}
+                  {name}
                 </Disclosure.Button>
               ))}
             </div>

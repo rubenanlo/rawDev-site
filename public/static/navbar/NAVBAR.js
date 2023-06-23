@@ -13,7 +13,7 @@ export const mainNavigation = [
 
 export const contactMe = [
   {
-    name: "Email",
+    name: "Email me",
     href: "mailto:ruben.raw.dev@gmail.com",
     icon: AtSymbolIcon,
   },

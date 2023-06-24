@@ -63,6 +63,11 @@ const Navbar = () => {
                         onMouseLeave={() => setIsShowing(false)}
                         className="inline-flex h-full items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-b-orange-primary"
                       >
+                        <div
+                          className={classNames(
+                            isShowing ? "absolute w-full block h-32" : "hidden"
+                          )}
+                        />
                         <span>Contact me</span>
                         <ChevronDownIcon
                           className="h-5 w-5"
@@ -72,6 +77,8 @@ const Navbar = () => {
                       <Transition
                         as={Fragment}
                         show={isShowing}
+                        onMouseEnter={() => setIsShowing(true)}
+                        onMouseLeave={() => setIsShowing(false)}
                         enter="transition ease-out duration-300"
                         enterFrom="opacity-0 translate-x-6"
                         enterTo="opacity-100 translate-x-0"

@@ -6,7 +6,7 @@ export const mainNavigation = [
     href: "/about",
   },
   {
-    name: "My projects",
+    name: "Project portfolio",
     href: "/projects",
   },
 ];

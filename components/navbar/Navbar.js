@@ -30,7 +30,7 @@ const Navbar = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
+              <div className="flex flex-1 items-center justify-end pr-10 sm:items-stretch sm:justify-between sm:mr-0">
                 <div className="flex flex-shrink-0 items-center">
                   <Logo />
                 </div>
@@ -87,7 +87,7 @@ const Navbar = () => {
                         leaveTo="opacity-0 translate-x-full"
                       >
                         <Disclosure.Panel className="absolute left-1/2 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-                          <div className="w-1/2 max-w-md flex-auto overflow-hidden rounded-tl-3xl rounded-bl-3xl bg-orange-quaternary text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl">
+                          <div className="w-1/2 max-w-md flex-auto overflow-hidden rounded-l-xl bg-orange-quaternary text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl">
                             <div className="flex flex-col">
                               {contactMe.map((item) => (
                                 <div
@@ -121,6 +121,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          {/* Mobile version of the navbar */}
           <Transition
             as={Fragment}
             enter="transition ease-out duration-150"

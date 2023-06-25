@@ -1,83 +1,78 @@
+import Link from "next/link";
+import TRANSPARENCY from "static/assets/transparency.avif";
+import COLLABORATION from "static/assets/collaboration.avif";
+import INTEGRITY from "static/assets/integrity.avif";
+import INNOVATION from "static/assets/innovation.avif";
+import EXPERTISE from "static/assets/expertise.avif";
+import FlipCard from "components/FlipCard";
+
+const images = [
+  { href: INTEGRITY, alt: "integrity", headerPosition: "top" },
+  {
+    href: TRANSPARENCY,
+    alt: "transparency",
+    headerPosition: "bottom",
+  },
+  { href: COLLABORATION, alt: "collaboration", headerPosition: "middle" },
+  { href: INNOVATION, alt: "innovation", headerPosition: "top" },
+  { href: EXPERTISE, alt: "expertise", headerPosition: "bottom" },
+];
+
 const Introduction = () => (
   <>
     <main>
-      <div className="relative isolate">
-        <div className="overflow-hidden">
-          <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
-            <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+      <div className="relative isolate h-screen">
+        <div className="overflow-hidden h-full">
+          <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32 h-full">
+            <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center h-full">
               <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                 <h1 className="text-4xl font-bold tracking-tight text-orange-quaternary sm:text-6xl">
                   Connecting businesses with the digital world.
                 </h1>
                 <p className="relative mt-6 text-lg leading-8 text-gray-500 sm:max-w-md lg:max-w-none">
-                  At <span className="text-orange-tertiary">rawDev</span>, we
-                  are committed to help small businesses with creating web
+                  At{" "}
+                  <span className="text-orange-tertiary text-2xl">rawDev</span>,
+                  we are committed to help small businesses with creating web
                   applications. From static and ecommerce websites to complex
                   web applications, we provide tailored services, so that
                   businesses can improve their supply chain, create business
                   awareness, and reach more users.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
-                  <a
+                  <Link
                     href="#"
-                    className="rounded-md bg-orange-tertiary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-orange-tertiary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Contact me
-                  </a>
-                  <a
-                    href="#"
-                    className="text-sm font-semibold leading-6 text-gray-900"
+                  </Link>
+                  <Link
+                    href="/projects"
+                    className="text-sm font-semibold leading-6 text-gray-100"
                   >
-                    Live demo <span aria-hidden="true">→</span>
-                  </a>
+                    Project portfolio <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+                <div className="lg:absolute lg:bottom-10 mt-10">
+                  <Link
+                    href={"/recruiter"}
+                    className="text-gray-100 text-sm lg:text-base"
+                  >
+                    A recruiter? learn more about me{" "}
+                    <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
               </div>
               <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                 <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
-                  <div className="relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                      alt=""
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
+                  <FlipCard image={images?.[0]} />
                 </div>
                 <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                  <div className="relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                      alt=""
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
-                  <div className="relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
-                      alt=""
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
+                  <FlipCard image={images?.[1]} />
+                  <FlipCard image={images?.[2]} />
                 </div>
                 <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-                  <div className="relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                      alt=""
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
-                  <div className="relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                      alt=""
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
+                  <FlipCard image={images?.[3]} />
+                  <FlipCard image={images?.[4]} />
                 </div>
               </div>
             </div>

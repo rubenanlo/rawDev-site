@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const FlipCard = ({ image }) => {
   const [scope, animate] = useAnimate();
-  const isInview = useInView(scope);
+  const isInview = useInView(scope, { once: true });
 
   useEffect(() => {
     isInview &&

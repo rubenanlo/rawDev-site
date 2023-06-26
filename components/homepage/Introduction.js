@@ -1,10 +1,10 @@
 import Link from "next/link";
+import CardFlip from "components/cards/CardFlip";
 import TRANSPARENCY from "static/assets/transparency.avif";
 import COLLABORATION from "static/assets/collaboration.avif";
 import INNOVATION from "static/assets/innovation.avif";
 import EXPERTISE from "static/assets/expertise.avif";
 import INTEGRITY from "static/assets/integrity.avif";
-import CardFlip from "components/cards/CardFlip";
 
 const images = [
   {

@@ -1,5 +1,5 @@
-import { useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
+import { useAnimate, useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import CardImage from "components/cards/CardImage";
 import { classNames } from "helpers/setClassNames";
@@ -59,8 +59,8 @@ const CardFlip = ({ image }) => {
             )}
           >
             {image.alt}
+            <p></p>
           </h2>
-          <p></p>
         </motion.div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const features = [
   },
 ];
 
-const DashboardHome = () => {
+const Transparency = () => {
   return (
     <div className="overflow-hidden py-24 sm:py-32 border bg-orange-quaternary">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -65,4 +65,4 @@ const DashboardHome = () => {
   );
 };
 
-export default DashboardHome;
+export default Transparency;

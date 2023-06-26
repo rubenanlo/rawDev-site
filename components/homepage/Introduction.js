@@ -1,21 +1,57 @@
 import Link from "next/link";
 import TRANSPARENCY from "static/assets/transparency.avif";
 import COLLABORATION from "static/assets/collaboration.avif";
-import INTEGRITY from "static/assets/integrity.avif";
 import INNOVATION from "static/assets/innovation.avif";
 import EXPERTISE from "static/assets/expertise.avif";
-import FlipCard from "components/FlipCard";
+import INTEGRITY from "static/assets/integrity.avif";
+import CardFlip from "components/cards/CardFlip";
 
 const images = [
-  { href: INTEGRITY, alt: "integrity", headerPosition: "top" },
+  {
+    href: INTEGRITY,
+    alt: "integrity",
+    headerPosition: "top",
+    animation: {
+      type: "flip",
+      duration: 2,
+    },
+  },
   {
     href: TRANSPARENCY,
     alt: "transparency",
     headerPosition: "bottom",
+    animation: {
+      type: "dropDown",
+      duration: 2,
+    },
   },
-  { href: COLLABORATION, alt: "collaboration", headerPosition: "middle" },
-  { href: INNOVATION, alt: "innovation", headerPosition: "top" },
-  { href: EXPERTISE, alt: "expertise", headerPosition: "bottom" },
+  {
+    href: COLLABORATION,
+    alt: "collaboration",
+    headerPosition: "middle",
+    animation: {
+      type: "dropDown",
+      dropDown: 2,
+    },
+  },
+  {
+    href: INNOVATION,
+    alt: "innovation",
+    headerPosition: "top",
+    animation: {
+      type: "flip",
+      start: 1.5,
+    },
+  },
+  {
+    href: EXPERTISE,
+    alt: "expertise",
+    headerPosition: "bottom",
+    animation: {
+      type: "dropDown",
+      duration: 2,
+    },
+  },
 ];
 
 const Introduction = () => (
@@ -64,15 +100,15 @@ const Introduction = () => (
               </div>
               <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                 <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
-                  <FlipCard image={images?.[0]} />
+                  <CardFlip image={images?.[0]} />
                 </div>
                 <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                  <FlipCard image={images?.[1]} />
-                  <FlipCard image={images?.[2]} />
+                  <CardFlip image={images?.[1]} />
+                  <CardFlip image={images?.[2]} />
                 </div>
                 <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-                  <FlipCard image={images?.[3]} />
-                  <FlipCard image={images?.[4]} />
+                  <CardFlip image={images?.[3]} />
+                  <CardFlip image={images?.[4]} />
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const ImageSmall = ({ image: { href, alt } }) => (
+const CardImage = ({ image: { href, alt } }) => (
   <div className="relative">
     <Image
       src={href}
@@ -11,4 +11,4 @@ const ImageSmall = ({ image: { href, alt } }) => (
   </div>
 );
 
-export default ImageSmall;
+export default CardImage;

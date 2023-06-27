@@ -123,7 +123,7 @@ const Navbar = () => {
           {/* Mobile version of the navbar */}
           <Disclosure.Panel>
             <motion.div
-              className="sm:hidden bg-orange-quaternary w-3/4 rounded-r-xl transition ease-in-out duration-1000"
+              className="sm:hidden bg-orange-quaternary w-3/4 rounded-r-xl"
               animate={{ opacity: [0, 1] }}
             >
               <div className="space-y-1 pb-4 pt-2">

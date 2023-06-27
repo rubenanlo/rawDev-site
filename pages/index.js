@@ -5,12 +5,12 @@ import Collaboration from "components/homepage/Collaboration";
 
 const Homepage = () => {
   return (
-    <div className="h-screen">
+    <>
       <Introduction />
       <Integrity />
       <Transparency />
       <Collaboration />
-    </div>
+    </>
   );
 };
 

@@ -8,9 +8,11 @@ const CardFlip = ({ image }) => {
   const [scope, animate] = useAnimate();
   const isInview = useInView(scope, { once: true });
 
+  const flipDirection = (image.animation.flipLeft && -180) || 180;
+
   useEffect(() => {
     isInview &&
-      image.animation?.type === "dropDown" &&
+      image.animation?.type === "drop" &&
       animate(scope.current, { y: [-10, 0], opacity: [0, 1] }, { duration: 2 });
   }, [isInview, animate, scope]);
 
@@ -22,7 +24,7 @@ const CardFlip = ({ image }) => {
           // initial={{ rotateY: 0 }}
           animate={
             image.animation.type === "flip" && {
-              rotateY: [0, 180],
+              rotateY: [0, flipDirection],
             }
           }
           transition={{
@@ -39,7 +41,7 @@ const CardFlip = ({ image }) => {
           className="absolute flex flex-col justify-start pt-10 pl-2 rounded-xl h-full w-full bg-black [transform:rotateY(180deg)] [backface-visibility:hidden] cursor-pointer"
           animate={
             image.animation.type === "flip" && {
-              rotateY: [0, 180],
+              rotateY: [0, flipDirection],
             }
           }
           transition={{

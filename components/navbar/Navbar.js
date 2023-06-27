@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Disclosure, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "components/Logo";
 import { mainNavigation, contactMe, clientPortal } from "static/navbar/NAVBAR";
 import { classNames } from "helpers/setClassNames";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const { pathname } = useRouter();
@@ -56,9 +57,9 @@ const Navbar = () => {
                   >
                     {clientPortal.name}
                   </Link>
-                  <Disclosure>
+                  <div>
                     <div className="relative h-full">
-                      <Disclosure.Button
+                      <button
                         onMouseEnter={() => setIsShowing(true)}
                         onMouseLeave={() => setIsShowing(false)}
                         className="inline-flex h-full items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-b-orange-primary"
@@ -73,20 +74,18 @@ const Navbar = () => {
                           className="h-5 w-5"
                           aria-hidden="true"
                         />
-                      </Disclosure.Button>
-                      <Transition
-                        as={Fragment}
-                        show={isShowing}
+                      </button>
+                      <motion.div
                         onMouseEnter={() => setIsShowing(true)}
                         onMouseLeave={() => setIsShowing(false)}
-                        enter="transition ease-out duration-300"
-                        enterFrom="opacity-0 translate-x-6"
-                        enterTo="opacity-100 translate-x-0"
-                        leave="transition ease-in duration-150"
-                        leaveFrom="opacity-100 translate-x-0"
-                        leaveTo="opacity-0 translate-x-full"
+                        initial={{ opacity: 0, display: "none" }}
+                        animate={{
+                          opacity: isShowing ? 1 : 0,
+                          x: isShowing ? 0 : 100,
+                          display: isShowing ? "block" : "none",
+                        }}
                       >
-                        <Disclosure.Panel className="absolute left-1/2 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
+                        <div className="absolute left-1/2 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
                           <div className="w-1/2 max-w-md flex-auto overflow-hidden rounded-l-xl bg-orange-quaternary text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl">
                             <div className="flex flex-col">
                               {contactMe.map((item) => (
@@ -113,25 +112,20 @@ const Navbar = () => {
                               ))}
                             </div>
                           </div>
-                        </Disclosure.Panel>
-                      </Transition>
+                        </div>
+                      </motion.div>
                     </div>
-                  </Disclosure>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           {/* Mobile version of the navbar */}
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-150"
-            enterFrom="opacity-0 -translate-x-full"
-            enterTo="opacity-100 translate-x-0"
-            leave="transition ease-in duration-50"
-            leaveFrom="opacity-100 translate-x-0"
-            leaveTo="opacity-0 -translate-x-full"
-          >
-            <Disclosure.Panel className="sm:hidden bg-orange-quaternary w-3/4 rounded-r-xl transition ease-in-out duration-1000">
+          <Disclosure.Panel>
+            <motion.div
+              className="sm:hidden bg-orange-quaternary w-3/4 rounded-r-xl transition ease-in-out duration-1000"
+              animate={{ opacity: [0, 1] }}
+            >
               <div className="space-y-1 pb-4 pt-2">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
                 {fullNavigation.map(({ name, href }) => (
@@ -145,8 +139,8 @@ const Navbar = () => {
                   </Disclosure.Button>
                 ))}
               </div>
-            </Disclosure.Panel>
-          </Transition>
+            </motion.div>
+          </Disclosure.Panel>
         </div>
       )}
     </Disclosure>

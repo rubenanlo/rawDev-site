@@ -1,5 +1,5 @@
 const Integrity = () => (
-  <div id="integrity" className="bg-integrity bg-cover bg-no-repeat bg-fixed ">
+  <div id="integrity" className="bg-integrity bg-cover bg-no-repeat bg-fixed">
     <div className="bg-orange-quaternary/80 py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32 flex flex-col">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">

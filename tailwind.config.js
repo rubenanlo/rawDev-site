@@ -10,6 +10,9 @@ module.exports = {
       comfortaa: ["Comfortaa", "sans-serif"],
     },
     extend: {
+      backgroundImage: {
+        integrity: "url('/static/assets/integrity-13.avif')",
+      },
       colors: {
         blue: {
           primary: "#00416a",

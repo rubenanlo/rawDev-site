@@ -9,7 +9,11 @@ const Document = () => (
     <Head>
       <link rel="icon" href={ICON} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300"
         rel="stylesheet"

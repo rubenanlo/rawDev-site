@@ -8,7 +8,7 @@ import INTEGRITY from "static/assets/integrity.avif";
 
 const images = [
   {
-    href: INTEGRITY,
+    src: INTEGRITY,
     alt: "integrity",
     headerPosition: "top",
     animation: {
@@ -18,7 +18,7 @@ const images = [
     },
   },
   {
-    href: TRANSPARENCY,
+    src: TRANSPARENCY,
     alt: "transparency",
     headerPosition: "bottom",
     animation: {
@@ -27,7 +27,7 @@ const images = [
     },
   },
   {
-    href: COLLABORATION,
+    src: COLLABORATION,
     alt: "collaboration",
     headerPosition: "middle",
     animation: {
@@ -36,7 +36,7 @@ const images = [
     },
   },
   {
-    href: INNOVATION,
+    src: INNOVATION,
     alt: "innovation",
     headerPosition: "top",
     animation: {
@@ -46,7 +46,7 @@ const images = [
     },
   },
   {
-    href: EXPERTISE,
+    src: EXPERTISE,
     alt: "expertise",
     headerPosition: "bottom",
     animation: {

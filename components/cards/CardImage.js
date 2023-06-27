@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-const CardImage = ({ image: { href, alt } }) => (
+const CardImage = ({ image: { src, alt } }) => (
   <div className="relative">
     <Image
-      src={href}
+      src={src}
       alt={alt}
       className="aspect-[2/3] w-full rounded-xl bg-orange-tertiary/5 object-cover shadow-lg"
     />

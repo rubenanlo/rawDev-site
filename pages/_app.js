@@ -6,6 +6,7 @@ import { DefaultSeo } from "next-seo";
 import { SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
 import Navbar from "components/navbar/Navbar";
+import { ResponsiveComponent } from "helpers/responsiveComponent";
 import * as gtag from "helpers/gtag";
 import AppLayout from "layouts/AppLayout";
 import "tailwindcss/tailwind.css";
@@ -38,10 +39,12 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
       </Head>
       <SessionProvider session={session}>
         <RecoilRoot>
-          <AppLayout>
-            <Navbar />
-            <Component {...pageProps} />
-          </AppLayout>
+          <ResponsiveComponent>
+            <AppLayout>
+              <Navbar />
+              <Component {...pageProps} />
+            </AppLayout>
+          </ResponsiveComponent>
         </RecoilRoot>
       </SessionProvider>
     </>

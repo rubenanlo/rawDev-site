@@ -32,7 +32,7 @@ const Navbar = () => {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsShowingInMobile(!isShowingInMobile)}
-                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 "
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 "
               >
                 <span className="sr-only">Open main menu</span>
                 <MobileBurger className="block h-6 w-6" aria-hidden="true" />
@@ -71,19 +71,19 @@ const Navbar = () => {
                 >
                   <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                     <item.icon
-                      className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                      className="h-6 w-6 text-blue-primary group-hover:text-orange-secondary"
                       aria-hidden="true"
                     />
                   </div>
                   <div>
                     <Link
                       href={item.href}
-                      className="font-semibold text-gray-900"
+                      className="font-semibold text-blue-primary"
                     >
                       {item.name}
                       <span className="absolute inset-0" />
                     </Link>
-                    <p className="mt-1 text-gray-600">{item.description}</p>
+                    <p className="mt-1 text-blue-primary">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -95,10 +95,10 @@ const Navbar = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex items-center gap-x-2.5 p-3 px-10 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
+                      className="flex items-center gap-x-2.5 p-3 px-10 text-sm font-semibold leading-6 text-blue-primary hover:bg-gray-100 sm:justify-center sm:px-0"
                     >
                       <item.icon
-                        className="h-5 w-5 flex-none text-gray-400"
+                        className="h-5 w-5 flex-none text-blue-primary"
                         aria-hidden="true"
                       />
                       {item.name}

@@ -1,5 +1,7 @@
 const AppLayout = ({ children }) => (
-  <div className="bg-blue-primary font-comfortaa">{children}</div>
+  <div className="bg-gradient-to-r from-gray-900  to-blue-primary font-comfortaa">
+    {children}
+  </div>
 );
 
 export default AppLayout;

@@ -18,10 +18,9 @@ const CardFlip = ({ image }) => {
 
   return (
     <div ref={scope} className="group [perspective:1000px] rounded-xl">
-      <div className="relative h-full flex flex-col rounded-xl [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)] cursor-pointer">
+      <div className="relative h-full flex flex-col rounded-xl [transform-style:preserve-3d] transition-all duration-500 group-hover:[transform:rotateY(180deg)]">
         <motion.div
           className="bg-no-repeat bg-cover bg-center relative"
-          // initial={{ rotateY: 0 }}
           animate={
             image.animation.type === "flip" && {
               rotateY: [0, flipDirection],
@@ -38,7 +37,7 @@ const CardFlip = ({ image }) => {
           {/* back of the card */}
         </motion.div>
         <motion.div
-          className="absolute flex flex-col justify-start pt-10 pl-2 rounded-xl h-full w-full bg-black [transform:rotateY(180deg)] [backface-visibility:hidden] cursor-pointer"
+          className="absolute flex flex-col justify-start pt-10 pl-2 rounded-xl h-full w-full bg-black [transform:rotateY(180deg)] [backface-visibility:hidden]"
           animate={
             image.animation.type === "flip" && {
               rotateY: [0, flipDirection],

@@ -14,7 +14,7 @@ import Link from "next/link";
 //   { name: "Contact sales", href: "#", icon: PhoneIcon },
 // ];
 
-const ContactMeMenu = ({ menu }) => {
+const AboutMenu = ({ about: { sites, callsToAction } }) => {
   const [isShowing, setIsShowing] = useState(false);
   return (
     <div className="relative h-full">
@@ -29,7 +29,7 @@ const ContactMeMenu = ({ menu }) => {
           )}
         />
 
-        <span>Contact me</span>
+        <span>About</span>
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>
 
@@ -46,7 +46,7 @@ const ContactMeMenu = ({ menu }) => {
           <div className="absolute -right-20 z-10 mt-5 flex w-screen max-w-max px-4">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-md bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-4">
-                {menu.map((item) => (
+                {sites.map((item) => (
                   <div
                     key={item.name}
                     className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
@@ -70,7 +70,7 @@ const ContactMeMenu = ({ menu }) => {
                   </div>
                 ))}
               </div>
-              {/* <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+              <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                 {callsToAction.map((item) => (
                   <a
                     key={item.name}
@@ -84,7 +84,7 @@ const ContactMeMenu = ({ menu }) => {
                     {item.name}
                   </a>
                 ))}
-              </div> */}
+              </div>
             </div>
           </div>
         </motion.div>
@@ -92,4 +92,4 @@ const ContactMeMenu = ({ menu }) => {
     </div>
   );
 };
-export default ContactMeMenu;
+export default AboutMenu;

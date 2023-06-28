@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "components/Logo";
-import { mainNavigation, contactMe, clientPortal } from "static/navbar/NAVBAR";
-import { classNames } from "helpers/setClassNames";
+import { about, clientPortal } from "static/navbar/NAVBAR";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ContactMeMenu from "./ContactMeMenu";
+import AboutMenu from "./AboutMenu";
 
 const Navbar = () => {
-  const { pathname } = useRouter();
+  // const { pathname } = useRouter();
   const [isShowingInMobile, setIsShowingInMobile] = useState(false);
-  const fullNavigation = [...mainNavigation, clientPortal, ...contactMe];
+  const fullNavigation = [clientPortal, ...about.sites];
+  const { callsToAction } = about;
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
 
   return (
@@ -35,53 +35,69 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
                 {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                {mainNavigation.map(({ name, href }) => (
-                  <Link
-                    key={name}
-                    href={href}
-                    className={classNames(
-                      pathname == href
-                        ? "border-orange-primary"
-                        : "border-transparent",
-                      "h-full inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary"
-                    )}
-                  >
-                    {name}{" "}
-                  </Link>
-                ))}
                 <Link
                   href={clientPortal.href}
                   className="h-full inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary"
                 >
                   {clientPortal.name}
                 </Link>
-                <ContactMeMenu menu={contactMe} />
+                <AboutMenu about={about} />
               </div>
             </div>
           </div>
         </div>
         {/* Mobile version of the navbar */}
         <motion.div
-          className={classNames(
-            // isShowing ? "block" : "hidden",
-            "sm:hidden bg-white"
-          )}
           animate={{
             opacity: isShowingInMobile ? [0, 1] : [1, 0],
             display: isShowingInMobile ? "block" : "none",
           }}
         >
-          <div className="space-y-1 pb-4 pt-2">
-            {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-            {fullNavigation.map(({ name, href }) => (
-              <Link
-                key={name}
-                href={href}
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-900 hover:bg-gray-100"
-              >
-                {name}
-              </Link>
-            ))}
+          <div className=" absolute sm:hidden inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 w-screen">
+            <div className="overflow-x-hidden mx-auto grid grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
+              {fullNavigation.map((item) => (
+                <div
+                  key={item.name}
+                  className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
+                >
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                    <item.icon
+                      className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div>
+                    <Link
+                      href={item.href}
+                      className="font-semibold text-gray-900"
+                    >
+                      {item.name}
+                      <span className="absolute inset-0" />
+                    </Link>
+                    <p className="mt-1 text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="bg-gray-50">
+              <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-x sm:border-gray-900/5">
+                  {callsToAction.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center gap-x-2.5 p-3 px-6 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
+                    >
+                      <item.icon
+                        className="h-5 w-5 flex-none text-gray-400"
+                        aria-hidden="true"
+                      />
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -1,4 +1,10 @@
-import { AtSymbolIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
+import {
+  AtSymbolIcon,
+  CalendarDaysIcon,
+  HomeIcon,
+  UserIcon,
+  CodeBracketIcon,
+} from "@heroicons/react/24/outline";
 
 export const about = {
   sites: [
@@ -6,13 +12,13 @@ export const about = {
       name: "About me",
       description: "If you want to learn more",
       href: "mailto:ruben.raw.dev@gmail.com",
-      icon: AtSymbolIcon,
+      icon: UserIcon,
     },
     {
       name: "Project portfolio",
       description: "Review all the projects I worked on so far",
-      href: "https://calendly.com/raw-dev/30min",
-      icon: CalendarDaysIcon,
+      href: "projects",
+      icon: CodeBracketIcon,
     },
   ],
   callsToAction: [
@@ -34,5 +40,5 @@ export const clientPortal = {
   name: "Client Portal",
   href: "/dashboard",
   description: "Access your dashboard",
-  icon: AtSymbolIcon,
+  icon: HomeIcon,
 };

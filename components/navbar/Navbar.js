@@ -3,9 +3,10 @@ import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "components/Logo";
 import { about, clientPortal } from "static/navbar/NAVBAR";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import AboutMenu from "./AboutMenu";
+import AboutMenu from "components/navbar/AboutMenu";
+import { RespContext } from "helpers/responsiveComponent";
 
 const Navbar = () => {
   // const { pathname } = useRouter();
@@ -13,6 +14,14 @@ const Navbar = () => {
   const fullNavigation = [clientPortal, ...about.sites];
   const { callsToAction } = about;
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
+  const useMediaQuery = useContext(RespContext);
+  const isBreakpoint = useMediaQuery(640);
+  const colorLogo = (isBreakpoint && isShowingInMobile && "blue") || "orange";
+
+  useEffect(() => {
+    !isBreakpoint && setIsShowingInMobile(false),
+      [isShowingInMobile, isBreakpoint];
+  });
 
   return (
     <div as="nav">
@@ -31,7 +40,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-1 items-center justify-end pr-10 sm:items-stretch sm:justify-between sm:mr-0">
               <div className="flex flex-shrink-0 items-center">
-                <Logo />
+                <Logo color={colorLogo} />
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
                 {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
@@ -53,8 +62,8 @@ const Navbar = () => {
             display: isShowingInMobile ? "block" : "none",
           }}
         >
-          <div className=" absolute sm:hidden inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 w-screen">
-            <div className="overflow-x-hidden mx-auto grid grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
+          <div className=" absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 w-screen">
+            <div className="mx-auto px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
               {fullNavigation.map((item) => (
                 <div
                   key={item.name}
@@ -81,12 +90,12 @@ const Navbar = () => {
             </div>
             <div className="bg-gray-50">
               <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 divide-y divide-gray-900/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-x sm:border-gray-900/5">
+                <div className="divide-y divide-gray-900/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-x sm:border-gray-900/5">
                   {callsToAction.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex items-center gap-x-2.5 p-3 px-6 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
+                      className="flex items-center gap-x-2.5 p-3 px-10 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100 sm:justify-center sm:px-0"
                     >
                       <item.icon
                         className="h-5 w-5 flex-none text-gray-400"

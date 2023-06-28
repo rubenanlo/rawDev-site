@@ -7,7 +7,6 @@ import { SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
 import { ResponsiveComponent } from "helpers/responsiveComponent";
 import * as gtag from "helpers/gtag";
-import AppLayout from "layouts/AppLayout";
 import "tailwindcss/tailwind.css";
 import "styles/globals.css";
 
@@ -39,9 +38,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
       <SessionProvider session={session}>
         <RecoilRoot>
           <ResponsiveComponent>
-            <AppLayout>
-              <Component {...pageProps} />
-            </AppLayout>
+            <Component {...pageProps} />
           </ResponsiveComponent>
         </RecoilRoot>
       </SessionProvider>

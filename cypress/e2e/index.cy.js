@@ -1,6 +1,6 @@
 describe("Index", () => {
   it("says Connecting", () => {
-    cy.visit("/");
-    cy.get("a").should("contain", "Connecting");
+    cy.visit("/login");
+    cy.get("a").should("contain", "password");
   });
 });

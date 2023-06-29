@@ -1,6 +1,6 @@
 describe("Index", () => {
-  it("says Our reports", () => {
+  it("says Connecting", () => {
     cy.visit("/");
-    cy.get("a").should("contain", "Our reports");
+    cy.get("a").should("contain", "Connecting");
   });
 });

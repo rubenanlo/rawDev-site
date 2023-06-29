@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 
 export const middleware = async (req) => {
   // Token will exist if the user is logged in
-  const token = await getToken({ req, secret: process.env.JWT_SECRET });
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
   // Allow requests if the token exists or it's an excluded path
   if (token) {

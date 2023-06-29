@@ -8,7 +8,6 @@ const Document = () => (
   <Html lang="en">
     <Head>
       <link rel="icon" href={ICON} />
-      {/* Google font */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         rel="preconnect"
@@ -16,10 +15,10 @@ const Document = () => (
         crossOrigin="true"
       />
       <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300"
         rel="stylesheet"
       />
-      {/* End of Google font */}
+
       {/* Global Site Tag - Google Analytics */}
       <Script
         async

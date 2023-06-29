@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { getProviders } from "next-auth/react";
 import Dashboard from "components/dashboard/Dashboard";
 
-const Homepage = ({ providers }) => {
+const Homepage = () => {
   return (
     <>
-      <Dashboard providers={providers} />
+      <Dashboard />
       <Head>
         <title></title>
         {/* <link rel="icon" href="/favicon.ico" /> */}
@@ -15,13 +14,3 @@ const Homepage = ({ providers }) => {
 };
 
 export default Homepage;
-
-export async function getServerSideProps() {
-  const providers = await getProviders();
-
-  return {
-    props: {
-      providers,
-    },
-  };
-}

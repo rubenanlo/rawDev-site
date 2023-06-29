@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import { classNames } from "helpers/setClassNames";
-import { navigation, teams } from "static/sidebar/SIDEBAR";
+import { navigation, teams } from "static/sidebar/SIDEBAR.JS";
 
 const SideBarMobile = () => {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { classNames } from "helpers/setClassNames";
-import { teams, navigation } from "static/sidebar/SIDEBAR";
+import { teams, navigation } from "static/sidebar/SIDEBAR.JS";
 import Logo from "components/Logo";
 
 const SideBarDesktop = () => {

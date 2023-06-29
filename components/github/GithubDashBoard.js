@@ -1,5 +1,5 @@
 import React from "react";
-import ListClientProjects from "components/ListClientProjects";
+import ListClientProjects from "components/github/ListClientProjects";
 
 const GithubDashBoard = () => {
   return <ListClientProjects />;

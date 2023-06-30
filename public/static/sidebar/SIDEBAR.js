@@ -1,5 +1,7 @@
 import { HomeIcon } from "@heroicons/react/20/solid";
 
+// this is to store the data for the sidebar
+
 export const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
 ];

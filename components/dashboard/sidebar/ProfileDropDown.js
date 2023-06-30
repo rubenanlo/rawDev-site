@@ -7,7 +7,7 @@ import { BellIcon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { classNames } from "helpers/setClassNames";
-import { userNavigation } from "static/sidebar/SIDEBAR.JS";
+import { userNavigation } from "static/sidebar/SIDEBAR";
 
 const ProfileDropDown = () => {
   const { data: session } = useSession();

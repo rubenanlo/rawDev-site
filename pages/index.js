@@ -3,7 +3,6 @@ import Transparency from "components/homepage/Transparency";
 import Integrity from "components/homepage/Integrity";
 import CollabInnovExpert from "components/homepage/CollabInnovExpert";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
-import ProjectCarousel from "components/homepage/ProjectsCarousel";
 
 const Homepage = () => {
   return (
@@ -12,7 +11,6 @@ const Homepage = () => {
       <Integrity />
       <Transparency />
       <CollabInnovExpert />
-      <ProjectCarousel />
     </AppLayoutWithNavbar>
   );
 };

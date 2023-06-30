@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div as="nav">
-      <div className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-20 pb-5">
+      <div className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-10 pb-5">
         <div className="w-screen px-2 sm:px-6 lg:px-10">
           <div className="relative flex h-16 justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">

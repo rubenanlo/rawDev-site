@@ -56,7 +56,8 @@ const CollabInnovExpert = () => {
       <motion.div
         animate={{
           y: isInView && [20, 0],
-          transition: { duration: 1, delay: 0.5 },
+          opacity: isInView && [0.5, 1],
+          transition: { duration: 1 },
         }}
         className="flow-root  pb-24 sm:pb-32"
       >

@@ -77,7 +77,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="border-t border-white/10 pt-8 flex flex-col gap-y-6 justify-between lg:flex-row items-center lg:justify-between">
-          <div className="max-w-xl text-center">
+          <div className="max-w-xl text-center lg:text-left">
             <h3 className="text-sm font-semibold leading-6 text-gray-100">
               Contact us with your request
             </h3>

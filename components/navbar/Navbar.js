@@ -1,5 +1,6 @@
 import Link from "next/link";
 // import { useRouter } from "next/router";
+
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "components/Logo";
 import { about, clientPortal } from "static/navbar/NAVBAR";
@@ -16,16 +17,39 @@ const Navbar = () => {
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
-  const colorLogo = (isBreakpoint && isShowingInMobile && "blue") || "orange";
+
+  const containerNavbarMobile = {
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+    },
+  };
+  const navbarMobileItems = {
+    visible: {
+      opacity: 1,
+      x: 0,
+    },
+    hidden: {
+      opacity: 0,
+      x: "100%",
+    },
+  };
 
   useEffect(() => {
-    !isBreakpoint && setIsShowingInMobile(false),
-      [isShowingInMobile, isBreakpoint];
-  });
+    !isBreakpoint && setIsShowingInMobile(false);
+  }, [isShowingInMobile, isBreakpoint]);
 
   return (
     <div as="nav">
-      <div className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-10 pb-5">
+      <div className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-20 pb-5">
         <div className="w-screen px-2 sm:px-6 lg:px-10">
           <div className="relative flex h-16 justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -40,7 +64,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-1 items-center justify-end pr-10 sm:items-stretch sm:justify-between sm:mr-0">
               <div className="flex flex-shrink-0 items-center">
-                <Logo color={colorLogo} />
+                <Logo />
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
                 {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
@@ -56,17 +80,19 @@ const Navbar = () => {
           </div>
         </div>
         {/* Mobile version of the navbar */}
-        <motion.div
-          animate={{
-            opacity: isShowingInMobile ? [0, 1] : [1, 0],
-            display: isShowingInMobile ? "block" : "none",
-          }}
-        >
-          <div className=" absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 w-screen">
+        {isShowingInMobile && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerNavbarMobile}
+            transition={{ duration: 0.5, delayChildren: 2 }}
+            className="relative inset-x-0 top-0 -z-10 bg-white shadow-lg ring-1 ring-gray-900/5 w-screen"
+          >
             <div className="mx-auto px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
               {fullNavigation.map((item) => (
-                <div
+                <motion.div
                   key={item.name}
+                  variants={navbarMobileItems}
                   className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
                 >
                   <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -85,10 +111,10 @@ const Navbar = () => {
                     </Link>
                     <p className="mt-1 text-blue-primary">{item.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-            <div className="bg-gray-50">
+            <motion.div variants={navbarMobileItems} className="bg-gray-50">
               <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="divide-y divide-gray-900/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-x sm:border-gray-900/5">
                   {callsToAction.map((item) => (
@@ -106,9 +132,9 @@ const Navbar = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
       </div>
     </div>
   );

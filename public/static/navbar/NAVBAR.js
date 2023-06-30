@@ -1,6 +1,6 @@
 import {
   AtSymbolIcon,
-  CalendarDaysIcon,
+  // CalendarDaysIcon,
   HomeIcon,
   UserIcon,
   CodeBracketIcon,
@@ -16,7 +16,7 @@ export const about = {
     },
     {
       name: "Project portfolio",
-      description: "Review all the projects I worked on so far",
+      description: "A glimpse of my work",
       href: "projects",
       icon: CodeBracketIcon,
     },
@@ -27,12 +27,12 @@ export const about = {
       href: "mailto:ruben.raw.dev@gmail.com",
       icon: AtSymbolIcon,
     },
-    {
-      name: "Schedule a call",
-      description: "once we already have exchanged a couple of emails",
-      href: "https://calendly.com/raw-dev/30min",
-      icon: CalendarDaysIcon,
-    },
+    // {
+    //   name: "Schedule a call",
+    //   description: "once we already have exchanged a couple of emails",
+    //   href: "https://calendly.com/raw-dev/30min",
+    //   icon: CalendarDaysIcon,
+    // },
   ],
 };
 

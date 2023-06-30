@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import {
   ChevronDownIcon,
   //   PhoneIcon,
@@ -7,12 +8,6 @@ import {
 
 import { motion } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
-import Link from "next/link";
-
-// const callsToAction = [
-//   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-//   { name: "Contact sales", href: "#", icon: PhoneIcon },
-// ];
 
 const AboutMenu = ({ about: { sites, callsToAction } }) => {
   const [isShowing, setIsShowing] = useState(false);
@@ -43,7 +38,7 @@ const AboutMenu = ({ about: { sites, callsToAction } }) => {
             y: [-20, 0],
           }}
         >
-          <div className="absolute -right-20 z-10 mt-5 flex w-screen max-w-max px-4">
+          <div className="absolute -right-20 z-10 mt-5 flex w-screen max-w-xs px-4">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-md bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-4">
                 {sites.map((item) => (
@@ -70,9 +65,9 @@ const AboutMenu = ({ about: { sites, callsToAction } }) => {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+              <div className="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50">
                 {callsToAction.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
@@ -82,7 +77,7 @@ const AboutMenu = ({ about: { sites, callsToAction } }) => {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -9,9 +9,8 @@ const ContactForm = () => {
   const [website, setWebsite] = useState("");
   const [type, setType] = useState("recruiter");
   const [description, setDescription] = useState("");
-  console.log("🚀 ~ file: contact-form.js:11 ~ ContactForm ~ type:", type);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const responseForm = {
       id: Date.now(),
@@ -22,7 +21,15 @@ const ContactForm = () => {
       type,
       description,
     };
-    console.log(responseForm);
+    const response = await fetch("/api/contact-form", {
+      method: "POST",
+      body: JSON.stringify(responseForm),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await response.json();
+    console.log(data);
+
     setFirstName("");
     setFamilyName("");
     setEmail("");
@@ -56,7 +63,7 @@ const ContactForm = () => {
                       id="recruiter"
                       name="recruiter"
                       value="recruiter"
-                      onClick={(e) => setType(e.target.value)}
+                      onChange={(e) => setType(e.target.value)}
                       checked={type === "recruiter"}
                       type="radio"
                       className={classNames(
@@ -79,7 +86,7 @@ const ContactForm = () => {
                       name="client"
                       value="client"
                       checked={type === "client"}
-                      onClick={(e) => setType(e.target.value)}
+                      onChange={(e) => setType(e.target.value)}
                       type="radio"
                       className={classNames(
                         type === "client"
@@ -199,7 +206,6 @@ const ContactForm = () => {
                       onChange={(e) => setDescription(e.target.value)}
                       rows={10}
                       className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
-                      defaultValue={""}
                     />
                   </div>
                   <p className="mt-3 text-sm leading-6 text-gray-600">

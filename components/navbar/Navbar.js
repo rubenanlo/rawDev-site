@@ -116,7 +116,7 @@ const Navbar = () => {
             </div>
             <motion.div variants={navbarMobileItems} className="bg-gray-50">
               <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div className="divide-y divide-gray-900/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-x sm:border-gray-900/5">
+                <div className="divide-y divide-gray-900/5 flex justify-center">
                   {callsToAction.map((item) => (
                     <Link
                       key={item.name}

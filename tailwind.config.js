@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         integrity: "url('/static/assets/integrity-13.avif')",
+        error: "url('/static/assets/error.avif')",
       },
       colors: {
         blue: {

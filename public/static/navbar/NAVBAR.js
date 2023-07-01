@@ -11,20 +11,20 @@ export const about = {
     {
       name: "About me",
       description: "If you want to learn more",
-      href: "mailto:ruben.raw.dev@gmail.com",
+      href: "/about",
       icon: UserIcon,
     },
     {
       name: "Project portfolio",
       description: "A glimpse of my work",
-      href: "projects",
+      href: "/about#projects",
       icon: CodeBracketIcon,
     },
   ],
   callsToAction: [
     {
       name: "Contact",
-      href: "mailto:ruben.raw.dev@gmail.com",
+      href: "/contact-form",
       icon: AtSymbolIcon,
     },
     // {

@@ -1,36 +1,73 @@
 // import { PhotoIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
+import { classNames } from "helpers/setClassNames";
 const ContactForm = () => {
+  const [firstName, setFirstName] = useState("");
+  const [familyName, setFamilyName] = useState("");
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [type, setType] = useState("recruiter");
+  const [description, setDescription] = useState("");
+  console.log("🚀 ~ file: contact-form.js:11 ~ ContactForm ~ type:", type);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const responseForm = {
+      id: Date.now(),
+      firstName,
+      familyName,
+      email,
+      website,
+      type,
+      description,
+    };
+    console.log(responseForm);
+    setFirstName("");
+    setFamilyName("");
+    setEmail("");
+    setWebsite("");
+    setType("");
+    setDescription("");
+  };
+
   return (
     <AppLayoutWithNavbar>
-      <div className="py-28 px-10 space-y-10 divide-y divide-gray-900/10">
+      <div className="py-24 sm:py-40 px-10 space-y-10 divide-y divide-gray-900/10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
-          <div className="px-4 sm:px-0">
+          <div className="px-4 sm:px-0 text-center sm:text-left">
             <h2 className="text-base font-semibold leading-7 text-gray-200">
               Contact information
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-400">
-              This information will be shared with rawDev, so be careful what
-              you share.
+              This information will be shared with rawDev.
             </p>
           </div>
 
-          <form className="bg-gray-50 shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
-            <div className="px-4 py-6 sm:p-8">
-              <fieldset>
+          <form className="bg-gray-50 shadow-xl shadow-gray-900 ring-1 ring-gray-900/5 rounded-xl md:col-span-2">
+            <div className="px-5 py-10 sm:p-8 ">
+              <fieldset className="flex flex-col items-center sm:items-start">
                 <legend className="text-sm font-semibold leading-6 text-gray-900">
                   Tell me who you are
                 </legend>
                 <div className="mt-6 flex gap-x-10 pb-5 mb-5 ">
                   <div className="flex items-center gap-x-3">
                     <input
-                      id="push-everything"
-                      name="push-notifications"
+                      id="recruiter"
+                      name="recruiter"
+                      value="recruiter"
+                      onClick={(e) => setType(e.target.value)}
+                      checked={type === "recruiter"}
                       type="radio"
-                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      className={classNames(
+                        type === "recruiter"
+                          ? "text-orange-tertiary focus:ring-orange-tertiary"
+                          : "",
+                        "h-4 w-4 border-gray-300"
+                      )}
                     />
                     <label
-                      htmlFor="push-everything"
+                      htmlFor="recruiter"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Recruiter
@@ -38,13 +75,21 @@ const ContactForm = () => {
                   </div>
                   <div className="flex items-center gap-x-3">
                     <input
-                      id="push-email"
-                      name="push-notifications"
+                      id="client"
+                      name="client"
+                      value="client"
+                      checked={type === "client"}
+                      onClick={(e) => setType(e.target.value)}
                       type="radio"
-                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      className={classNames(
+                        type === "client"
+                          ? "text-orange-tertiary focus:ring-orange-tertiary"
+                          : "bg-transparent",
+                        "h-4 w-4 border-gray-300 "
+                      )}
                     />
                     <label
-                      htmlFor="push-email"
+                      htmlFor="client"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Client
@@ -66,8 +111,10 @@ const ContactForm = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                       autoComplete="given-name"
-                      className="bg-transparent block w-full  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="bg-transparent block w-full  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -84,8 +131,10 @@ const ContactForm = () => {
                       type="text"
                       name="last-name"
                       id="last-name"
+                      value={familyName}
+                      onChange={(e) => setFamilyName(e.target.value)}
                       autoComplete="family-name"
-                      className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -102,8 +151,10 @@ const ContactForm = () => {
                       id="email"
                       name="email"
                       type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       autoComplete="email"
-                      className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -116,7 +167,7 @@ const ContactForm = () => {
                     Website
                   </label>
                   <div className="mt-2">
-                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-tertiary sm:max-w-md">
                       <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
                         http://
                       </span>
@@ -124,6 +175,8 @@ const ContactForm = () => {
                         type="text"
                         name="website"
                         id="website"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                         placeholder="www.example.com"
                       />
@@ -140,10 +193,12 @@ const ContactForm = () => {
                   </label>
                   <div className="mt-2">
                     <textarea
-                      id="about"
-                      name="about"
+                      id="description"
+                      name="description"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                       rows={10}
-                      className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                       defaultValue={""}
                     />
                   </div>
@@ -168,7 +223,7 @@ const ContactForm = () => {
                       <div className="mt-4 flex text-sm leading-6 text-gray-600">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-orange-tertiary focus-within:outline-none focus-within:ring-2 focus-within:ring-orange-tertiary focus-within:ring-offset-2 hover:text-orange-secondary"
                         >
                           <span>Upload a file</span>
                           <input
@@ -198,7 +253,8 @@ const ContactForm = () => {
               </button>
               <button
                 type="submit"
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={() => handleSubmit()}
+                className="rounded-md bg-orange-tertiary px-3 py-2 text-sm font-semibold text-orange-primary shadow-sm hover:bg-orange-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-tertiary"
               >
                 Save
               </button>

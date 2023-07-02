@@ -2,44 +2,48 @@
 import { useState } from "react";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
+import ConfirmEmailNotification from "components/confirm-email/confirmEmailNotification";
 const ContactForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [familyName, setFamilyName] = useState("");
-  const [email, setEmail] = useState("");
-  const [website, setWebsite] = useState("");
-  const [type, setType] = useState("recruiter");
-  const [description, setDescription] = useState("");
+  const [formResponse, setFormResponse] = useState({
+    type: "recruiter",
+    firstName: "",
+    lastName: "",
+    email: "",
+    website: "",
+    description: "",
+  });
+
+  const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const responseForm = {
-      id: Date.now(),
-      firstName,
-      familyName,
-      email,
-      website,
-      type,
-      description,
-    };
-    const response = await fetch("/api/contact-form", {
+
+    const response = await fetch("/api/responses", {
       method: "POST",
-      body: JSON.stringify(responseForm),
+      body: JSON.stringify(formResponse),
       headers: { "Content-Type": "application/json" },
     });
 
     const data = await response.json();
-    console.log(data);
 
-    setFirstName("");
-    setFamilyName("");
-    setEmail("");
-    setWebsite("");
-    setType("");
-    setDescription("");
+    if (data.success) {
+      setFormResponse({
+        type: "recruiter",
+        firstName: "",
+        lastName: "",
+        email: "",
+        website: "",
+        description: "",
+      });
+      setHasSubmittedForm(true);
+    } else {
+      console.log("Error:", data);
+    }
   };
 
   return (
     <AppLayoutWithNavbar>
+      {hasSubmittedForm && <ConfirmEmailNotification />}
       <div className="py-24 sm:py-40 px-10 space-y-10 divide-y divide-gray-900/10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
           <div className="px-4 sm:px-0 text-center sm:text-left">
@@ -51,7 +55,10 @@ const ContactForm = () => {
             </p>
           </div>
 
-          <form className="bg-gray-50 shadow-xl shadow-gray-900 ring-1 ring-gray-900/5 rounded-xl md:col-span-2">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-gray-50 shadow-xl shadow-gray-900 ring-1 ring-gray-900/5 rounded-xl md:col-span-2"
+          >
             <div className="px-5 py-10 sm:p-8 ">
               <fieldset className="flex flex-col items-center sm:items-start">
                 <legend className="text-sm font-semibold leading-6 text-gray-900">
@@ -63,11 +70,16 @@ const ContactForm = () => {
                       id="recruiter"
                       name="recruiter"
                       value="recruiter"
-                      onChange={(e) => setType(e.target.value)}
-                      checked={type === "recruiter"}
+                      onChange={(e) =>
+                        setFormResponse({
+                          ...formResponse,
+                          type: e.target.value,
+                        })
+                      }
+                      checked={formResponse.type === "recruiter"}
                       type="radio"
                       className={classNames(
-                        type === "recruiter"
+                        formResponse.type === "recruiter"
                           ? "text-orange-tertiary focus:ring-orange-tertiary"
                           : "",
                         "h-4 w-4 border-gray-300"
@@ -85,11 +97,16 @@ const ContactForm = () => {
                       id="client"
                       name="client"
                       value="client"
-                      checked={type === "client"}
-                      onChange={(e) => setType(e.target.value)}
+                      checked={formResponse.type === "client"}
+                      onChange={(e) =>
+                        setFormResponse({
+                          ...formResponse,
+                          type: e.target.value,
+                        })
+                      }
                       type="radio"
                       className={classNames(
-                        type === "client"
+                        formResponse.type === "client"
                           ? "text-orange-tertiary focus:ring-orange-tertiary"
                           : "bg-transparent",
                         "h-4 w-4 border-gray-300 "
@@ -118,8 +135,13 @@ const ContactForm = () => {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      value={formResponse.firstName}
+                      onChange={(e) =>
+                        setFormResponse({
+                          ...formResponse,
+                          firstName: e.target.value,
+                        })
+                      }
                       autoComplete="given-name"
                       className="bg-transparent block w-full  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
@@ -138,8 +160,13 @@ const ContactForm = () => {
                       type="text"
                       name="last-name"
                       id="last-name"
-                      value={familyName}
-                      onChange={(e) => setFamilyName(e.target.value)}
+                      value={formResponse.lastName}
+                      onChange={(e) =>
+                        setFormResponse({
+                          ...formResponse,
+                          lastName: e.target.value,
+                        })
+                      }
                       autoComplete="family-name"
                       className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
@@ -158,8 +185,13 @@ const ContactForm = () => {
                       id="email"
                       name="email"
                       type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={formResponse.email}
+                      onChange={(e) =>
+                        setFormResponse({
+                          ...formResponse,
+                          email: e.target.value,
+                        })
+                      }
                       autoComplete="email"
                       className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
@@ -182,8 +214,13 @@ const ContactForm = () => {
                         type="text"
                         name="website"
                         id="website"
-                        value={website}
-                        onChange={(e) => setWebsite(e.target.value)}
+                        value={formResponse.website}
+                        onChange={(e) =>
+                          setFormResponse({
+                            ...formResponse,
+                            website: e.target.value,
+                          })
+                        }
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                         placeholder="www.example.com"
                       />
@@ -202,8 +239,13 @@ const ContactForm = () => {
                     <textarea
                       id="description"
                       name="description"
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
+                      value={formResponse.description}
+                      onChange={(e) =>
+                        setFormResponse({
+                          ...formResponse,
+                          description: e.target.value,
+                        })
+                      }
                       rows={10}
                       className="bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6"
                     />
@@ -259,7 +301,6 @@ const ContactForm = () => {
               </button>
               <button
                 type="submit"
-                onClick={() => handleSubmit()}
                 className="rounded-md bg-orange-tertiary px-3 py-2 text-sm font-semibold text-orange-primary shadow-sm hover:bg-orange-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-tertiary"
               >
                 Save

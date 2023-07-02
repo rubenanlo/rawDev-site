@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
           <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
             <Link
-              href="mailto:ruben.raw.dev@gmail.com"
+              href="/contact-form"
               className="flex w-[10rem] items-center justify-center rounded-md bg-orange-tertiary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-secondary"
             >
               Contact us

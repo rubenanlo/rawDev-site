@@ -2,7 +2,7 @@
 import { useState } from "react";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
-import ConfirmEmailNotification from "components/confirm-email/confirmEmailNotification";
+import ConfirmEmailNotification from "components/modals/ConfirmEmailNotification";
 const ContactForm = () => {
   const [formResponse, setFormResponse] = useState({
     type: "recruiter",

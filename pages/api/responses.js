@@ -1,17 +1,15 @@
 import clientPromise from "library/mongodb";
+import { sendEmail } from "helpers/sendEmail";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { body } = req;
 
     try {
-      const client = await clientPromise;
-      const db = client.db(process.env.MONGO_DB); // Replace with your database name
-
-      const col = db.collection("responses");
-
-      const result = await col.insertOne(body);
-
+      const collection = (await clientPromise).db().collection("responses");
+      const result = await collection.insertOne(body);
+      // TODO: Uncomment the line below to send an email to the user
+      sendEmail();
       res.status(200).json({ success: true, data: result });
     } catch (error) {
       res.status(400).json({ success: false, message: error.message });

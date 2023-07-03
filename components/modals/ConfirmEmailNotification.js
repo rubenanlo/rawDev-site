@@ -17,7 +17,7 @@ export default function ConfirmEmailNotification() {
         className="relative z-10"
         onClose={() => {
           setOpen;
-          router.push("/");
+          router.back();
         }}
       >
         <Transition.Child
@@ -50,7 +50,7 @@ export default function ConfirmEmailNotification() {
                     className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-quaternary focus:ring-offset-2"
                     onClick={() => {
                       setOpen(false);
-                      router.push("/");
+                      router.back();
                     }}
                   >
                     <span className="sr-only">Close</span>

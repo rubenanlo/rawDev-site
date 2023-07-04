@@ -67,17 +67,17 @@ export default function ConfirmEmailNotification() {
                   <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                     <Dialog.Title
                       as="h3"
-                      className="text-base font-semibold leading-6 text-gray-900"
+                      className="text-base font-semibold leading-6 text-gray-900 mb-6"
                     >
                       Confirm your email address
                     </Dialog.Title>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-gray-500 mb-6">
                         Please check your inbox. You will receive an email to
                         confirm your email address. If you don&rsquo;t receive
                         an email, please check your spam folder.
                       </p>
-                      <p className="text-sm text-gray-500 mt-2">
+                      <p className="text-sm text-gray-500 mt-2 mb-6">
                         For security reasons, I need to ensure that the email
                         you provided is valid.
                       </p>

@@ -18,10 +18,13 @@ export default async function handler(req, res) {
 
     // Update the form or perform any other necessary operations
     // Set the "verified" field of the form to true
-    await formsCollection.updateOne({ formId }, { $set: { verified: true } });
+    await formsCollection.updateOne(
+      { formId },
+      { $unset: { verifyId: "" }, $set: { verified: true } }
+    );
 
     // Return a success message
-    res.status(200).json({ success: true, message: "Form verified" });
+    res.redirect("/verification");
   } catch (error) {
     // If an error occurs, log the error and return an error message
     console.error("Error:", error);

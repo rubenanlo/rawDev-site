@@ -1,4 +1,3 @@
-// import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
@@ -11,6 +10,7 @@ const ContactForm = () => {
     email: "",
     website: "",
     description: "",
+    verified: false,
   });
 
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
@@ -18,7 +18,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/responses", {
+    const response = await fetch("/api/contact-form/responses", {
       method: "POST",
       body: JSON.stringify(formResponse),
       headers: { "Content-Type": "application/json" },
@@ -34,6 +34,7 @@ const ContactForm = () => {
         email: "",
         website: "",
         description: "",
+        verified: false,
       });
       setHasSubmittedForm(true);
     } else {

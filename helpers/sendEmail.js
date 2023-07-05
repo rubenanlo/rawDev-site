@@ -1,6 +1,6 @@
 import { transporter } from "library/nodemailer";
 
-const html = `
+const html = (verifyId) => `
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,7 +29,7 @@ const html = `
           <h1
             style="
               font-size: 2.5rem;
-                color: #934C0D;
+                color: #ed872d;
               font-weight: bold;
               margin-bottom: 1.5rem;
             "
@@ -76,23 +76,26 @@ const html = `
           >
             Ruben
           </p>
+          <form action="${process.env.NEXTAUTH_URL}/api/contact-form/${verifyId}" method="POST">
           <button
-            style="
-              cursor: pointer;
-              background-color: #ed872d;
-              color: #ffffff;
-              width: 100%;
-              padding: 0.5rem 1rem;
-              border-radius: 0.3rem;
-              border: none;
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              align-items: center;            "
+          type="submit"
+          style="
+          cursor: pointer;
+          background-color: #ed872d;
+          color: #ffffff;
+          width: 100%;
+          padding: 0.5rem 1rem;
+          border-radius: 0.3rem;
+          border: none;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;            "
           >
-          <a href="www.google.com" style="color:#ffffff; margin: 0 auto; text-decoration: none;">
+          <p style="color:#ffffff; margin: 0 auto; text-decoration: none;">
           Verify
-          </a>
+          </p>
+          </form>
           </button>
           <li style="list-style-type: none" />
         </div>
@@ -102,9 +105,9 @@ const html = `
 </html>
 `;
 
-export const sendEmail = (to) => {
+export const sendEmail = (to, verifyId) => {
   // send mail with defined transport object
-  transporter.sendMail(setTransportObject(to), (error) => {
+  transporter.sendMail(setTransportObject(to, verifyId), (error) => {
     error ? console.log(error) : console.log("Message sent");
   });
   // NOTE: You can go to https://forwardemail.net/my-account/emails to see your email delivery status and preview
@@ -113,9 +116,9 @@ export const sendEmail = (to) => {
   //
 };
 
-export const setTransportObject = (to) => ({
+export const setTransportObject = (to, verifyId) => ({
   from: `rawDev <${process.env.EMAIL_USER}>`, // sender address
   to: to, // list of receivers
   subject: "Hello from rawDev!!", // Subject line
-  html: html, // html body
+  html: html(verifyId), // html body
 });

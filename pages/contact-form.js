@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+import ConfirmEmailNotification from "components/modals/ConfirmEmailNotification";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
-import ConfirmEmailNotification from "components/modals/ConfirmEmailNotification";
+
 const ContactForm = () => {
+  // Set initial state for form response
   const [formResponse, setFormResponse] = useState({
     type: "recruiter",
     firstName: "",
@@ -12,8 +15,9 @@ const ContactForm = () => {
     description: "",
     verified: false,
   });
-
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -255,47 +259,13 @@ const ContactForm = () => {
                     Write the reason why you are contacting me.
                   </p>
                 </div>
-
-                {/* <div className="col-span-full">
-                  <label
-                    htmlFor="cover-photo"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Cover photo
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="file-upload"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-orange-tertiary focus-within:outline-none focus-within:ring-2 focus-within:ring-orange-tertiary focus-within:ring-offset-2 hover:text-orange-secondary"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="file-upload"
-                            name="file-upload"
-                            type="file"
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs leading-5 text-gray-600">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
 
             <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
               <button
                 type="button"
+                onClick={() => router.back()}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Cancel
@@ -304,7 +274,7 @@ const ContactForm = () => {
                 type="submit"
                 className="rounded-md bg-orange-tertiary px-3 py-2 text-sm font-semibold text-gray-100 shadow-sm hover:bg-orange-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-tertiary"
               >
-                Save
+                Submit
               </button>
             </div>
           </form>

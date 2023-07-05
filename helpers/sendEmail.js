@@ -1,6 +1,51 @@
 import { transporter } from "library/nodemailer";
 
-const html = (verifyId) => `
+export const sendEmail = (body) => {
+  // send mail with defined transport object
+  transporter.sendMail(setTransportObject(body), (error) => {
+    error ? console.log(error) : console.log("Message sent");
+  });
+};
+
+export const setTransportObject = (body) => {
+  const {
+    admin,
+    email,
+    verifyId,
+    firstName,
+    lastName,
+    website,
+    type,
+    description,
+  } = body;
+  return {
+    from: `rawDev <${process.env.EMAIL_USER}>`, // sender address
+    to: admin ? process.env.EMAIL_USER : email, // list of receivers
+    subject: admin ? "Somebody has submitted a form" : "Hello from rawDev!!", // Subject line
+    html: admin
+      ? htmlForAdmin(email, firstName, lastName, website, description, type)
+      : htmlForUser(verifyId), // html body
+  };
+};
+
+const htmlForAdmin = (
+  email,
+  firstName,
+  lastName,
+  website,
+  description,
+  type
+) => `<div>
+<p>Here are the details of the ${type} who submitted the form:</p>
+<ul>
+  <li>Name: ${lastName}, ${firstName}</li>
+  <li>Email: ${email}</li>
+  <li>Website: ${website}</li>
+  <li>Description: ${description}</li>
+</ul>
+</div>`;
+
+const htmlForUser = (verifyId) => `
 <!DOCTYPE html>
 <html>
   <head>
@@ -104,21 +149,3 @@ const html = (verifyId) => `
   </body>
 </html>
 `;
-
-export const sendEmail = (to, verifyId) => {
-  // send mail with defined transport object
-  transporter.sendMail(setTransportObject(to, verifyId), (error) => {
-    error ? console.log(error) : console.log("Message sent");
-  });
-  // NOTE: You can go to https://forwardemail.net/my-account/emails to see your email delivery status and preview
-  //       Or you can use the "preview-email" npm package to preview emails locally in browsers and iOS Simulator
-  //       <https://github.com/forwardemail/preview-email>
-  //
-};
-
-export const setTransportObject = (to, verifyId) => ({
-  from: `rawDev <${process.env.EMAIL_USER}>`, // sender address
-  to: to, // list of receivers
-  subject: "Hello from rawDev!!", // Subject line
-  html: html(verifyId), // html body
-});

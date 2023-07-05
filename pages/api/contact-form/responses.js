@@ -10,8 +10,8 @@ export default async function handler(req, res) {
     try {
       const collection = await connectToDatabase("responses");
       const result = await collection.insertOne(body);
-      // TODO: Uncomment the line below to send an email to the user
-      sendEmail(body.email, body.verifyId);
+      sendEmail({ ...body, admin: false });
+      sendEmail({ ...body, admin: true });
       res.status(200).json({ success: true, data: result });
     } catch (error) {
       res.status(400).json({ success: false, message: error.message });

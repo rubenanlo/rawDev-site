@@ -4,15 +4,13 @@ import Integrity from "components/homepage/Integrity";
 import CollabInnovExpert from "components/homepage/CollabInnovExpert";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 
-const Homepage = () => {
-  return (
-    <AppLayoutWithNavbar>
-      <Introduction />
-      <Integrity />
-      <Transparency />
-      <CollabInnovExpert />
-    </AppLayoutWithNavbar>
-  );
-};
+const Homepage = () => (
+  <AppLayoutWithNavbar>
+    <Introduction />
+    <Integrity />
+    <Transparency />
+    <CollabInnovExpert />
+  </AppLayoutWithNavbar>
+);
 
 export default Homepage;

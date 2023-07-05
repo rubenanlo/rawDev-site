@@ -1,15 +1,10 @@
 import { useState } from "react";
 import Link from "next/link";
-import {
-  ChevronDownIcon,
-  //   PhoneIcon,
-  //   PlayCircleIcon,
-} from "@heroicons/react/20/solid";
-
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
 
-const AboutMenu = ({ about: { sites, callsToAction } }) => {
+const AboutMenu = ({ about }) => {
   const [isShowing, setIsShowing] = useState(false);
   return (
     <div className="relative h-full">
@@ -41,7 +36,7 @@ const AboutMenu = ({ about: { sites, callsToAction } }) => {
           <div className="absolute -right-20 z-10 mt-5 flex w-screen max-w-xs px-4">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-md bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-4">
-                {sites.map((item) => (
+                {about.map((item) => (
                   <div
                     key={item.name}
                     className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
@@ -65,21 +60,7 @@ const AboutMenu = ({ about: { sites, callsToAction } }) => {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50">
-                {callsToAction.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
-                  >
-                    <item.icon
-                      className="h-5 w-5 flex-none text-gray-400"
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+              <div className="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50"></div>
             </div>
           </div>
         </motion.div>

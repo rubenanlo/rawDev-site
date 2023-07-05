@@ -1,19 +1,15 @@
-import Link from "next/link";
-// import { useRouter } from "next/router";
-
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "components/Logo";
-import { about, clientPortal } from "static/navbar/NAVBAR";
 import { useContext, useEffect, useState } from "react";
+import Link from "next/link";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import Logo from "components/Logo";
 import AboutMenu from "components/navbar/AboutMenu";
 import { RespContext } from "helpers/responsiveComponent";
+import { about, clientPortal } from "static/navbar/NAVBAR";
 
 const Navbar = () => {
-  // const { pathname } = useRouter();
   const [isShowingInMobile, setIsShowingInMobile] = useState(false);
-  const fullNavigation = [clientPortal, ...about.sites];
-  const { callsToAction } = about;
+  const fullNavigation = [clientPortal, ...about];
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
@@ -114,25 +110,6 @@ const Navbar = () => {
                 </motion.div>
               ))}
             </div>
-            <motion.div variants={navbarMobileItems} className="bg-gray-50">
-              <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div className="divide-y divide-gray-900/5 flex justify-center">
-                  {callsToAction.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center gap-x-2.5 p-3 px-10 text-sm font-semibold leading-6 text-blue-primary hover:bg-gray-100 sm:justify-center sm:px-0"
-                    >
-                      <item.icon
-                        className="h-5 w-5 flex-none text-blue-primary"
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         )}
       </div>

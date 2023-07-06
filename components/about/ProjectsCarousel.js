@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, forwardRef } from "react";
 import { AnimatePresence, motion, wrap } from "framer-motion";
 import {
   ArrowLongRightIcon,
@@ -55,7 +55,7 @@ const projects = [
   },
 ];
 
-const ProjectCarousel = () => {
+const ProjectCarousel = forwardRef((props, ref) => {
   const [[page, direction], setPage] = useState([0, 0]);
 
   // We have infinite cards that we paginate and
@@ -107,7 +107,7 @@ const ProjectCarousel = () => {
             <ProjectCard project={projects[imageIndex]} />
           </motion.div>
         </AnimatePresence>
-        <div className="relative max-w-7xl h-full mx-auto -mt-8">
+        <div ref={ref} className="relative max-w-7xl h-full mx-auto -mt-8">
           {isBreakpoint && (
             <div className="absolute -bottom-20 right-0 left-auto flex items-center">
               <ArrowLongRightIcon className=" w-7 text-white" />
@@ -136,6 +136,8 @@ const ProjectCarousel = () => {
       </div>
     </div>
   );
-};
+});
+
+ProjectCarousel.displayName = "ProjectCarousel";
 
 export default ProjectCarousel;

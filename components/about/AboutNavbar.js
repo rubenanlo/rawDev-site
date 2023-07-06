@@ -1,51 +1,40 @@
-import { useContext, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { motion } from "framer-motion";
-import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
-import { RespContext } from "helpers/responsiveComponent";
 import { classNames } from "helpers/setClassNames";
 
-const steps = [
-  { id: "Brief bio", href: "#brief-bio" },
-  { id: "Experience", href: "#experience" },
-  { id: "Project portfolio", href: "#projects" },
-];
-
-const AboutNavbar = () => {
-  const [openSideBar, setOpenSideBar] = useState(false);
-  const useMediaQuery = useContext(RespContext);
-  const isBreakpoint = useMediaQuery(640);
-  const router = useRouter();
-  const isInView = false;
-
-  const aboutNavbarToggle = {
-    animation: {
-      x: openSideBar ? [0, 20] : [20, 0],
-      opacity: openSideBar ? [1, 0] : [0, 1],
+const AboutNavbar = ({ isInView }) => {
+  const steps = [
+    {
+      id: "Brief bio",
+      href: "#brief-bio",
+      isInView: !isInView.portfolio && !isInView.experience && isInView.bio,
     },
-  };
-  const aboutNavbarPanel = {
-    animation: {
-      x: isBreakpoint ? (openSideBar ? [-100, 0] : [0, -100]) : 0,
-      opacity: isBreakpoint ? (openSideBar ? [0, 1] : [1, 0]) : 1,
+    {
+      id: "Experience",
+      href: "#experience",
+      isInView: !isInView.portfolio && isInView.experience,
     },
-  };
+    {
+      id: "Project portfolio",
+      href: "#projects",
+      isInView: isInView.portfolio,
+    },
+  ];
+
+  // const isInView = false;
+
   return (
     <>
-      <motion.nav
-        animate={aboutNavbarPanel.animation}
+      <nav
         aria-label="Progress"
-        className="fixed flex items-center sm:items-start top-20 sm:top-28 pl-5 h-full z-10 sm:z-0"
+        className="hidden fixed sm:flex items-center sm:items-start top-20 sm:top-28 pl-5 h-full z-20 sm:z-0"
       >
-        <ol role="list" className="space-y-4">
+        <ol role="list" className="space-y-4 max-h-fit rounded-lg p-4">
           {steps.map((step) => (
             <li key={step.name} className="">
               <Link
                 href={step.href}
-                onClick={() => setOpenSideBar(false)}
                 className={classNames(
-                  isInView
+                  step.isInView
                     ? "border-orange-tertiary"
                     : "border-gray-200, hover:border-gray-300",
                   "flex flex-col border-l-4  py-2 pl-4"
@@ -54,7 +43,7 @@ const AboutNavbar = () => {
               >
                 <span
                   className={classNames(
-                    isInView
+                    step.isInView
                       ? "text-orange-tertiary"
                       : "text-gray-400 hover:text-gray-500",
                     "text-sm font-medium "
@@ -67,19 +56,7 @@ const AboutNavbar = () => {
             </li>
           ))}
         </ol>
-      </motion.nav>
-      {router.pathname === "/about" && isBreakpoint && (
-        <motion.div
-          animate={aboutNavbarToggle.animation}
-          transition={aboutNavbarToggle.transition}
-          onClick={() => setOpenSideBar(!openSideBar)}
-          className="fixed h-screen flex items-center cursor-pointer z-20"
-        >
-          <button className="bg-orange-tertiary py-5 rounded-r-lg">
-            <EllipsisVerticalIcon className="w-6" />
-          </button>
-        </motion.div>
-      )}
+      </nav>
     </>
   );
 };

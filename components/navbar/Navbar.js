@@ -19,17 +19,26 @@ const Navbar = () => {
 
   const navbarInAbout = {
     animation: {
-      y: router.pathname === "/about" ? (!openNavbar ? [0, -50] : [-50, 0]) : 0,
+      y:
+        router.pathname === "/about" && !isBreakpoint
+          ? !openNavbar
+            ? [0, -50]
+            : [-50, 0]
+          : 0,
       opacity:
-        router.pathname === "/about" ? (!openNavbar ? [1, 0] : [0, 1]) : 1,
+        router.pathname === "/about" && !isBreakpoint
+          ? !openNavbar
+            ? [1, 0]
+            : [0, 1]
+          : 1,
     },
     transition: { duration: 1.4, delay: 0.2 },
   };
 
   const buttonNavbarInAbout = {
     animation: {
-      y: openNavbar ? [0, 40] : [40, 0],
-      opacity: openNavbar ? [1, 0] : [0, 1],
+      y: openNavbar && !isBreakpoint ? [0, 40] : [40, 0],
+      opacity: openNavbar && !isBreakpoint ? [1, 0] : [0, 1],
     },
   };
 
@@ -139,13 +148,13 @@ const Navbar = () => {
           </motion.div>
         )}
       </motion.div>
-      {router.pathname === "/about" && (
+      {router.pathname === "/about" && !isBreakpoint && (
         <motion.div
           animate={buttonNavbarInAbout.animation}
           transition={navbarInAbout.transition}
           onMouseEnter={() => setOpenNavbar(true)}
           onMouseLeave={() => setOpenNavbar(false)}
-          className="fixed w-screen cursor-pointer flex justify-center"
+          className="fixed w-screen flex justify-center cursor-pointer"
         >
           <button className="bg-orange-tertiary px-5 rounded-b-lg">
             <Bars3Icon className="h-6" />

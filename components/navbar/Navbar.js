@@ -37,8 +37,8 @@ const Navbar = () => {
 
   const buttonNavbarInAbout = {
     animation: {
-      y: openNavbar && !isBreakpoint ? [0, 40] : [40, 0],
-      opacity: openNavbar && !isBreakpoint ? [1, 0] : [0, 1],
+      y: openNavbar ? [0, 40] : [40, 0],
+      opacity: openNavbar ? [1, 0] : [0, 1],
     },
   };
 

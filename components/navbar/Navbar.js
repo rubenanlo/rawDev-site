@@ -70,77 +70,74 @@ const Navbar = () => {
         transition={navbarInAbout.transition}
         onMouseEnter={() => setOpenNavbar(true)}
         onMouseLeave={() => setOpenNavbar(false)}
+        className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-10 pb-5"
       >
-        <div className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-10 pb-5">
-          <div className="w-screen px-2 sm:px-6 lg:px-10">
-            <div className="relative flex h-16 justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button */}
-                <button
-                  onClick={() => setIsShowingInMobile(!isShowingInMobile)}
-                  className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 "
-                >
-                  <span className="sr-only">Open main menu</span>
-                  <MobileBurger className="block h-6 w-6" aria-hidden="true" />
-                </button>
+        <div className="w-screen px-2 sm:px-6 lg:px-10">
+          <div className="relative flex h-16 justify-between">
+            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsShowingInMobile(!isShowingInMobile)}
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 "
+              >
+                <span className="sr-only">Open main menu</span>
+                <MobileBurger className="block h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            <div className="flex flex-1 items-center justify-end pr-10 sm:items-stretch sm:justify-between sm:mr-0">
+              <div className="flex flex-shrink-0 items-center">
+                <Logo />
               </div>
-              <div className="flex flex-1 items-center justify-end pr-10 sm:items-stretch sm:justify-between sm:mr-0">
-                <div className="flex flex-shrink-0 items-center">
-                  <Logo />
-                </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <Link
-                    href={clientPortal.href}
-                    className="h-full inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary"
-                  >
-                    {clientPortal.name}
-                  </Link>
-                  <AboutMenu about={about} />
-                </div>
+              <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
+                {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                <Link
+                  href={clientPortal.href}
+                  className="h-full inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary hover:border-orange-primary"
+                >
+                  {clientPortal.name}
+                </Link>
+                <AboutMenu about={about} />
               </div>
             </div>
           </div>
-          {/* Mobile version of the navbar */}
-          {isShowingInMobile && (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={containerNavbarMobile}
-              transition={{ duration: 0.5, delayChildren: 2 }}
-              className="relative inset-x-0 top-0 -z-10 bg-white shadow-lg ring-1 ring-gray-900/5 w-screen"
-            >
-              <div className="mx-auto px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
-                {fullNavigation.map((item) => (
-                  <motion.div
-                    key={item.name}
-                    variants={navbarMobileItems}
-                    className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <item.icon
-                        className="h-6 w-6 text-blue-primary group-hover:text-orange-secondary"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div>
-                      <Link
-                        href={item.href}
-                        className="font-semibold text-blue-primary"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </Link>
-                      <p className="mt-1 text-blue-primary">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
         </div>
+        {/* Mobile version of the navbar */}
+        {isShowingInMobile && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerNavbarMobile}
+            transition={{ duration: 0.5, delayChildren: 2 }}
+            className="relative inset-x-0 top-0 -z-10 bg-white shadow-lg ring-1 ring-gray-900/5 w-screen"
+          >
+            <div className="mx-auto px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
+              {fullNavigation.map((item) => (
+                <motion.div
+                  key={item.name}
+                  variants={navbarMobileItems}
+                  className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
+                >
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                    <item.icon
+                      className="h-6 w-6 text-blue-primary group-hover:text-orange-secondary"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div>
+                    <Link
+                      href={item.href}
+                      className="font-semibold text-blue-primary"
+                    >
+                      {item.name}
+                      <span className="absolute inset-0" />
+                    </Link>
+                    <p className="mt-1 text-blue-primary">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </motion.div>
       {router.pathname === "/about" && (
         <motion.div

@@ -32,7 +32,7 @@ const Navbar = () => {
             : [0, 1]
           : 1,
     },
-    transition: { duration: 1.4, delay: 0.2 },
+    transition: { duration: 0.7, delay: 0.2 },
   };
 
   const buttonNavbarInAbout = {

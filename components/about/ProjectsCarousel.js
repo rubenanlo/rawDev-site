@@ -5,8 +5,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/20/solid";
-
-import ProjectCard from "components/homepage/ProjectCard";
+import ProjectCard from "components/about/ProjectCard";
 import { RespContext } from "helpers/responsiveComponent";
 
 const variants = {
@@ -119,14 +118,14 @@ const ProjectCarousel = () => {
             <div className="absolute w-full flex flex-row justify-between lg:inset-y-[52%] xl:inset-y-[46%] px-5 mx-auto">
               <div
                 id={"prev"}
-                className="inset-y-1/2 bg-white border rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none z-10"
+                className="inset-y-1/2 bg-white border rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
                 onClick={() => paginate(-1)}
               >
                 <ChevronLeftIcon className="h-7" />
               </div>
               <div
                 id={"next"}
-                className="bg-white border rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none z-10"
+                className="bg-white border rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
                 onClick={() => paginate(1)}
               >
                 <ChevronRightIcon className="h-7" />

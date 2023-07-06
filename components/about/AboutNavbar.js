@@ -27,8 +27,8 @@ const AboutNavbar = () => {
   };
   const aboutNavbarPanel = {
     animation: {
-      x: openSideBar ? [-100, 0] : [0, -100],
-      opacity: openSideBar ? [0, 1] : [1, 0],
+      x: isBreakpoint ? (openSideBar ? [-100, 0] : [0, -100]) : 0,
+      opacity: isBreakpoint ? (openSideBar ? [0, 1] : [1, 0]) : 1,
     },
   };
   return (

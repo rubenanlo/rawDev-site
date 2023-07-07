@@ -13,7 +13,7 @@ const Splash = () => {
     .map((word, index) => word.replace(acronym[index], ""));
 
   // Define the final position X for each of the elements of your acronym array.
-  const positionXForAcronym = (index) => [191, 93, -15, -71][index];
+  const positionXForAcronym = (index) => [194, 95, -13, -70][index];
 
   // Define the animations for the acronym and the rest of the characters
   const acronymAnimation = {
@@ -32,13 +32,13 @@ const Splash = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-orange-tertiary flex">
+      <h1 className="scale-75 sm:scale-100 text-3xl text-orange-tertiary flex justify-center items-center">
         <motion.img
           src={logo}
           alt="logo"
           className="w-10"
           initial={{
-            y: -111,
+            y: -109,
             x: 185,
             opacity: 1,
             filter: "blur(2rem)",

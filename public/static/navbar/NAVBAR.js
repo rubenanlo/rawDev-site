@@ -16,7 +16,7 @@ export const about = [
   {
     name: "Project portfolio",
     description: "A glimpse of my work",
-    href: "/about#projects",
+    href: "/about#project-portfolio",
     icon: CodeBracketIcon,
   },
   {

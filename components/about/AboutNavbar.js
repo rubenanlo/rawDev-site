@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const AboutNavbar = ({ isInView }) => {
   const steps = [
@@ -16,7 +16,7 @@ const AboutNavbar = ({ isInView }) => {
     },
     {
       id: "Project portfolio",
-      href: "#projects",
+      href: "#project-portfolio",
       isInView: isInView.portfolio,
     },
   ];
@@ -34,8 +34,19 @@ const AboutNavbar = ({ isInView }) => {
         <ol role="list" className="space-y-4 max-h-fit rounded-lg p-4">
           {steps.map((step) => (
             <li key={step.name} className="">
-              <Link
+              <AnchorLink
                 href={step.href}
+                activeClass="active"
+                to={step.href}
+                spy={true}
+                smooth={true}
+                hashSpy={true}
+                offset={50}
+                duration={500}
+                delay={1000}
+                isDynamic={true}
+                ignoreCancelEvents={false}
+                spyThrottle={500}
                 className={classNames(
                   step.isInView
                     ? "border-orange-tertiary"
@@ -55,7 +66,7 @@ const AboutNavbar = ({ isInView }) => {
                   {step.id}
                 </span>
                 <span className="text-sm font-medium">{step.name}</span>
-              </Link>
+              </AnchorLink>
             </li>
           ))}
         </ol>

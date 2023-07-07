@@ -75,7 +75,10 @@ const ProjectCarousel = forwardRef((props, ref) => {
   const isBreakpoint = useMediaQuery(1023);
 
   return (
-    <div className="pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32 h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[41.7rem] xl:h-[48rem] overflow-hidden ">
+    <div
+      id="project-portfolio"
+      className="pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32 h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[41.7rem] xl:h-[48rem] overflow-hidden "
+    >
       <div className="relative pb-20 sm:pb-24 xl:pb-0 h-full bg-solutions-case bg-no-repeat bg-fixed bg-cover">
         <div className="absolute inset-0 py-10 lg:py-36  h-full" />
         <AnimatePresence initial={false} custom={direction}>

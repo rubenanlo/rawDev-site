@@ -25,7 +25,7 @@ const BriefBio = forwardRef((props, ref) => {
   const briefBioAnimation = {
     initial: { opacity: 0, scale: 0.6 },
     animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.2, delay: 3.5 },
+    transition: { duration: 1, delay: 3.5 },
   };
 
   return (
@@ -40,7 +40,7 @@ const BriefBio = forwardRef((props, ref) => {
           initial={briefBioAnimation.initial}
           animate={briefBioAnimation.animate}
           transition={briefBioAnimation.transition}
-          className="mx-auto pt-10 lg:mx-0"
+          className="mx-auto pt-10 sm:pt-20 lg:mx-0"
         >
           <article className="flex max-w-xl flex-col items-start justify-between">
             <time className="text-xs text-gray-400">
@@ -57,7 +57,7 @@ const BriefBio = forwardRef((props, ref) => {
                 <p className="font-semibold text-orange-quaternary">
                   {bio.author.name}
                 </p>
-                <p className="text-gray-600">{bio.author.role}</p>
+                <p className="text-gray-400">{bio.author.role}</p>
               </div>
             </div>
           </article>

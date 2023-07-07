@@ -1,9 +1,10 @@
-import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import AboutNavbar from "components/about/AboutNavbar";
 import BriefBio from "components/about/BriefBio";
 import ProjectCarousel from "components/about/ProjectsCarousel";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import Experience from "components/about/Experience";
+import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 
 const About = () => {
   const ref = {
@@ -21,6 +22,7 @@ const About = () => {
     <AppLayoutWithNavbar>
       <AboutNavbar isInView={isInView} />
       <BriefBio ref={ref.bio} />
+      <Experience ref={ref.experience} />
       <ProjectCarousel ref={ref.portfolio} />
     </AppLayoutWithNavbar>
   );

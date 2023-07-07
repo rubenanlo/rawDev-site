@@ -23,6 +23,17 @@ const Splash = () => {
     transition: { duration: 1, delay: 1 },
   };
 
+  const imgAnimation = {
+    initial: {
+      y: -109,
+      x: 185,
+      opacity: 1,
+      filter: "blur(2rem)",
+      scale: 1,
+    },
+    animate: { filter: "blur(0rem)", scale: 1 },
+  };
+
   const dissapearAnimation = {
     animate: {
       opacity: [1, 0],
@@ -37,14 +48,8 @@ const Splash = () => {
           src={logo}
           alt="logo"
           className="w-10"
-          initial={{
-            y: -109,
-            x: 185,
-            opacity: 1,
-            filter: "blur(2rem)",
-            scale: 1,
-          }}
-          animate={{ filter: "blur(0rem)", scale: 1 }}
+          initial={imgAnimation.initial}
+          animate={imgAnimation.animate}
           transition={{
             duration: acronymAnimation.transition.duration,
             delay: acronymAnimation.transition.duration,

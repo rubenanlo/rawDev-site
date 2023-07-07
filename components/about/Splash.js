@@ -13,7 +13,7 @@ const Splash = () => {
     .map((word, index) => word.replace(acronym[index], ""));
 
   // Define the final position X for each of the elements of your acronym array.
-  const positionXForAcronym = (index) => [256, 160, 54, 0][index];
+  const positionXForAcronym = (index) => [191, 93, -15, -71][index];
 
   // Define the animations for the acronym and the rest of the characters
   const acronymAnimation = {
@@ -39,7 +39,7 @@ const Splash = () => {
           className="w-10"
           initial={{
             y: -111,
-            x: 250,
+            x: 185,
             opacity: 1,
             filter: "blur(2rem)",
             scale: 1,

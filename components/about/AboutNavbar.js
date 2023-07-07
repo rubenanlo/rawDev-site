@@ -27,9 +27,9 @@ const AboutNavbar = ({ isInView }) => {
     <>
       <motion.nav
         aria-label="Progress"
-        className="hidden fixed sm:flex items-center sm:items-start top-20 sm:top-28 pl-5 h-full z-20 sm:z-0"
+        className="hidden fixed lg:flex items-center sm:items-start sm:top-20 pl-5 h-full z-20 sm:z-0"
         animate={{ opacity: [0, 1] }}
-        transition={{ duration: 2, delay: 4 }}
+        transition={{ duration: 3, delay: 6 }}
       >
         <ol role="list" className="space-y-4 max-h-fit rounded-lg p-4">
           {steps.map((step) => (

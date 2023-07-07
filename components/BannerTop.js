@@ -33,7 +33,6 @@ const BannerTop = () => {
   const deadline = config.deadline
     ? dayjs(config.deadline)
     : date.add(config.durationDays, "day");
-  console.log("🚀 ~ file: BannerTop.js:34 ~ BannerTop ~ deadline:", deadline);
 
   useEffect(() => {
     const today = dayjs();

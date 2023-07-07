@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
 
 const AboutNavbar = ({ isInView }) => {
@@ -24,9 +25,11 @@ const AboutNavbar = ({ isInView }) => {
 
   return (
     <>
-      <nav
+      <motion.nav
         aria-label="Progress"
         className="hidden fixed sm:flex items-center sm:items-start top-20 sm:top-28 pl-5 h-full z-20 sm:z-0"
+        animate={{ opacity: [0, 1] }}
+        transition={{ duration: 2, delay: 4 }}
       >
         <ol role="list" className="space-y-4 max-h-fit rounded-lg p-4">
           {steps.map((step) => (
@@ -56,7 +59,7 @@ const AboutNavbar = ({ isInView }) => {
             </li>
           ))}
         </ol>
-      </nav>
+      </motion.nav>
     </>
   );
 };

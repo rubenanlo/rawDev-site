@@ -8,7 +8,7 @@ import Link from "next/link";
 const bio = {
   lastUpdate: "July 7, 2023",
   description:
-    "I became fullstack web developer after over 10 years working as an economist in consulting. My previous experience helps linking what the business needs with the right web application. Always craving for knowledge.",
+    "As a former economist turned full-stack web developer, I bring a unique perspective to the table. My expertise lies in bridging business needs and effective web applications. Craving for growth and continuous learning, I contribute to a company's success with tailored solutions. Let's connect!",
   cities: "Barcelona, New York, London, Washington, Paris",
   techStack:
     "React, Next.js, TailwindCSS, Node.js, Express, MongoDB, and tones of npm packages",

@@ -27,11 +27,14 @@ const AboutNavbar = ({ isInView }) => {
     <>
       <motion.nav
         aria-label="Progress"
-        className="hidden fixed lg:flex items-center sm:items-start sm:top-20 pl-5 h-full z-20 sm:z-0"
+        className="hidden fixed sm:flex items-center sm:items-start sm:pt-20 pl-5 sm:z-0 w-screen bg-gradient-to-r from-gray-900 to-blue-primary"
         animate={{ opacity: [0, 1] }}
         transition={{ duration: 3, delay: 6 }}
       >
-        <ol role="list" className="space-y-4 max-h-fit rounded-lg p-4">
+        <ol
+          role="list"
+          className="flex items-center justify-center space-x-10 max-h-fit rounded-lg p-4 w-screen"
+        >
           {steps.map((step) => (
             <li key={step.name} className="">
               <AnchorLink
@@ -51,7 +54,7 @@ const AboutNavbar = ({ isInView }) => {
                   step.isInView
                     ? "border-orange-tertiary"
                     : "border-gray-200, hover:border-gray-300",
-                  "flex flex-col border-l-4  py-2 pl-4"
+                  "flex flex-col border-b-4  py-2 px-4"
                 )}
                 aria-current="step"
               >
@@ -65,7 +68,6 @@ const AboutNavbar = ({ isInView }) => {
                 >
                   {step.id}
                 </span>
-                <span className="text-sm font-medium">{step.name}</span>
               </AnchorLink>
             </li>
           ))}

@@ -7,7 +7,7 @@ import NEXT from "static/assets/next.svg";
 import NPM from "static/assets/npmjs.svg";
 import NODE from "static/assets/node.svg";
 import EXCEL from "static/assets/excel.svg";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 
 const techStack = [
   {
@@ -51,6 +51,8 @@ const softStack = [
 ];
 
 const ExperienceSnapshot = forwardRef((props, ref) => {
+  const [description, setDescription] = useState("");
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8 lg:pb-40">
@@ -73,7 +75,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
           </p>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
-          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start">
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start lg:gap-y-20">
             <p className="flex-none text-3xl font-bold tracking-tight text-gray-100">
               10+ years
             </p>
@@ -83,7 +85,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-24">
             <p className="flex-none text-3xl font-bold tracking-tight text-gray-100">
               1+ years
             </p>
@@ -98,26 +100,47 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col-reverse justify-between gap-x-16 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start">
-            <p className="flex-none text-3xl font-bold tracking-tight text-gray-100 mb-5">
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-12 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start">
+            <p className="flex-none text-3xl font-bold tracking-tight text-gray-100">
               My stack
             </p>
-            <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 mb-5">
-              <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100">
-                SoftStack
-              </p>
-              <p className="mt-2 text-sm leading-7 items-start text-gray-400">
-                {softStack.join(", ")}
-              </p>
-            </div>
-            <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5">
-              <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100">
-                TechStack
-              </p>
-              <div className="mt-2 text-base leading-7 grid grid-cols-3 items-center gap-y-3">
-                {techStack.map(({ icon, alt }) => (
-                  <Image key={icon} src={icon} alt={alt} className="w-7 " />
-                ))}
+            <div>
+              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 my-10 sm:my-12">
+                <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
+                  SoftStack
+                </p>
+                <p className="mt-2 text-sm leading-7 items-start text-gray-400 text-center sm:text-left">
+                  {softStack.join(", ")}
+                </p>
+              </div>
+              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5">
+                <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
+                  TechStack
+                </p>
+                <div className="mt-2 text-base leading-7 grid grid-cols-3 items-center gap-y-3">
+                  {techStack.map(({ icon, alt }) => (
+                    <>
+                      <Image
+                        key={icon}
+                        src={icon}
+                        alt={alt}
+                        className="w-7 cursor-pointer"
+                        onMouseEnter={() => {
+                          setDescription(alt);
+                          setOpenModal(true);
+                        }}
+                        onMouseLeave={() => {
+                          setOpenModal(false);
+                        }}
+                      />
+                      {openModal && (
+                        <div className="hidden sm:block absolute -mt-44 -ml-20 bg-orange-quaternary/10 text-gray-900 px-5 py-2 rounded-md">
+                          {description}
+                        </div>
+                      )}
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ const AboutNavbar = ({ isInView }) => {
     <>
       <motion.nav
         aria-label="Progress"
-        className="hidden fixed sm:flex items-center sm:items-start sm:pt-20 pl-5 sm:z-0 w-screen bg-gradient-to-r from-gray-900 to-blue-primary"
+        className="hidden fixed sm:flex items-center sm:items-start sm:pt-20 pl-5 w-screen bg-gradient-to-r from-gray-900 to-blue-primary z-10"
         animate={{ opacity: [0, 1] }}
         transition={{ duration: 3, delay: 6 }}
       >

@@ -1,4 +1,6 @@
+import { forwardRef, useRef, useState } from "react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
 import CSS from "static/assets/css3-alt.svg";
 import REACT from "static/assets/react.svg";
@@ -8,7 +10,6 @@ import NEXT from "static/assets/next.svg";
 import NPM from "static/assets/npmjs.svg";
 import NODE from "static/assets/node.svg";
 import EXCEL from "static/assets/excel.svg";
-import { forwardRef, useState } from "react";
 
 const text = {
   intro: {
@@ -34,7 +35,7 @@ const text = {
       softStack: [
         "managing teams & projects",
         "conflict resolution",
-        "mentoring",
+        "client focus",
       ],
       techStack: [
         {
@@ -77,6 +78,35 @@ const text = {
 const ExperienceSnapshot = forwardRef((props, ref) => {
   const [description, setDescription] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const animatedRef = useRef(null);
+  const isInView = useInView(animatedRef);
+
+  const cardStackContainer = {
+    visible: isInView && {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        duration: 0.6,
+        delay: 0.6,
+        staggerChildren: 0.5,
+      },
+    },
+    hidden: {
+      opacity: 0,
+    },
+  };
+
+  const cardStack = {
+    visible: isInView && {
+      opacity: 1,
+      x: 0,
+      transition: { bounce: 0 },
+    },
+    hidden: {
+      opacity: 0,
+      x: "-100%",
+    },
+  };
 
   const highlightsSamePattern = [text.highlights[0], text.highlights[1]];
 
@@ -94,10 +124,17 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
             {text.intro.description2}
           </p>
         </div>
-        <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={cardStackContainer}
+          transition={{ duration: 1, delayChildren: 1 }}
+          className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end"
+        >
           {highlightsSamePattern.map(
             ({ title, caption, description }, index) => (
-              <div
+              <motion.div
+                variants={cardStack}
                 key={title}
                 className={classNames(
                   index === 0
@@ -117,7 +154,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                     {description || null}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             )
           )}
           {/* third highlight */}
@@ -130,7 +167,10 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                 <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
                   SoftStack
                 </p>
-                <p className="mt-2 text-sm leading-7 items-start text-gray-400 text-center sm:text-left">
+                <p
+                  ref={animatedRef}
+                  className="mt-2 text-sm leading-7 items-start text-gray-400 text-center sm:text-left"
+                >
                   {text.highlights[2].softStack.join(", ")}
                 </p>
               </div>
@@ -165,7 +205,8 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
+        <div />
       </div>
     </>
   );

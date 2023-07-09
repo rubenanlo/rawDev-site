@@ -11,6 +11,7 @@ import NEXT from "static/assets/next.svg";
 import NPM from "static/assets/npmjs.svg";
 import NODE from "static/assets/node.svg";
 import EXCEL from "static/assets/excel.svg";
+import GIT from "static/assets/git.svg";
 
 const text = {
   intro: {
@@ -71,6 +72,10 @@ const text = {
           icon: EXCEL,
           alt: "Microsoft Excel",
         },
+        {
+          icon: GIT,
+          alt: "Git",
+        },
       ],
     },
   ],
@@ -85,31 +90,30 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
   const isInView = useInView(animatedRef);
 
   const cardStackContainer = {
-    visible: !isBreakpoint
-      ? isInView && {
-          opacity: 1,
-          transition: {
-            when: "beforeChildren",
-            duration: 0.6,
-            delay: 0.6,
-            staggerChildren: 0.5,
-          },
-        }
-      : { opacity: 1 },
+    visible: isInView && {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        duration: 0.6,
+        delay: 0.6,
+        staggerChildren: 0.5,
+      },
+    },
     hidden: {
       opacity: 0,
+    },
+    visibleMobile: {
+      opacity: 1,
     },
   };
 
   const cardStack = {
-    visible: !isBreakpoint
-      ? isInView && {
-          opacity: 1,
-          x: 0,
-          transition: { bounce: 0 },
-        }
-      : { opacity: 1, x: 0 },
-    hidden: !isBreakpoint && {
+    visible: isInView && {
+      opacity: 1,
+      x: 0,
+      transition: { bounce: 0 },
+    },
+    hidden: {
       opacity: 0,
       x: "-100%",
     },
@@ -132,7 +136,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
           </p>
         </div>
         <motion.div
-          initial="hidden"
+          initial={!isBreakpoint ? "hidden" : "visibleMobile"}
           animate="visible"
           variants={cardStackContainer}
           transition={{ duration: 1, delayChildren: 1 }}
@@ -171,18 +175,18 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
             </p>
             <div>
               <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 my-10 sm:my-12">
-                <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
+                <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
                   SoftStack
                 </p>
                 <p
                   ref={animatedRef}
-                  className="mt-2 text-sm leading-7 items-start text-gray-400 text-center sm:text-left"
+                  className="mt-2 text-sm leading-7 items-start text-gray-400 text-left"
                 >
                   {text.highlights[2].softStack.join(", ")}
                 </p>
               </div>
               <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5">
-                <p className="text-lg text-center sm:text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
+                <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
                   TechStack
                 </p>
                 <div className="mt-2 text-base leading-7 grid grid-cols-3 items-center gap-y-3">
@@ -192,7 +196,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                         key={icon}
                         src={icon}
                         alt={alt}
-                        className="w-7 cursor-pointer mx-auto sm:mx-0"
+                        className="w-7 cursor-pointer sm:mx-0"
                         onMouseEnter={() => {
                           setDescription(alt);
                           setOpenModal(true);
@@ -202,7 +206,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                         }}
                       />
                       {openModal && (
-                        <div className="hidden sm:block absolute -mt-44 -ml-20 bg-orange-quaternary/10 text-gray-900 px-5 py-2 rounded-md">
+                        <div className="hidden sm:block absolute -mt-44 bg-orange-quaternary/10 text-gray-900 px-5 py-2 rounded-md">
                           {description}
                         </div>
                       )}

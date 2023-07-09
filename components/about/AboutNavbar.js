@@ -21,8 +21,6 @@ const AboutNavbar = ({ isInView }) => {
     },
   ];
 
-  // const isInView = false;
-
   return (
     <>
       <motion.nav
@@ -44,7 +42,7 @@ const AboutNavbar = ({ isInView }) => {
                 spy={true}
                 smooth={true}
                 hashSpy={true}
-                offset={50}
+                offset={150}
                 duration={500}
                 delay={1000}
                 isDynamic={true}

@@ -185,7 +185,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                         key={icon}
                         src={icon}
                         alt={alt}
-                        className="w-7 cursor-pointer"
+                        className="w-7 cursor-pointer mx-auto sm:mx-0"
                         onMouseEnter={() => {
                           setDescription(alt);
                           setOpenModal(true);

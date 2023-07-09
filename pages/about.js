@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import AboutNavbar from "components/about/AboutNavbar";
 import BriefBio from "components/about/BriefBio";
 import ProjectCarousel from "components/about/ProjectsCarousel";
-import Experience from "components/about/Experience";
+import Experience from "components/about/experience/Experience";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 
 const About = () => {

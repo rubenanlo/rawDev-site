@@ -84,6 +84,8 @@ const text = {
 const ExperienceSnapshot = forwardRef((props, ref) => {
   const [description, setDescription] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const highlightsSamePattern = [text.highlights[0], text.highlights[1]];
+  const highlightsDiffPattern = text.highlights[2];
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
   const animatedRef = useRef(null);
@@ -119,8 +121,6 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
       x: "-100%",
     },
   };
-
-  const highlightsSamePattern = [text.highlights[0], text.highlights[1]];
 
   return (
     <>
@@ -172,7 +172,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
           {/* third highlight */}
           <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-12 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start">
             <p className="flex-none text-3xl font-bold tracking-tight text-gray-100">
-              {text.highlights[2].title}
+              {highlightsDiffPattern.title}
             </p>
             <div>
               <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 my-10 sm:my-12">
@@ -180,7 +180,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                   SoftStack
                 </p>
                 <p className="mt-2 text-sm leading-7 items-start text-gray-400 text-left">
-                  {text.highlights[2].softStack.join(", ")}
+                  {highlightsDiffPattern.softStack.join(", ")}
                 </p>
               </div>
               <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5">
@@ -188,7 +188,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                   TechStack
                 </p>
                 <div className="mt-2 text-base leading-7 grid grid-cols-3 items-center gap-y-3">
-                  {text.highlights[2].techStack.map(({ icon, alt }) => (
+                  {highlightsDiffPattern.techStack.map(({ icon, alt }) => (
                     <>
                       <Image
                         key={icon}

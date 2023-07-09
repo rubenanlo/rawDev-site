@@ -1,7 +1,8 @@
-import { forwardRef, useRef, useState } from "react";
+import { forwardRef, useRef, useState, useContext } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
+import { RespContext } from "helpers/responsiveComponent";
 import CSS from "static/assets/css3-alt.svg";
 import REACT from "static/assets/react.svg";
 import HTML from "static/assets/html5.svg";
@@ -78,31 +79,37 @@ const text = {
 const ExperienceSnapshot = forwardRef((props, ref) => {
   const [description, setDescription] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const useMediaQuery = useContext(RespContext);
+  const isBreakpoint = useMediaQuery(640);
   const animatedRef = useRef(null);
   const isInView = useInView(animatedRef);
 
   const cardStackContainer = {
-    visible: isInView && {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        duration: 0.6,
-        delay: 0.6,
-        staggerChildren: 0.5,
-      },
-    },
+    visible: !isBreakpoint
+      ? isInView && {
+          opacity: 1,
+          transition: {
+            when: "beforeChildren",
+            duration: 0.6,
+            delay: 0.6,
+            staggerChildren: 0.5,
+          },
+        }
+      : { opacity: 1 },
     hidden: {
       opacity: 0,
     },
   };
 
   const cardStack = {
-    visible: isInView && {
-      opacity: 1,
-      x: 0,
-      transition: { bounce: 0 },
-    },
-    hidden: {
+    visible: !isBreakpoint
+      ? isInView && {
+          opacity: 1,
+          x: 0,
+          transition: { bounce: 0 },
+        }
+      : { opacity: 1, x: 0 },
+    hidden: !isBreakpoint && {
       opacity: 0,
       x: "-100%",
     },

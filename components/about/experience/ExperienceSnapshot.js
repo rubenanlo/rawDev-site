@@ -93,10 +93,11 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
     visible: isInView && {
       opacity: 1,
       transition: {
-        when: "beforeChildren",
-        duration: 0.6,
-        delay: 0.6,
-        staggerChildren: 0.5,
+        when: isBreakpoint ? "afterChildren" : "beforeChildren",
+        duration: 0.5,
+        delay: 0.3,
+        delayChildren: 0.5,
+        staggerChildren: 0.3,
       },
     },
     hidden: {
@@ -136,10 +137,10 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
           </p>
         </div>
         <motion.div
+          ref={animatedRef}
           initial={!isBreakpoint ? "hidden" : "visibleMobile"}
           animate="visible"
           variants={cardStackContainer}
-          transition={{ duration: 1, delayChildren: 1 }}
           className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end"
         >
           {highlightsSamePattern.map(
@@ -178,10 +179,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                 <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
                   SoftStack
                 </p>
-                <p
-                  ref={animatedRef}
-                  className="mt-2 text-sm leading-7 items-start text-gray-400 text-left"
-                >
+                <p className="mt-2 text-sm leading-7 items-start text-gray-400 text-left">
                   {text.highlights[2].softStack.join(", ")}
                 </p>
               </div>

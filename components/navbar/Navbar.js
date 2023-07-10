@@ -79,7 +79,7 @@ const Navbar = () => {
         transition={navbarInAbout.transition}
         onMouseEnter={() => setOpenNavbar(true)}
         onMouseLeave={() => setOpenNavbar(false)}
-        className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-20 pb-5"
+        className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-30 pb-5"
       >
         <div className="w-screen px-2 sm:px-6 lg:px-10">
           <div className="relative flex h-16 justify-between">

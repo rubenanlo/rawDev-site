@@ -37,17 +37,11 @@ const AboutNavbar = ({ isInView }) => {
             <li key={step.name} className="">
               <AnchorLink
                 href={step.href}
-                activeClass="active"
                 to={step.href}
-                spy={true}
-                smooth={true}
-                hashSpy={true}
+                smooth="true"
                 offset={150}
                 duration={500}
                 delay={1000}
-                isDynamic={true}
-                ignoreCancelEvents={false}
-                spyThrottle={500}
                 className={classNames(
                   step.isInView
                     ? "border-orange-tertiary"

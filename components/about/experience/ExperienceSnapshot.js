@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useState, useContext } from "react";
+import { useRef, useState, useContext } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
@@ -81,7 +81,7 @@ const text = {
   ],
 };
 
-const ExperienceSnapshot = forwardRef((props, ref) => {
+const ExperienceSnapshot = () => {
   const [description, setDescription] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const highlightsSamePattern = [text.highlights[0], text.highlights[1]];
@@ -96,10 +96,10 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
       opacity: 1,
       transition: {
         when: isBreakpoint ? "afterChildren" : "beforeChildren",
-        duration: 0.5,
-        delay: 0.3,
-        delayChildren: 0.5,
-        staggerChildren: 0.3,
+        duration: 0.2,
+        delay: 0.2,
+        delayChildren: 0.2,
+        staggerChildren: 0.2,
       },
     },
     hidden: {
@@ -132,7 +132,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
           <p className="mt-6 text-base leading-7 text-gray-400">
             {text.intro.description}
           </p>
-          <p ref={ref} className="mt-6 text-base leading-7 text-gray-400">
+          <p className="mt-6 text-base leading-7 text-gray-400">
             {text.intro.description2}
           </p>
         </div>
@@ -155,7 +155,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
                   "flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-24"
                 )}
               >
-                <p className="flex-none text-3xl font-bold tracking-tight text-gray-100">
+                <p className="flex-none text-3xl font-bold tracking-tight text-orange-secondary">
                   {title}
                 </p>
                 <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
@@ -171,7 +171,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
           )}
           {/* third highlight */}
           <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-12 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start">
-            <p className="flex-none text-3xl font-bold tracking-tight text-gray-100">
+            <p className="flex-none text-3xl font-bold tracking-tight text-orange-secondary">
               {highlightsDiffPattern.title}
             </p>
             <div>
@@ -219,7 +219,7 @@ const ExperienceSnapshot = forwardRef((props, ref) => {
       </div>
     </>
   );
-});
+};
 
 ExperienceSnapshot.displayName = "ExperienceSnapshot";
 export default ExperienceSnapshot;

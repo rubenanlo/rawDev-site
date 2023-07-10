@@ -18,12 +18,12 @@ const Splash = () => {
   // Define the animations for the acronym and the rest of the characters
   const acronymAnimation = {
     animate: {
-      y: [100, 0],
+      y: [100, 30],
     },
     transition: { duration: 1, delay: 2 },
   };
 
-  const dissapearAnimation = {
+  const disappearAnimation = {
     initial: { y: 100 },
     animate: {
       opacity: [1, 0],
@@ -33,7 +33,7 @@ const Splash = () => {
 
   const imgAnimation = {
     initial: {
-      y: -10,
+      y: 20,
       x: 160,
       opacity: 0,
       filter: "blur(2rem)",
@@ -65,9 +65,9 @@ const Splash = () => {
               {acronym[index]}
             </motion.p>
             <motion.p
-              initial={dissapearAnimation.initial}
-              animate={dissapearAnimation.animate}
-              transition={dissapearAnimation.transition}
+              initial={disappearAnimation.initial}
+              animate={disappearAnimation.animate}
+              transition={disappearAnimation.transition}
               className="mr-2"
             >
               {word}

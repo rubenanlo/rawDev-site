@@ -75,16 +75,16 @@ const ExperienceTimeline = () => {
   timeline.sort((a, b) => dayjs(b.dateTime).diff(dayjs(a.dateTime)));
 
   return (
-    <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:py-20">
+    <div className="mx-auto max-w-7xl px-6 sm:px-8 py-20">
       <div ref={ref} className="overflow-hidden">
         {timeline.map((item, index) => (
           <div
             key={item.name}
-            className="sm:grid sm:grid-cols-[33.5%_15%_35%] sm:gap-x-10 sm:gap-y-20 sm:justify-center sm:items-start"
+            className="pb-12 sm:pb-0 sm:grid sm:grid-cols-[33.5%_15%_35%] sm:gap-x-10 sm:gap-y-20 sm:justify-center sm:items-start"
           >
             <time
               dateTime={item.dateTime}
-              className="col-start-2 row-span-2 sm:flex sm:flex-col sm:justify-center sm:items-center h-full font-semibold leading-6 text-gray-50 sm:h-full"
+              className="h-full font-semibold leading-6 text-gray-50 mb-5 col-start-2 row-span-2 flex flex-row gap-x-2 sm:mb-0 sm:gap-x-0 sm:flex-col sm:justify-center sm:items-center"
             >
               <p>{dayjs(item.dateTime).format("MMMM")}</p>
               <p>{dayjs(item.dateTime).format("YYYY")}</p>
@@ -93,7 +93,7 @@ const ExperienceTimeline = () => {
                   index === timeline.length - 1
                     ? "bg-transparent"
                     : "bg-gray-50/10",
-                  "h-full lg:static md:w-[.1rem] lg:flex-auto lg:my-5"
+                  "h-full lg:static sm:w-[.1rem] lg:flex-auto sm:my-5"
                 )}
                 aria-hidden="true"
               />
@@ -117,14 +117,14 @@ const ExperienceTimeline = () => {
               <p className="text-lg font-semibold text-orange-quaternary">
                 {item.name}
               </p>
-              <p className="mt-1 text-base leading-7 text-gray-400">
+              <p className="mt-2 text-base leading-7 text-gray-400">
                 {item.description}
               </p>
-              <p className="mt-1 text-base leading-7 text-gray-400">
+              <p className="mt-2 text-base leading-7 text-gray-400">
                 {item.description2}
               </p>
               {item.techStack && (
-                <p className="mt-1 text-sm leading-7 text-gray-400">
+                <p className="mt-2 text-sm leading-7 text-gray-400">
                   <i>Tech Stack: {item.techStack}</i>
                 </p>
               )}

@@ -1,12 +1,55 @@
 import { useState, useContext, forwardRef } from "react";
 import { AnimatePresence, motion, wrap } from "framer-motion";
 import {
+  ArrowLongLeftIcon,
   ArrowLongRightIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
 } from "@heroicons/react/20/solid";
 import ProjectCard from "components/about/ProjectCard";
 import { RespContext } from "helpers/responsiveComponent";
+import RAWDEV from "static/assets/rawdev.gif";
+import SDGTC from "static/assets/sdgtc.gif";
+import STATIC from "static/assets/static-website.png";
+
+const projects = [
+  {
+    id: 1,
+    title: "rawDev Website",
+    href: "http://www.rawdev.io",
+    highlightFeatures:
+      "Form submission, CRUD functionality in the backend, authentication",
+    imageUrl: RAWDEV,
+    date: "July 11, 2023",
+    datetime: "2023-07-11",
+    techStack: {
+      name: "Ruben Andino",
+    },
+  },
+  {
+    id: 2,
+    title: "SDG Transformation Center",
+    href: "https://sdgtransformationcenter.org/",
+    highlightFeatures:
+      "Centralized system to save text, automatization for updates",
+    imageUrl: SDGTC,
+    date: "July 11, 2023",
+    datetime: "2023-06-23",
+    techStack: {
+      name: "Ruben Andino",
+    },
+  },
+  {
+    id: 3,
+    title: "Static Website",
+    // href: "https://static-website-weld-xi.vercel.app/",
+    highlightFeatures: "Due to confidentiality issues, please request access",
+    imageUrl: STATIC,
+    date: "April 01, 2023",
+    datetime: "2023-04-01",
+    techStack: {
+      name: "Ruben Andino",
+    },
+  },
+];
 
 const variants = {
   enter: (direction) => {
@@ -40,21 +83,6 @@ const swipePower = (offset, velocity) => {
   return Math.abs(offset) * velocity;
 };
 
-const projects = [
-  {
-    id: 1,
-    title: "Bespoke static website",
-    description: "",
-    href: "",
-  },
-  {
-    id: 2,
-    title: "Tik tok diaper",
-    description: "",
-    href: "",
-  },
-];
-
 const ProjectCarousel = forwardRef((props, ref) => {
   const [[page, direction], setPage] = useState([0, 0]);
 
@@ -77,13 +105,12 @@ const ProjectCarousel = forwardRef((props, ref) => {
   return (
     <div
       id="project-portfolio"
-      className="pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32 h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[41.7rem] xl:h-[48rem] overflow-hidden "
+      className="bg-orange-quaternary h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[41.7rem] xl:h-[48rem] overflow-hidden "
     >
-      <div className="relative pb-20 sm:pb-24 xl:pb-0 h-full bg-solutions-case bg-no-repeat bg-fixed bg-cover">
-        <div className="absolute inset-0 py-10 lg:py-36  h-full" />
+      <div className="relative h-full">
+        {/* <div className="absolute inset-0 py-10 lg:py-36  h-full" /> */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
-            className="mx-auto max-w-7xl"
             key={page}
             custom={direction}
             variants={variants}
@@ -110,10 +137,10 @@ const ProjectCarousel = forwardRef((props, ref) => {
             <ProjectCard project={projects[imageIndex]} />
           </motion.div>
         </AnimatePresence>
-        <div className="relative max-w-7xl h-full mx-auto -mt-8">
+        <div className="relative max-w-7xl h-full mx-auto">
           {isBreakpoint && (
             <div className="absolute -bottom-20 right-0 left-auto flex items-center">
-              <ArrowLongRightIcon className=" w-7 text-white" />
+              <ArrowLongRightIcon className=" w-7 text-orange-secondary" />
             </div>
           )}
 
@@ -124,17 +151,17 @@ const ProjectCarousel = forwardRef((props, ref) => {
             >
               <div
                 id={"prev"}
-                className="inset-y-1/2 bg-white border rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
+                className="inset-y-1/2   w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
                 onClick={() => paginate(-1)}
               >
-                <ChevronLeftIcon className="h-7" />
+                <ArrowLongLeftIcon className="h-7 text-orange-secondary" />
               </div>
               <div
                 id={"next"}
-                className="bg-white border rounded-full w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
+                className="w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
                 onClick={() => paginate(1)}
               >
-                <ChevronRightIcon className="h-7" />
+                <ArrowLongRightIcon className="h-7 text-orange-secondary" />
               </div>
             </div>
           )}

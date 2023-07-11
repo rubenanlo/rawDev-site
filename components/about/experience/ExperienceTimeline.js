@@ -114,7 +114,7 @@ const ExperienceTimeline = () => {
                 "h-full"
               )}
             >
-              <p className="text-lg font-semibold text-orange-quaternary">
+              <p className="text-lg font-semibold text-orange-tertiary">
                 {item.name}
               </p>
               <p className="mt-2 text-base leading-7 text-gray-400">
@@ -124,7 +124,7 @@ const ExperienceTimeline = () => {
                 {item.description2}
               </p>
               {item.techStack && (
-                <p className="mt-2 text-sm leading-7 text-gray-400">
+                <p className="mt-2 text-sm leading-7 text-orange-quaternary">
                   <i>Tech Stack: {item.techStack}</i>
                 </p>
               )}

@@ -68,7 +68,7 @@ const CollabInnovExpert = () => {
         <div className="-mt-80">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:max-w-7xl lg:grid-cols-3">
-              {sections.map((section) => (
+              {sections.map((section, index) => (
                 <div
                   key={section.id}
                   className={classNames(
@@ -77,17 +77,25 @@ const CollabInnovExpert = () => {
                       : section.bg === "collab-2"
                       ? "bg-collab-2"
                       : "bg-collab-3",
-                    "flex flex-col justify-between brightness-[3.2] rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10"
+                    "flex flex-col justify-between rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10"
                   )}
                 >
                   <div>
                     <h3
                       id={section.id}
-                      className="text-base font-semibold leading-7 text-orange-primary"
+                      className={classNames(
+                        index === 2 ? "text-gray-50" : "text-orange-primary",
+                        "text-base font-semibold leading-7"
+                      )}
                     >
                       {section.name}
                     </h3>
-                    <p className="mt-6 text-base leading-7 text-gray-600">
+                    <p
+                      className={classNames(
+                        index === 2 ? "text-gray-100" : "text-gray-600",
+                        "mt-6 text-base leading-7"
+                      )}
+                    >
                       {section.description}
                     </p>
                   </div>

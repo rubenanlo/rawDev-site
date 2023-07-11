@@ -14,7 +14,7 @@ const ProjectCard = ({
             <Image
               src={imageUrl}
               alt=""
-              className="absolute inset-0 -z-10 h-3/4 w-full object-cover"
+              className="absolute inset-0 -z-10 h-3/4 w-full object-center"
             />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/50 to-gray-50/10" />
             <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />

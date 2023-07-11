@@ -31,7 +31,7 @@ const sections = [
     id: "expertise",
     bg: "collab-3",
     description:
-      "A background in supply chain analysis is the perfect link to understand your needs.",
+      "A background in economics and business is the perfect link to understand your needs.",
     image: {
       src: "/assets/innovation.png",
       alt: "Innovation",

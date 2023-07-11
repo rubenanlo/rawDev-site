@@ -1,11 +1,13 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { useInView, motion } from "framer-motion";
+import { classNames } from "helpers/setClassNames";
 
 const sections = [
   {
     name: "Collaboration",
     id: "collaboration",
+    bg: "collab-1",
     description:
       "We will work with you to make sure your website is exactly what you want it to be.",
     image: {
@@ -16,6 +18,7 @@ const sections = [
   {
     name: "Innovation",
     id: "innovation",
+    bg: "collab-2",
     description:
       "We will rely on the technical stack that is suitable for your needs.",
     image: {
@@ -26,6 +29,7 @@ const sections = [
   {
     name: "Expertise",
     id: "expertise",
+    bg: "collab-3",
     description:
       "A background in supply chain analysis is the perfect link to understand your needs.",
     image: {
@@ -59,7 +63,7 @@ const CollabInnovExpert = () => {
           opacity: isInView && [0.5, 1],
           transition: { duration: 1, delay: 0.2 },
         }}
-        className="flow-root  pb-24 sm:pb-32"
+        className="flow-root pb-24 sm:pb-32"
       >
         <div className="-mt-80">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -67,7 +71,14 @@ const CollabInnovExpert = () => {
               {sections.map((section) => (
                 <div
                   key={section.id}
-                  className="flex flex-col justify-between rounded-3xl bg-gray-100 p-8  ring-1 ring-gray-900/10 sm:p-10"
+                  className={classNames(
+                    section.bg === "collab-1"
+                      ? "bg-collab-1"
+                      : section.bg === "collab-2"
+                      ? "bg-collab-2"
+                      : "bg-collab-3",
+                    "flex flex-col justify-between brightness-[3.2] rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10"
+                  )}
                 >
                   <div>
                     <h3

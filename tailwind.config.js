@@ -13,6 +13,9 @@ module.exports = {
       backgroundImage: {
         integrity: "url('/static/assets/integrity-13.avif')",
         error: "url('/static/assets/error.avif')",
+        "collab-1": "url('/static/assets/collab-1.png')",
+        "collab-2": "url('/static/assets/collab-2.png')",
+        "collab-3": "url('/static/assets/collab-3.png')",
       },
       colors: {
         blue: {

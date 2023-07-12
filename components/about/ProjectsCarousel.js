@@ -9,45 +9,100 @@ import { RespContext } from "helpers/responsiveComponent";
 import RAWDEV from "static/assets/rawdev.gif";
 import SDGTC from "static/assets/sdgtc.gif";
 import STATIC from "static/assets/static-website.png";
+import DATAVIZ from "static/assets/data-visualization.gif";
+// import CSS from "static/assets/css3-alt.svg";
+// import REACT from "static/assets/react.svg";
+// import HTML from "static/assets/html5.svg";
+// import JS from "static/assets/js.svg";
+import NEXT from "static/assets/next.svg";
+// import NPM from "static/assets/npmjs.svg";
+import NODE from "static/assets/node.svg";
+// import EXCEL from "static/assets/excel.svg";
+// import GIT from "static/assets/git.svg";
+import MONGO from "static/assets/mongo.svg";
+import TAILWIND from "static/assets/tailwind.svg";
+import GITHUB from "static/assets/github.svg";
+import LINK from "static/assets/link.svg";
+import SHELL from "static/assets/shell.svg";
 
 const projects = [
   {
     id: 1,
-    title: "rawDev Website",
-    href: "http://www.rawdev.io",
+    title: "rawDev",
     highlightFeatures:
-      "Form submission, CRUD functionality in the backend, authentication",
+      "Website application for web development services, including a dashboard for clients, form submission, authentication, REST API, CRUD functionality, and authentication.",
     imageUrl: RAWDEV,
     date: "July 11, 2023",
     datetime: "2023-07-11",
-    techStack: {
-      name: "Ruben Andino",
-    },
+    techStack: [NEXT, NODE, MONGO, TAILWIND],
+    links: [
+      {
+        icon: LINK,
+        alt: "link",
+        target: "_blank",
+        href: "http://www.rawdev.io",
+      },
+      {
+        icon: GITHUB,
+        alt: "Github",
+        target: "_blank",
+        href: "https://github.com/rubenanlo/rawDev-site",
+      },
+    ],
   },
   {
     id: 2,
     title: "SDG Transformation Center",
-    href: "https://sdgtransformationcenter.org/",
     highlightFeatures:
-      "Centralized system to save text, automatization for updates",
+      "Website application to showcase the SDG Transformation Center's services which includes an online library, news & media section, system to optimize images, and a centralized system to manage text for the website.",
     imageUrl: SDGTC,
-    date: "July 11, 2023",
+    date: "June 23, 2023",
     datetime: "2023-06-23",
-    techStack: {
-      name: "Ruben Andino",
-    },
+    techStack: [NEXT, NODE, TAILWIND, SHELL],
+    links: [
+      {
+        icon: LINK,
+        alt: "link",
+        target: "_blank",
+        href: "https://sdgtransformationcenter.org/",
+      },
+    ],
   },
   {
     id: 3,
     title: "Static Website",
-    // href: "https://static-website-weld-xi.vercel.app/",
-    highlightFeatures: "Due to confidentiality issues, please request access",
+    highlightFeatures:
+      "Web application that showcase a company's website following my own design choices. It includes a centralized way to handle text for the site, a list of products, among other features.",
     imageUrl: STATIC,
     date: "April 01, 2023",
     datetime: "2023-04-01",
-    techStack: {
-      name: "Ruben Andino",
-    },
+    techStack: [NEXT, NODE, TAILWIND, SHELL],
+    links: [
+      {
+        icon: LINK,
+        alt: "link",
+        target: "_blank",
+        href: "https://static-website-weld-xi.vercel.app/",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Data Visualization",
+    highlightFeatures:
+      "This is a sample of the data visualizations I contribute with. Main features include the ability to create json files from an excel file, flexibility at rendering different data types, and downloading data.",
+    imageUrl: DATAVIZ,
+    date: "June 23, 2023",
+    datetime: "2023-06-23",
+    techStack: [NEXT, NODE],
+    links: [
+      {
+        icon: LINK,
+        alt: "link",
+        target: "_blank",
+        href: "https://dashboards.sdgindex.org/",
+      },
+    ],
   },
 ];
 
@@ -105,7 +160,7 @@ const ProjectCarousel = forwardRef((props, ref) => {
   return (
     <div
       id="project-portfolio"
-      className="bg-orange-quaternary h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[41.7rem] xl:h-[48rem] overflow-hidden "
+      className="bg-white h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[35rem] overflow-hidden "
     >
       <div className="relative h-full">
         {/* <div className="absolute inset-0 py-10 lg:py-36  h-full" /> */}

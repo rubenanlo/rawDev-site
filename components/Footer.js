@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "components/Logo.js";
 
+// TODO: find a way to centralize all icons
 const navigation = {
   links: [
     {

@@ -77,14 +77,14 @@ const CollabInnovExpert = () => {
                       : section.bg === "collab-2"
                       ? "bg-collab-2"
                       : "bg-collab-3",
-                    "flex flex-col justify-between rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10"
+                    "flex flex-col justify-between bg-no-repeat bg-cover rounded-3xl ring-1 ring-gray-900/10"
                   )}
                 >
-                  <div>
+                  <div className="bg-orange-quaternary/20 h-full p-8 sm:p-10 rounded-3xl">
                     <h3
                       id={section.id}
                       className={classNames(
-                        index === 2 ? "text-gray-50" : "text-orange-primary",
+                        index === 2 ? "text-gray-50 " : "text-orange-primary",
                         "text-base font-semibold leading-7"
                       )}
                     >

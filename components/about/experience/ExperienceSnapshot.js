@@ -8,10 +8,10 @@ import REACT from "static/assets/react.svg";
 import HTML from "static/assets/html5.svg";
 import JS from "static/assets/js.svg";
 import NEXT from "static/assets/next.svg";
-import NPM from "static/assets/npmjs.svg";
 import NODE from "static/assets/node.svg";
 import EXCEL from "static/assets/excel.svg";
 import GIT from "static/assets/git.svg";
+import VSCODE from "static/assets/vscode.svg";
 
 const text = {
   intro: {
@@ -45,6 +45,10 @@ const text = {
           alt: "NextJS",
         },
         {
+          icon: VSCODE,
+          alt: "VSCode",
+        },
+        {
           icon: REACT,
           alt: "ReactJS",
         },
@@ -59,10 +63,6 @@ const text = {
         {
           icon: CSS,
           alt: "CSS",
-        },
-        {
-          icon: NPM,
-          alt: "npm",
         },
         {
           icon: NODE,

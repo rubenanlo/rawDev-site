@@ -178,7 +178,7 @@ const ProjectCarousel = forwardRef((props, ref) => {
   return (
     <div
       id="project-portfolio"
-      className="bg-white h-[40rem] xs:h-[34rem] sm:h-[34rem] lg:h-[35rem] overflow-hidden"
+      className="bg-white h-[40rem] xs:h-[34rem] sm:h-[34rem] lg:h-[36rem] overflow-hidden"
     >
       <div className="relative h-full">
         {/* <div className="absolute inset-0 py-10 lg:py-36  h-full" /> */}

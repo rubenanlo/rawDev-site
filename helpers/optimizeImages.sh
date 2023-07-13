@@ -7,7 +7,7 @@
 # - imagemin-svgo
 # - imagemin-gifsicle
 
-# Note: when using this script, make sure you have the following packages installed:
+# Script you need to run:
 # npm i -D imagemin imagemin-cli imagemin-webp imagemin-pngquant imagemin-mozjpeg imagemin-svgo imagemin-gifsicle
 
 # ***********************
@@ -23,8 +23,8 @@
 # ****** IMPORTANT ******
 # ***********************
 
-directories=($(node -pe 'JSON.parse(fs.readFileSync("optimize.config.json").toString()).directories.join(" ")'))
-images=($(node -pe 'JSON.parse(fs.readFileSync("optimize.config.json").toString()).images.join(" ")'))
+directories=($(node -pe 'JSON.parse(fs.readFileSync("../optimize.config.json").toString()).directories.join(" ")'))
+images=($(node -pe 'JSON.parse(fs.readFileSync("../optimize.config.json").toString()).images.join(" ")'))
 
 # Optimize files in directories
 for dir in "${directories[@]}"

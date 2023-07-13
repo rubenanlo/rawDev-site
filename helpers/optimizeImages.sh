@@ -6,6 +6,9 @@
 # - imagemin-pngquant
 # - imagemin-mozjpeg
 # - imagemin-svgo
+# - imagemin-gifsicle
+
+# script: "npm install imagemin imagemin-webp imagemin-pngquant imagemin-mozjpeg imagemin-svgo imagemin-gifsicle"
 
 # This script will optimize all images in the specified directories
 
@@ -17,7 +20,7 @@ for dir in "${directories[@]}"
 do
   cd "$dir"
 
-  npx imagemin "**/*.{jpg,JPG,jpeg,png,webp,svg}" --plugin=mozjpeg --plugin=pngquant --plugin-svgo --plugin=webp --out-dir ./optimized
+  npx imagemin "**/*.{jpg,JPG,jpeg,png,webp,svg,gif}" --plugin=mozjpeg --plugin=pngquant --plugin-svgo --plugin=webp --plugin=gifsicle --out-dir ./optimized
   
   # Now, for each optimized image, if it exists in the "optimized" folder, delete the original
   for file in ./optimized/*; do

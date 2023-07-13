@@ -1,12 +1,13 @@
-#Introduction:
+# Features
 
-This repo is a template for any web application that SDSN wants to build based on NextJS and Tailwind stack. Note that there are some items to be considered while working off this template:
+This is a static website that includes the following features:
 
-1. You will need to define the following variables from the config.js file located at the root level:
-
-   1.1. Google Analytics ID: GA_TRACKING_ID
-   1.2. META_IMAGE referring to the preview image shown in social networks and when sharing on messengers, like WhatsApp and others.
-   1.3. META_DESCRIPTION referring to the description shown in google search results and on social media network. Note that the url should be absolute (e.g., https://www.domain.com/static/preview.jpg), and the recommended size is 1200 x 627.
-   1.4. URL of the deployed page
-
-2. If you are planning on having a download feature, you can uncomment the code in gtag.js file to ensure that google analytics tracks downloads from the web application.
+- [x] Form submission with email validation
+- [x] Responsive design
+- [x] Animations
+- [ ] A dashboard with API calls to GitHub (upcoming)
+- [ ] A centralized way to store all text (upcoming). Potentially creating a
+      specific dashboard for admin to control all text from there.
+- [ ] A dashboard for admin that will include: 1) RUD functionality for list of
+      contacted people (recruiters and clients); 2) RUD functionality to change the
+      text of the CV.

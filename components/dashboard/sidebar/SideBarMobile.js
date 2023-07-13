@@ -11,7 +11,7 @@ const SideBarMobile = () => {
           height={200}
           width={200}
           className="h-8 w-auto"
-          src="static/assets/logo.png"
+          src="static/assets/logo.webp"
           alt="rawDev"
         />
         <p className="text-sm">rawDev</p>

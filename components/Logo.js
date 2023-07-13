@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import LOGO_ORANGE from "static/assets/logo-orange-light.png";
+import LOGO_ORANGE from "static/assets/logo-orange-light.webp";
 
 const Logo = ({ size }) => {
   return size === "big" ? (

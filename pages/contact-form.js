@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import ConfirmEmailNotification from "components/modals/ConfirmEmailNotification";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
+import BannerTop from "components/BannerTop";
 
 const ContactForm = () => {
   // Set initial state for form response
@@ -49,6 +50,7 @@ const ContactForm = () => {
   return (
     <AppLayoutWithNavbar>
       {hasSubmittedForm && <ConfirmEmailNotification />}
+      <BannerTop />
       <div className="py-24 sm:py-40 px-10 space-y-10 divide-y divide-gray-900/10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
           <div className="px-4 sm:px-0 text-center sm:text-left">

@@ -1,35 +1,39 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { useInView, motion } from "framer-motion";
+import { classNames } from "helpers/setClassNames";
 
 const sections = [
   {
     name: "Collaboration",
     id: "collaboration",
+    bg: "collab-1",
     description:
       "We will work with you to make sure your website is exactly what you want it to be.",
     image: {
-      src: "/assets/innovation.png",
+      src: "/assets/innovation.webp",
       alt: "Innovation",
     },
   },
   {
     name: "Innovation",
     id: "innovation",
+    bg: "collab-2",
     description:
       "We will rely on the technical stack that is suitable for your needs.",
     image: {
-      src: "/assets/innovation.png",
+      src: "/assets/innovation.webp",
       alt: "Innovation",
     },
   },
   {
     name: "Expertise",
     id: "expertise",
+    bg: "collab-3",
     description:
-      "A background in supply chain analysis is the perfect link to understand your needs.",
+      "A background in economics and business is the perfect link to understand your needs.",
     image: {
-      src: "/assets/innovation.png",
+      src: "/assets/innovation.webp",
       alt: "Innovation",
     },
   },
@@ -59,24 +63,39 @@ const CollabInnovExpert = () => {
           opacity: isInView && [0.5, 1],
           transition: { duration: 1, delay: 0.2 },
         }}
-        className="flow-root  pb-24 sm:pb-32"
+        className="flow-root pb-24 sm:pb-32"
       >
         <div className="-mt-80">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:max-w-7xl lg:grid-cols-3">
-              {sections.map((section) => (
+              {sections.map((section, index) => (
                 <div
                   key={section.id}
-                  className="flex flex-col justify-between rounded-3xl bg-gray-100 p-8  ring-1 ring-gray-900/10 sm:p-10"
+                  className={classNames(
+                    section.bg === "collab-1"
+                      ? "bg-collab-1"
+                      : section.bg === "collab-2"
+                      ? "bg-collab-2"
+                      : "bg-collab-3",
+                    "flex flex-col justify-between bg-no-repeat bg-cover rounded-3xl ring-1 ring-gray-900/10"
+                  )}
                 >
-                  <div>
+                  <div className="bg-orange-quaternary/20 h-full p-8 sm:p-10 rounded-3xl">
                     <h3
                       id={section.id}
-                      className="text-base font-semibold leading-7 text-orange-primary"
+                      className={classNames(
+                        index === 2 ? "text-gray-50 " : "text-orange-primary",
+                        "text-base font-semibold leading-7"
+                      )}
                     >
                       {section.name}
                     </h3>
-                    <p className="mt-6 text-base leading-7 text-gray-600">
+                    <p
+                      className={classNames(
+                        index === 2 ? "text-gray-100" : "text-gray-600",
+                        "mt-6 text-base leading-7"
+                      )}
+                    >
                       {section.description}
                     </p>
                   </div>

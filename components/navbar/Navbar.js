@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import Logo from "components/Logo";
@@ -9,10 +10,37 @@ import { about, clientPortal } from "static/navbar/NAVBAR";
 
 const Navbar = () => {
   const [isShowingInMobile, setIsShowingInMobile] = useState(false);
+  const [openNavbar, setOpenNavbar] = useState(false);
   const fullNavigation = [clientPortal, ...about];
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
+  const router = useRouter();
+
+  const navbarInAbout = {
+    animation: {
+      y:
+        router.pathname === "/about" && !isBreakpoint
+          ? !openNavbar
+            ? [0, -50]
+            : [-50, 0]
+          : 0,
+      opacity:
+        router.pathname === "/about" && !isBreakpoint
+          ? !openNavbar
+            ? [1, 0]
+            : [0, 1]
+          : 1,
+    },
+    transition: { duration: 0.7, delay: 0.2 },
+  };
+
+  const buttonNavbarInAbout = {
+    animation: {
+      y: openNavbar ? [0, 40] : [40, 0],
+      opacity: openNavbar ? [1, 0] : [0, 1],
+    },
+  };
 
   const containerNavbarMobile = {
     visible: {
@@ -44,8 +72,15 @@ const Navbar = () => {
   }, [isShowingInMobile, isBreakpoint]);
 
   return (
-    <div as="nav">
-      <div className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-10 pb-5">
+    <>
+      <motion.div
+        as="nav"
+        animate={navbarInAbout.animation}
+        transition={navbarInAbout.transition}
+        onMouseEnter={() => setOpenNavbar(true)}
+        onMouseLeave={() => setOpenNavbar(false)}
+        className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-40 pb-5"
+      >
         <div className="w-screen px-2 sm:px-6 lg:px-10">
           <div className="relative flex h-16 justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -112,8 +147,21 @@ const Navbar = () => {
             </div>
           </motion.div>
         )}
-      </div>
-    </div>
+      </motion.div>
+      {router.pathname === "/about" && !isBreakpoint && (
+        <motion.div
+          animate={buttonNavbarInAbout.animation}
+          transition={navbarInAbout.transition}
+          onMouseEnter={() => setOpenNavbar(true)}
+          onMouseLeave={() => setOpenNavbar(false)}
+          className="fixed w-screen flex justify-center cursor-pointer z-30"
+        >
+          <button className="bg-orange-tertiary/40 px-5 rounded-b-lg">
+            <Bars3Icon className="h-6 text-gray-800" />
+          </button>
+        </motion.div>
+      )}
+    </>
   );
 };
 

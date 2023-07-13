@@ -10,10 +10,12 @@ import RAWDEV from "static/assets/rawdev.gif";
 import SDGTC from "static/assets/sdgtc.gif";
 import STATIC from "static/assets/static-website.webp";
 import DATAVIZ from "static/assets/data-visualization.gif";
-// import CSS from "static/assets/css3-alt.svg";
-// import REACT from "static/assets/react.svg";
-// import HTML from "static/assets/html5.svg";
-// import JS from "static/assets/js.svg";
+import DIAPER from "static/assets/diaper.gif";
+import PLANTHATMEAL from "static/assets/planthatmeal.webp";
+import CSS from "static/assets/css3-alt.svg";
+import REACT from "static/assets/react.svg";
+import HTML from "static/assets/html5.svg";
+import JS from "static/assets/js.svg";
 import NEXT from "static/assets/next.svg";
 // import NPM from "static/assets/npmjs.svg";
 import NODE from "static/assets/node.svg";
@@ -119,6 +121,57 @@ const projects = [
         alt: "link",
         target: "_blank",
         href: "https://dashboards.sdgindex.org/",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Plan That Meal",
+    highlightFeatures:
+      "A meal planner for busy people who need to have all recipes, meals and shopping lists organized. It includes a REST API, CRUD functionality, and authentication.",
+    imageUrl: PLANTHATMEAL,
+    date: "August 19, 2022",
+    datetime: "2022-08-19",
+    techStack: [
+      { icon: REACT, alt: "ReactJS" },
+      { icon: NODE, alt: "Node.js" },
+      { icon: MONGO, alt: "Mongo DB" },
+      { icon: CSS, alt: "CSS3" },
+    ],
+    links: [
+      {
+        icon: GITHUB,
+        alt: "github",
+        target: "_blank",
+        href: "https://github.com/rubenanlo/plan-that-meal-client",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Video Game",
+    highlightFeatures:
+      "This is a video game that I created during my bootcamp. It includes DOM manipulation and relies purely on Javascript, HTML and CSS and responsiveness.",
+    imageUrl: DIAPER,
+    date: "July 10, 2022",
+    datetime: "2022-07-10",
+    techStack: [
+      { icon: JS, alt: "Javascript" },
+      { icon: HTML, alt: "HTML5" },
+      { icon: CSS, alt: "CSS3" },
+    ],
+    links: [
+      {
+        icon: LINK,
+        alt: "link",
+        target: "_blank",
+        href: "https://rubenanlo.github.io/tick-tock-diaper/indexgame.html?",
+      },
+      {
+        icon: GITHUB,
+        alt: "github",
+        target: "_blank",
+        href: "https://github.com/rubenanlo/tick-tock-diaper",
       },
     ],
   },

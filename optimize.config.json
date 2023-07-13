@@ -1,4 +1,4 @@
 {
-    "directories": ["../public/static/assets"],
-    "images": [""]
+    "directories": ["../public/static/assets/"],
+    "images": ["../public/static/assets/sdgtc.gif"]
   }

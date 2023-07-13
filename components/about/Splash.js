@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const Splash = () => {
-  const logo = "static/assets/logo-orange-light.png";
+  const logo = "static/assets/logo-orange-light.webp";
   // Define what the full string will be and the acronym that you want to form
   // based on that string
   let string = "ruben andino web Developer";

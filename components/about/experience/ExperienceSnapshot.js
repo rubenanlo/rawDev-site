@@ -34,11 +34,7 @@ const text = {
     },
     {
       title: "My stack",
-      softStack: [
-        "managing teams & projects",
-        "conflict resolution",
-        "client focus",
-      ],
+      softStack: ["managing teams & projects", "client focus"],
       techStack: [
         {
           icon: NEXT,

@@ -1,4 +1,3 @@
-
 # Note: when using this script, make sure you have the following packages
 # installed:
 # - imagemin
@@ -7,8 +6,6 @@
 # - imagemin-mozjpeg
 # - imagemin-svgo
 # - imagemin-gifsicle
-
-# script: "npm install imagemin imagemin-webp imagemin-pngquant imagemin-mozjpeg imagemin-svgo imagemin-gifsicle"
 
 # This script will optimize all images in the specified directories
 
@@ -34,15 +31,27 @@ do
       if ls ./"$filename".* 1> /dev/null 2>&1; then
         # Remove the original file. This assumes the original has the same name and relative location, but in the current directory
         rm ./"$filename".*
-        
-        # Move the optimized image to the original directory
-        mv "$file" .
       fi
+
+      # Move the optimized image to the original directory
+      mv "$file" .
     fi
   done
   
   # Remove the now-empty 'optimized' directory
   rmdir ./optimized
+
+  # Convert AVIF files to WebP while preserving aspect ratio and reducing size
+  for avif_file in ./*.avif; do
+    if [ -f "$avif_file" ]; then
+      filename=$(basename -- "$avif_file")
+      filename="${filename%.*}"
+      webp_file="$filename.webp"
+      ffmpeg -i "$avif_file" -vf "scale=iw*0.5:ih*0.5" -q:v 80 "$webp_file"
+      echo "Converted $avif_file to $webp_file"
+      rm ./"$filename".avif
+    fi
+  done
 
   cd -
 done

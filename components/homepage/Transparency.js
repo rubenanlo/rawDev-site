@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { LinkIcon, UserPlusIcon } from "@heroicons/react/20/solid";
-import TRANSPARENCY_ONE from "static/assets/transparency-1.png";
+import TRANSPARENCY_ONE from "static/assets/transparency-1.webp";
 
 const features = [
   {

@@ -11,7 +11,7 @@ const sections = [
     description:
       "We will work with you to make sure your website is exactly what you want it to be.",
     image: {
-      src: "/assets/innovation.png",
+      src: "/assets/innovation.webp",
       alt: "Innovation",
     },
   },
@@ -22,7 +22,7 @@ const sections = [
     description:
       "We will rely on the technical stack that is suitable for your needs.",
     image: {
-      src: "/assets/innovation.png",
+      src: "/assets/innovation.webp",
       alt: "Innovation",
     },
   },
@@ -33,7 +33,7 @@ const sections = [
     description:
       "A background in economics and business is the perfect link to understand your needs.",
     image: {
-      src: "/assets/innovation.png",
+      src: "/assets/innovation.webp",
       alt: "Innovation",
     },
   },

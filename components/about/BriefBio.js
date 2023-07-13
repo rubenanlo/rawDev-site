@@ -2,7 +2,7 @@ import Image from "next/image";
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import Splash from "components/about/Splash";
-import PHOTO_PROFILE from "static/assets/photo-profile.jpeg";
+import PHOTO_PROFILE from "static/assets/photo-profile.webp";
 import Link from "next/link";
 
 const bio = {

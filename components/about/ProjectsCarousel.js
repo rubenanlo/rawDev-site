@@ -8,7 +8,7 @@ import ProjectCard from "components/about/ProjectCard";
 import { RespContext } from "helpers/responsiveComponent";
 import RAWDEV from "static/assets/rawdev.gif";
 import SDGTC from "static/assets/sdgtc.gif";
-import STATIC from "static/assets/static-website.png";
+import STATIC from "static/assets/static-website.webp";
 import DATAVIZ from "static/assets/data-visualization.gif";
 // import CSS from "static/assets/css3-alt.svg";
 // import REACT from "static/assets/react.svg";

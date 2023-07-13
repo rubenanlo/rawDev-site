@@ -11,11 +11,11 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        integrity: "url('/static/assets/integrity-13.avif')",
-        error: "url('/static/assets/error.avif')",
-        "collab-1": "url('/static/assets/collab-1.png')",
-        "collab-2": "url('/static/assets/collab-2.png')",
-        "collab-3": "url('/static/assets/collab-3.png')",
+        integrity: "url('/static/assets/integrity-13.webp')",
+        error: "url('/static/assets/error.webp')",
+        "collab-1": "url('/static/assets/collab-1.webp')",
+        "collab-2": "url('/static/assets/collab-2.webp')",
+        "collab-3": "url('/static/assets/collab-3.webp')",
       },
       colors: {
         blue: {

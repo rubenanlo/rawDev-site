@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "components/Logo";
 import AppLayoutWithoutNavbar from "layouts/AppLayoutWithoutNavbar";
-import LOGIN_IMAGE from "static/assets/login.avif";
+import LOGIN_IMAGE from "static/assets/login.webp";
 
 const Login = () => {
   const [email, setEmail] = useState("");

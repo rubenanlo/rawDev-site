@@ -171,11 +171,11 @@ const ExperienceSnapshot = () => {
               {highlightsDiffPattern.title}
             </p>
             <div>
-              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 my-10 sm:my-12">
+              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 my-10">
                 <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
                   SoftStack
                 </p>
-                <p className="mt-2 text-sm leading-7 items-start text-gray-400 text-left">
+                <p className="text-sm leading-7 items-start text-gray-400 text-left">
                   {highlightsDiffPattern.softStack.join(", ")}
                 </p>
               </div>

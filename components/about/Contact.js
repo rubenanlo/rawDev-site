@@ -2,9 +2,9 @@ import Link from "next/link";
 import { forwardRef } from "react";
 
 const Contact = forwardRef((props, ref) => (
-  <div id="contact" className=" px-6 py-24 sm:py-32 lg:px-8">
+  <div id="contact" className=" px-6 py-24 sm:py-40 lg:px-8">
     <div className="mx-auto max-w-2xl text-center">
-      <h2 className="text-4xl font-bold tracking-tight text-white mb-20">
+      <h2 className="text-4xl font-bold tracking-tight text-white mb-16">
         Ready to talk?
       </h2>
       <p ref={ref} className="mt-6 sm:text-lg leading-8 text-gray-300">

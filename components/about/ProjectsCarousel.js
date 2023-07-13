@@ -165,7 +165,7 @@ const projects = [
         icon: LINK,
         alt: "link",
         target: "_blank",
-        href: "https://rubenanlo.github.io/tick-tock-diaper/indexgame.html?",
+        href: "https://rubenanlo.github.io/tick-tock-diaper",
       },
       {
         icon: GITHUB,

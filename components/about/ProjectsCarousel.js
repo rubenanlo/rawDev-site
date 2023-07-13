@@ -34,7 +34,12 @@ const projects = [
     imageUrl: RAWDEV,
     date: "July 11, 2023",
     datetime: "2023-07-11",
-    techStack: [NEXT, NODE, MONGO, TAILWIND],
+    techStack: [
+      { icon: NEXT, alt: "NextJS" },
+      { icon: NODE, alt: "Node.js" },
+      { icon: MONGO, alt: "Mongo DB" },
+      { icon: TAILWIND, alt: "Tailwind" },
+    ],
     links: [
       {
         icon: LINK,
@@ -58,7 +63,12 @@ const projects = [
     imageUrl: SDGTC,
     date: "June 23, 2023",
     datetime: "2023-06-23",
-    techStack: [NEXT, NODE, TAILWIND, SHELL],
+    techStack: [
+      { icon: NEXT, alt: "NextJS" },
+      { icon: NODE, alt: "Node.js" },
+      { icon: TAILWIND, alt: "Tailwind" },
+      { icon: SHELL, alt: "Shell scripting" },
+    ],
     links: [
       {
         icon: LINK,
@@ -76,7 +86,12 @@ const projects = [
     imageUrl: STATIC,
     date: "April 01, 2023",
     datetime: "2023-04-01",
-    techStack: [NEXT, NODE, TAILWIND, SHELL],
+    techStack: [
+      { icon: NEXT, alt: "NextJS" },
+      { icon: NODE, alt: "Node.js" },
+      { icon: TAILWIND, alt: "Tailwind" },
+      { icon: SHELL, alt: "Shell scripting" },
+    ],
     links: [
       {
         icon: LINK,
@@ -94,7 +109,10 @@ const projects = [
     imageUrl: DATAVIZ,
     date: "June 23, 2023",
     datetime: "2023-06-23",
-    techStack: [NEXT, NODE],
+    techStack: [
+      { icon: NEXT, alt: "NextJS" },
+      { icon: NODE, alt: "Node.js" },
+    ],
     links: [
       {
         icon: LINK,
@@ -160,7 +178,7 @@ const ProjectCarousel = forwardRef((props, ref) => {
   return (
     <div
       id="project-portfolio"
-      className="bg-white h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[35rem] overflow-hidden "
+      className="bg-white h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[35rem] overflow-hidden"
     >
       <div className="relative h-full">
         {/* <div className="absolute inset-0 py-10 lg:py-36  h-full" /> */}
@@ -206,14 +224,14 @@ const ProjectCarousel = forwardRef((props, ref) => {
             >
               <div
                 id={"prev"}
-                className="inset-y-1/2   w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
+                className="inset-y-1/2 w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none z-10"
                 onClick={() => paginate(-1)}
               >
                 <ArrowLongLeftIcon className="h-7 text-orange-secondary" />
               </div>
               <div
                 id={"next"}
-                className="w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none"
+                className="w-[2.5rem] h-[2.5rem] flex justify-center items-center cursor-pointer select-none z-10"
                 onClick={() => paginate(1)}
               >
                 <ArrowLongRightIcon className="h-7 text-orange-secondary" />

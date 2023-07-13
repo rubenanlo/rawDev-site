@@ -178,7 +178,7 @@ const ProjectCarousel = forwardRef((props, ref) => {
   return (
     <div
       id="project-portfolio"
-      className="bg-white h-[50rem] xs:h-[42rem] sm:h-[48rem] lg:h-[35rem] overflow-hidden"
+      className="bg-white h-[40rem] xs:h-[34rem] sm:h-[34rem] lg:h-[35rem] overflow-hidden"
     >
       <div className="relative h-full">
         {/* <div className="absolute inset-0 py-10 lg:py-36  h-full" /> */}
@@ -210,9 +210,9 @@ const ProjectCarousel = forwardRef((props, ref) => {
             <ProjectCard project={projects[imageIndex]} />
           </motion.div>
         </AnimatePresence>
-        <div className="relative max-w-7xl h-full mx-auto">
+        <div className="relative max-w-3xl h-full mx-auto">
           {isBreakpoint && (
-            <div className="absolute -bottom-20 right-0 left-auto flex items-center">
+            <div className="absolute bottom-7 right-1/2 left-auto flex items-center z-10">
               <ArrowLongRightIcon className=" w-7 text-orange-secondary" />
             </div>
           )}

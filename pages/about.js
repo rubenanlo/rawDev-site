@@ -5,6 +5,7 @@ import BriefBio from "components/about/BriefBio";
 import ProjectCarousel from "components/about/ProjectsCarousel";
 import Experience from "components/about/experience/Experience";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
+import Contact from "../components/about/Contact";
 
 const About = () => {
   const ref = {
@@ -24,6 +25,7 @@ const About = () => {
       <BriefBio ref={ref.bio} />
       <Experience ref={ref.experience} />
       <ProjectCarousel ref={ref.portfolio} />
+      <Contact />
     </AppLayoutWithNavbar>
   );
 };

@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -9,10 +8,6 @@ module.exports = {
   theme: {
     fontFamily: {
       comfortaa: ["Comfortaa", "sans-serif"],
-    },
-    screens: {
-      xs: "475px",
-      ...defaultTheme.screens,
     },
     extend: {
       backgroundImage: {

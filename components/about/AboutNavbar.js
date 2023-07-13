@@ -7,17 +7,26 @@ const AboutNavbar = ({ isInView }) => {
     {
       id: "Brief bio",
       href: "#brief-bio",
-      isInView: !isInView.portfolio && !isInView.experience && isInView.bio,
+      isInView:
+        !isInView.contact &&
+        !isInView.portfolio &&
+        !isInView.experience &&
+        isInView.bio,
     },
     {
       id: "Experience",
       href: "#experience",
-      isInView: !isInView.portfolio && isInView.experience,
+      isInView: !isInView.contact && !isInView.portfolio && isInView.experience,
     },
     {
       id: "Project portfolio",
       href: "#project-portfolio",
-      isInView: isInView.portfolio,
+      isInView: !isInView.contact && isInView.portfolio,
+    },
+    {
+      id: "Contact me",
+      href: "#contact",
+      isInView: isInView.contact,
     },
   ];
 

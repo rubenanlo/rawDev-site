@@ -12,20 +12,23 @@ const About = () => {
     bio: useRef(null),
     experience: useRef(null),
     portfolio: useRef(null),
+    contact: useRef(null),
   };
 
   const isInView = {
     bio: useInView(ref.bio),
     experience: useInView(ref.experience),
     portfolio: useInView(ref.portfolio),
+    contact: useInView(ref.contact),
   };
+
   return (
     <AppLayoutWithNavbar>
       <AboutNavbar isInView={isInView} />
       <BriefBio ref={ref.bio} />
       <Experience ref={ref.experience} />
       <ProjectCarousel ref={ref.portfolio} />
-      <Contact />
+      <Contact ref={ref.contact} />
     </AppLayoutWithNavbar>
   );
 };

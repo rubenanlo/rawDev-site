@@ -30,7 +30,7 @@ images=($(node -pe 'JSON.parse(fs.readFileSync("../optimize.config.json").toStri
 for dir in "${directories[@]}"
 do
   cd "$dir"
-  npx imagemin "**/*.{jpg,JPG,jpeg,png,webp,svg, gif}" --plugin=mozjpeg --plugin=gifsicle.optimizationLevel=2 --plugin=pngquant --plugin=svgo --plugin=webp --out-dir ./optimized
+  npx imagemin "**/*.{jpg,JPG,jpeg,png,webp,svg, gif}" --plugin=mozjpeg --plugin=gifsicle --plugin=pngquant --plugin=svgo --plugin=webp --out-dir ./optimized
 
   # Now, for each optimized image, if it exists in the "optimized" folder, delete the original
   for file in ./optimized/*; do
@@ -79,7 +79,7 @@ do
     rm "$filename"
   else
     # Optimize other image formats
-    npx imagemin "$filename" --plugin=mozjpeg --plugin=pngquant --plugin=svgo --plugin.webp.quality=95 --plugin.gifsicle.optimizationLevel=2 --out-dir ./optimized
+    npx imagemin "$filename" --plugin=mozjpeg --plugin=pngquant --plugin=svgo --plugin.webp.quality=95 --plugin=gifsicle --out-dir ./optimized
 
     for file in ./optimized/*; do
       if [ -f "$file" ]; then

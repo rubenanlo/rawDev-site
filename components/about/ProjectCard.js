@@ -67,7 +67,7 @@ const ProjectCard = ({
                 <div className="flex flex-col-reverse sm:flex-row sm:gap-x-4 gap-y-1 items-start sm:items-center">
                   {title}
                   <div className="flex gap-x-3">
-                    {links.map(({ href, icon, target, alt }) => (
+                    {links?.map(({ href, icon, target, alt }) => (
                       <Link
                         key={icon}
                         className="w-5"

@@ -12,6 +12,7 @@ import STATIC from "static/assets/static-website.webp";
 import DATAVIZ from "static/assets/data-visualization.gif";
 import DIAPER from "static/assets/diaper.gif";
 import PLANTHATMEAL from "static/assets/planthatmeal.webp";
+import FINANCIAL from "static/assets/financial-model.gif";
 import CSS from "static/assets/css3-alt.svg";
 import REACT from "static/assets/react.svg";
 import HTML from "static/assets/html5.svg";
@@ -19,7 +20,7 @@ import JS from "static/assets/js.svg";
 import NEXT from "static/assets/next.svg";
 // import NPM from "static/assets/npmjs.svg";
 import NODE from "static/assets/node.svg";
-// import EXCEL from "static/assets/excel.svg";
+import EXCEL from "static/assets/excel.svg";
 // import GIT from "static/assets/git.svg";
 import MONGO from "static/assets/mongo.svg";
 import TAILWIND from "static/assets/tailwind.svg";
@@ -174,6 +175,16 @@ const projects = [
         href: "https://github.com/rubenanlo/tick-tock-diaper",
       },
     ],
+  },
+  {
+    id: 7,
+    title: "Financial Models",
+    highlightFeatures:
+      "Sample of type of data visualizations I have created throughout my career as an economist. Main feature includes dragging tabs from an external file and dropping them into a template to automatically generate results.",
+    imageUrl: FINANCIAL,
+    date: "2008 - 2022",
+    datetime: "2008-09-01",
+    techStack: [{ icon: EXCEL, alt: "Microsoft Excel" }],
   },
 ];
 

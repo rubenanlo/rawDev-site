@@ -88,8 +88,8 @@ const BriefBio = forwardRef((props, ref) => {
       ref={ref}
       className="py-32 sm:py-32 sm:h-screen flex flex-col justify-center"
     >
+      <Splash />
       <div className="mx-auto max-w-xs sm:max-w-none sm:px-10">
-        <Splash />
         <motion.div
           initial={briefBioAnimation.initial}
           animate={briefBioAnimation.animate}

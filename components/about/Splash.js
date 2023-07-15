@@ -43,39 +43,37 @@ const Splash = () => {
   };
 
   return (
-    <div>
-      <h1 className="scale-75 sm:scale-100 text-3xl text-orange-tertiary flex justify-center items-center">
-        <motion.img
-          src={logo}
-          alt="logo"
-          className="w-10"
-          initial={imgAnimation.initial}
-          animate={imgAnimation.animate}
-          transition={acronymAnimation.transition}
-        />
-        {restOfCharacters.map((word, index) => (
-          <>
-            <motion.p
-              animate={{
-                ...acronymAnimation.animate,
-                x: [0, positionXForAcronym(index)],
-              }}
-              transition={acronymAnimation.transition}
-            >
-              {acronym[index]}
-            </motion.p>
-            <motion.p
-              initial={disappearAnimation.initial}
-              animate={disappearAnimation.animate}
-              transition={disappearAnimation.transition}
-              className="mr-2"
-            >
-              {word}
-            </motion.p>
-          </>
-        ))}
-      </h1>
-    </div>
+    <h1 className="-ml-5 scale-75 sm:scale-100 text-3xl text-orange-tertiary flex justify-center items-center">
+      <motion.img
+        src={logo}
+        alt="logo"
+        className="w-10"
+        initial={imgAnimation.initial}
+        animate={imgAnimation.animate}
+        transition={acronymAnimation.transition}
+      />
+      {restOfCharacters.map((word, index) => (
+        <>
+          <motion.p
+            animate={{
+              ...acronymAnimation.animate,
+              x: [0, positionXForAcronym(index)],
+            }}
+            transition={acronymAnimation.transition}
+          >
+            {acronym[index]}
+          </motion.p>
+          <motion.p
+            initial={disappearAnimation.initial}
+            animate={disappearAnimation.animate}
+            transition={disappearAnimation.transition}
+            className="pr-2"
+          >
+            {word}
+          </motion.p>
+        </>
+      ))}
+    </h1>
   );
 };
 

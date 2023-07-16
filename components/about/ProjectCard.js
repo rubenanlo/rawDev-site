@@ -26,6 +26,7 @@ const ProjectCard = ({
             className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-48 sm:pt-48 lg:pt-60"
           >
             <Image
+              priority={true}
               src={imageUrl}
               alt=""
               className="absolute inset-0 -z-10 h-full w-full md:object-left lg:object-top"

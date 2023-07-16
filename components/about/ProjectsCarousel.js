@@ -14,7 +14,7 @@ import SDGTC_SM from "static/assets/sdgtc-sm.gif";
 import STATIC from "static/assets/static-website.webp";
 import STATIC_SM from "static/assets/static-website-sm.webp";
 import DATAVIZ from "static/assets/data-visualization.gif";
-import DATAVIZ_SM from "static/assets/data-visualization-sm.gif";
+import DATAVIZ_SM from "static/assets/data-visualization-sm.webp";
 import DIAPER from "static/assets/diaper.gif";
 import DIAPER_SM from "static/assets/diaper-sm.webp";
 import PLANTHATMEAL from "static/assets/planthatmeal.webp";

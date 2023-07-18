@@ -1,0 +1,24 @@
+id: 6
+title: Video Game
+highlightFeatures: >-
+  This is a video game that I created during my bootcamp. It includes DOM manipulation and relies purely on Javascript, HTML and CSS and responsiveness.
+imageUrlLg: DIAPER
+imageUrlSm: DIAPER_SM
+date: July 10, 2022
+datetime: "2022-07-10"
+techStack:
+  - icon: JS
+    alt: Javascript
+  - icon: HTML
+    alt: HTML5
+  - icon: CSS
+    alt: CSS3
+links:
+  - icon: LINK
+    alt: link
+    target: _blank
+    href: "https://rubenanlo.github.io/tick-tock-diaper"
+  - icon: GITHUB
+    alt: github
+    target: _blank
+    href: "https://github.com/rubenanlo/tick-tock-diaper"

@@ -1,0 +1,27 @@
+id: 1
+title: rawDev
+highlightFeatures: >-
+  Website application for web development services, including a dashboard for clients, form submission, authentication, REST API, CRUD functionality, and authentication.
+imageUrlLg: "rawdev.gif"
+imageUrlMd: rawdev-md.gif
+imageUrlSm: rawdev-sm.gif
+date: July 11, 2023
+datetime: "2023-07-11"
+techStack:
+  - icon: NEXT
+    alt: NextJS
+  - icon: NODE
+    alt: Node.js
+  - icon: MONGO
+    alt: Mongo DB
+  - icon: TAILWIND
+    alt: Tailwind
+links:
+  - icon: LINK
+    alt: link
+    target: _blank
+    href: "http://www.rawdev.io"
+  - icon: GITHUB
+    alt: Github
+    target: _blank
+    href: "https://github.com/rubenanlo/rawDev-site"

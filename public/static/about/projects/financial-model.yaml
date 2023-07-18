@@ -1,0 +1,11 @@
+id: 7
+title: Financial Models
+highlightFeatures: >-
+  Sample of type of data visualizations I have created throughout my career as an economist. Main feature includes dragging tabs from an external file and dropping them into a template to automatically generate results.
+imageUrlLg: FINANCIAL
+imageUrlSm: FINANCIAL_SM
+date: 2008 - 2022
+datetime: "2008-09-01"
+techStack:
+  - icon: EXCEL
+    alt: Microsoft Excel

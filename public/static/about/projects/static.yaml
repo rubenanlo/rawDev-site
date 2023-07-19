@@ -2,8 +2,6 @@ id: 3
 title: Static Website
 highlightFeatures: >-
   Web application that showcase a company's website following my own design choices. It includes a centralized way to handle text for the site, a list of products, among other features.
-imageUrlLg: STATIC
-imageUrlSm: STATIC_SM
 date: April 01, 2023
 datetime: "2023-04-01"
 techStack:

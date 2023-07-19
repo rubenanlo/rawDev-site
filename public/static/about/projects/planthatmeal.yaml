@@ -2,8 +2,6 @@ id: 5
 title: Plan That Meal
 highlightFeatures: >-
   A meal planner for busy people who need to have all recipes, meals and shopping lists organized. It includes a REST API, CRUD functionality, and authentication.
-imageUrlLg: PLANTHATMEAL
-imageUrlSm: PLANTHATMEAL_SM
 date: August 19, 2022
 datetime: "2022-08-19"
 techStack:

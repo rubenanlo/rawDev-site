@@ -2,8 +2,6 @@ id: 6
 title: Video Game
 highlightFeatures: >-
   This is a video game that I created during my bootcamp. It includes DOM manipulation and relies purely on Javascript, HTML and CSS and responsiveness.
-imageUrlLg: DIAPER
-imageUrlSm: DIAPER_SM
 date: July 10, 2022
 datetime: "2022-07-10"
 techStack:

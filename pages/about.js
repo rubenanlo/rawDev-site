@@ -5,9 +5,10 @@ import BriefBio from "components/about/BriefBio";
 import ProjectCarousel from "components/about/ProjectsCarousel";
 import Experience from "components/about/experience/Experience";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
-import Contact from "../components/about/Contact";
+import Contact from "components/about/Contact";
+import { getProjects } from "helpers/getProjects";
 
-const About = () => {
+const About = ({ projects }) => {
   const ref = {
     bio: useRef(null),
     experience: useRef(null),
@@ -27,10 +28,19 @@ const About = () => {
       <AboutNavbar isInView={isInView} />
       <BriefBio ref={ref.bio} />
       <Experience ref={ref.experience} />
-      <ProjectCarousel ref={ref.portfolio} />
+      <ProjectCarousel ref={ref.portfolio} projects={projects} />
       <Contact ref={ref.contact} />
     </AppLayoutWithNavbar>
   );
 };
+
+export async function getStaticProps() {
+  const projects = getProjects();
+  return {
+    props: {
+      projects,
+    },
+  };
+}
 
 export default About;

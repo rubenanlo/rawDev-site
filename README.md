@@ -37,30 +37,24 @@ The projects are stored in separate yaml files in the
 `/public/static/about/projects` directory. Each file has the following format:
 
 ```yaml
-id: 1
-title: rawDev
+id: Number
+title: String
 highlightFeatures: >-
-  Website application for web development services, including a dashboard for clients, form submission, authentication, REST API, CRUD functionality, and authentication.
-date: July 11, 2023
-datetime: "2023-07-11"
+  String (no more than 20 words)
+date: MMMM DD, YYYY
+datetime: YYYY-MM-DD
 techStack:
-  - icon: NEXT
-    alt: NextJS
-  - icon: NODE
-    alt: Node.js
-  - icon: MONGO
-    alt: Mongo DB
-  - icon: TAILWIND
-    alt: Tailwind
+  - icon: String (e.g., NEXT)
+    alt: String (e.g., NextJS)
+  - icon: String (e.g., NODE)
+    alt: String (e.g., Node.js)
+  # - other techSTack
 links:
-  - icon: LINK
-    alt: link
-    target: _blank
-    href: "http://www.rawdev.io"
-  - icon: GITHUB
-    alt: Github
-    target: _blank
-    href: "https://github.com/rubenanlo/rawDev-site"
+  - icon: String (e.g., LINK)
+    alt: String (e.g., link)
+    target: _blank --> determines whether the link opens in a new tab or not (if this not an internal link, it should open in a new tab)
+    href: String (e.g., "http://www.rawdev.io")
+  # - other links
 ```
 
 ### Cover images

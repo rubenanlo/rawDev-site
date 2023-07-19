@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     body.verifyId = createString();
 
     try {
-      const collection = await connectToDatabase("responses");
+      const collection = await connectToDatabase("form", "responses");
       const result = await collection.insertOne(body);
       sendEmail({ ...body, admin: false });
       sendEmail({ ...body, admin: true });

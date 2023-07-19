@@ -1,0 +1,20 @@
+id: 5
+title: Plan That Meal
+highlightFeatures: >-
+  A meal planner for busy people who need to have all recipes, meals and shopping lists organized. It includes a REST API, CRUD functionality, and authentication.
+date: August 19, 2022
+datetime: "2022-08-19"
+techStack:
+  - icon: REACT
+    alt: ReactJS
+  - icon: NODE
+    alt: Node.js
+  - icon: MONGO
+    alt: Mongo DB
+  - icon: CSS
+    alt: CSS3
+links:
+  - icon: GITHUB
+    alt: github
+    target: _blank
+    href: "https://github.com/rubenanlo/plan-that-meal-client"

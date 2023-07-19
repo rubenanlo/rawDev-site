@@ -1,5 +1,6 @@
 {
     "marquee.widgets.npm-stats.packageNames": [
         "nexttailwind-starter"
-    ]
+    ],
+    "editor.acceptSuggestionOnEnter": "on"
 }

@@ -22,7 +22,9 @@ if (process.env.NODE_ENV === "development") {
   clientPromise = globalWithMongo._mongoClientPromise;
 } else {
   // In production mode, it's best to not use a global variable.
-  client = new MongoClient(uri, options);
+  // if there is an existing client cause it's cached, then a new connection
+  // will not happen. This will help with consumption of resources in mongodb
+  client = client || new MongoClient(uri, options);
   clientPromise = client.connect();
 }
 

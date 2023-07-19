@@ -91,3 +91,16 @@ the `exportImages` helper and save the file as `next.png` in the
 `public/static/assets` directory.
 
 ### Links for website and github
+
+Each yaml file has a links array with the icon and the alt property for
+the external links in each project (i.e., link to the website and github repo). The icons are imported in the
+`exportImages` helper, and the icons themselves are saved in the
+`public/static/assets` directory.
+
+Whatever naming convention you use to store the icons
+in the `/public/static/assets` directory, you need to follow the same convention
+as in the yaml file with lowercase. For importing the icon into the
+`exportImages` helper, you need to use uppercase. For example, if you have an
+icon called `LINK` in the yaml file, you need to import the icon as `LINK` in
+the `exportImages` helper and save the file as `link.svg` in the
+`public/static/assets` directory.

@@ -25,10 +25,8 @@ import TAILWIND from "static/assets/tailwind.svg";
 import GITHUB from "static/assets/github.svg";
 import LINK from "static/assets/link.svg";
 import SHELL from "static/assets/shell.svg";
-import CONTACT from "static/assets/contact.svg";
 
 export const images = {
-  CONTACT,
   RAWDEV_LG,
   RAWDEV_MD,
   RAWDEV_SM,

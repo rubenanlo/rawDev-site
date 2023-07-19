@@ -7,8 +7,3 @@ datetime: "2008-09-01"
 techStack:
   - icon: EXCEL
     alt: Microsoft Excel
-links:
-  - icon: CONTACT
-    alt: Contact me for more
-    target: _blank
-    href: "/contact-form"

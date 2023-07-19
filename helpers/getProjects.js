@@ -50,9 +50,7 @@ const getUpdatedLinks = (project) => {
         images[icon] && { icon: images[icon], alt, ...rest }
     );
   } catch (error) {
-    console.log(
-      "You forgot to add Links for this project, please add at least one link"
-    );
+    console.log("There is an issue at rendering the links");
   }
 };
 
@@ -76,7 +74,7 @@ export const getProjects = () =>
         ...project,
         ...getCoverImage(fileName),
         techStack: getUpdatedTechStack(project),
-        links: getUpdatedLinks(project),
+        ...(getUpdatedLinks(project) && { links: getUpdatedLinks(project) }),
       };
     })
     .sort((a, b) => a.id - b.id);

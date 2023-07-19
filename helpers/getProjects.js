@@ -67,15 +67,16 @@ const getUpdatedTechStack = (project) => {
 };
 
 export const getProjects = () =>
-  getFileNames().map((fileName) => {
-    const project = yaml.load(
-      fs.readFileSync(`${directory}/${fileName}.yaml`, "utf8")
-    );
-
-    return {
-      ...project,
-      ...getCoverImage(fileName),
-      techStack: getUpdatedTechStack(project),
-      links: getUpdatedLinks(project),
-    };
-  });
+  getFileNames()
+    .map((fileName) => {
+      const project = yaml.load(
+        fs.readFileSync(`${directory}/${fileName}.yaml`, "utf8")
+      );
+      return {
+        ...project,
+        ...getCoverImage(fileName),
+        techStack: getUpdatedTechStack(project),
+        links: getUpdatedLinks(project),
+      };
+    })
+    .sort((a, b) => a.id - b.id);

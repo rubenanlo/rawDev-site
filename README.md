@@ -1,6 +1,9 @@
-# Features
+# Documentation
 
-This is a static website that includes the following features:
+This document explains how to store the data for the website, along with other
+relevant and important features.
+
+## Upcoming tasks
 
 - [x] Form submission with email validation
 - [x] Responsive design
@@ -21,10 +24,8 @@ This is a static website that includes the following features:
 - [ ] Add tests
 - [ ] Add google analytics
 - [ ] Add SEO functionality
-- [ ] Link to a medium article my experience
+- [ ] Link to a medium article my experience (optional)
 - [ ] Add navigation dots for project carousel
-
-# Documentation
 
 ## Images
 

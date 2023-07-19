@@ -3,76 +3,9 @@ import { motion, useInView } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
 import { useRef } from "react";
 
-const work = [
-  {
-    name: "Fullstack Web Developer, SDSN (Paris, France)",
-    description:
-      "Responsible for maintaining, updating and upgrading and creating data visualizations.",
-    techStack: "NextJS, Tailwind, styled components",
-    dateTime: "2022-11",
-  },
-  {
-    name: "Economist, Baker McKenzie (Paris, France)",
-    description:
-      "Beyond my responsibilities: Created a repo automatically updatable.",
-    techStack: "Microsoft Excel, Microsoft Word",
-    dateTime: "2021-09",
-  },
-  {
-    name: "Economist, PwC (New York, USA)",
-    description:
-      "Designed and implemented several automation tools. Some examples include  a tool to turn raw data into formatted tables (reduction of 1,000 hours of work); template creation to merge documents; among others.",
-    techStack: "Microsoft Excel, HTML, Javascript, CSS",
-    dateTime: "2019-05",
-  },
-  {
-    name: "Economist, EY (New York, USA)",
-    description:
-      "Defined best practices around how to build data visualizations.",
-    description2:
-      "Designed several data visualization tools including a supply chain analysis (supported big data and updatable within seconds), return on investment analysis, benchmarking analyses, among others.",
-    techStack: "Microsoft Excel",
-    dateTime: "2011-05",
-  },
-  {
-    name: "Economist, Deloitte (Barcelona, Spain)",
-    description:
-      "Designed a data visualization for a benchmarking analysis, which allows a 6% reduction of costs",
-    techStack: "Microsoft Excel",
-    dateTime: "2008-09",
-  },
-];
-
-const education = [
-  {
-    name: "Web Development Bootcamp",
-    description: "Training to learn the MERN stack",
-    dateTime: "2022/04",
-  },
-  {
-    name: "MBA, Instituto de Empresa",
-    description:
-      "Concentration: Corporate Finance (i.e. Economic Value Added model, CAPM model, P&L forecast, guideline companies method based on price multiples, option pricing models).",
-    dateTime: "2008/07",
-  },
-  {
-    name: "Bachelor of Business and Finance",
-    description:
-      "Concentration: Economics, Legal Studies and Business Management.",
-    dateTime: "2002/09",
-  },
-];
-
-const ExperienceTimeline = () => {
+const ExperienceTimeline = ({ timeline }) => {
   const ref = useRef(null);
   const isInview = useInView(ref);
-  const timeline = [
-    ...work.map((item) => ({ ...item, tag: "work" })),
-    ...education.map((item) => ({ ...item, tag: "education" })),
-  ];
-
-  // Sort the timeline array based on the date
-  timeline.sort((a, b) => dayjs(b.dateTime).diff(dayjs(a.dateTime)));
 
   return (
     <div className="mx-auto max-w-7xl px-6 sm:px-8 py-20">

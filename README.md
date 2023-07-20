@@ -26,6 +26,7 @@ relevant and important features.
 - [ ] Add SEO functionality
 - [ ] Link to a medium article my experience (optional)
 - [ ] Add navigation dots for project carousel
+- [ ] Add loading component for better user experience in contact form
 
 ## Images
 

@@ -97,7 +97,7 @@ const Introduction = () => {
                 </div>
                 <div className="lg:absolute lg:bottom-10 mt-10">
                   <Link
-                    href={"/recruiter"}
+                    href={"/about"}
                     className="text-gray-100 text-sm lg:text-base"
                   >
                     A recruiter? learn more about me{" "}

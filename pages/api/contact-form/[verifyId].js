@@ -28,6 +28,6 @@ export default async function handler(req, res) {
   } catch (error) {
     // If an error occurs, log the error and return an error message
     console.error("Error:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+    res.status(500).json({ success: false, message: error.message });
   }
 }

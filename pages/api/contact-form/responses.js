@@ -10,8 +10,8 @@ export default async function handler(req, res) {
     try {
       const collection = await connectToDatabase("form", "responses");
       const result = await collection.insertOne(body);
-      sendEmail({ ...body, admin: false });
-      sendEmail({ ...body, admin: true });
+      await sendEmail({ ...body, admin: false });
+      await sendEmail({ ...body, admin: true });
       res.status(200).json({ success: true, data: result });
     } catch (error) {
       res.status(400).json({ success: false, message: error.message });

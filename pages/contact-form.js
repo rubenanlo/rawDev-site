@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import ConfirmEmailNotification from "components/modals/ConfirmEmailNotification";
+import BannerTop from "components/BannerTop";
+import Loading from "components/modals/Loading";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
-import BannerTop from "components/BannerTop";
 
 const ContactForm = () => {
   // Set initial state for form response
@@ -17,11 +18,13 @@ const ContactForm = () => {
     verified: false,
   });
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const response = await fetch("/api/contact-form/responses", {
       method: "POST",
@@ -41,6 +44,7 @@ const ContactForm = () => {
         description: "",
         verified: false,
       });
+      setIsLoading(false);
       setHasSubmittedForm(true);
     } else {
       console.log("Error:", data);
@@ -280,6 +284,7 @@ const ContactForm = () => {
               </button>
             </div>
           </form>
+          {isLoading && <Loading />}
         </div>
       </div>
     </AppLayoutWithNavbar>

@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const { formId } = req.query;
   try {
     // Connect to your MongoDB database by accessing the "responses" collection
-    const formsCollection = await connectToDatabase("responses");
+    const formsCollection = await connectToDatabase("form", "responses");
 
     // Find the form in the collection based on the formId
     const form = await formsCollection.findOne({ formId });

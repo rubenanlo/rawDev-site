@@ -26,15 +26,14 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <>
       <Head>
-        <title>{TITLE}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <DefaultSeo
-          title={TITLE}
-          description={META_DESCRIPTION}
-          openGraph={{ url: URL, images: [{ url: META_IMAGE }] }}
-          twitter={{ cardType: "summary_large_image" }}
-        />
       </Head>
+      <DefaultSeo
+        title={TITLE}
+        description={META_DESCRIPTION}
+        openGraph={{ url: URL, images: [{ url: META_IMAGE }] }}
+        twitter={{ cardType: "summary_large_image" }}
+      />
       <SessionProvider session={session}>
         <RecoilRoot>
           <ResponsiveComponent>

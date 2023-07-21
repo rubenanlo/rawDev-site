@@ -50,7 +50,7 @@ const AboutMenu = ({ about }) => {
                     <div>
                       <Link
                         href={item.href}
-                        className="font-semibold text-gray-900"
+                        className="font-semibold text-gray-900 hover:text-orange-secondary"
                       >
                         {item.name}
                         <span className="absolute inset-0" />

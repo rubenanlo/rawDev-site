@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/20/solid";
 import ProjectCard from "components/about/ProjectCard";
 import { RespContext } from "helpers/responsiveComponent";
+import { classNames } from "helpers/setClassNames";
 
 const variants = {
   enter: (direction) => {
@@ -75,6 +76,21 @@ const ProjectCarousel = forwardRef(({ projects }, ref) => {
       className="bg-white h-[41rem] xs:h-[34rem] sm:h-[34rem] lg:h-[36rem] overflow-hidden"
     >
       <div className="relative h-full">
+        <div className="absolute w-[50%] sm:w-[20%] top-10 left-0 right-0 ml-auto mr-auto flex justify-between">
+          {projects.map(({ id }, index) => (
+            <div
+              key={id}
+              onClick={() => console.log("yay")}
+              className={classNames(
+                index === imageIndex
+                  ? "bg-orange-secondary"
+                  : "bg-orange-quaternary",
+                "rounded-full w-3 h-3 flex justify-between"
+              )}
+            />
+          ))}
+        </div>
+
         {/* <div className="absolute inset-0 py-10 lg:py-36  h-full" /> */}
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -105,12 +121,6 @@ const ProjectCarousel = forwardRef(({ projects }, ref) => {
           </motion.div>
         </AnimatePresence>
         <div className="relative max-w-3xl h-full mx-auto">
-          {isBreakpoint && (
-            <div className="absolute top-5 right-1/2 left-auto flex items-center z-10">
-              <ArrowLongRightIcon className=" w-7 text-orange-secondary" />
-            </div>
-          )}
-
           {!isBreakpoint && (
             <div
               ref={ref}

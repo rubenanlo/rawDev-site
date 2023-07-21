@@ -78,14 +78,16 @@ const ProjectCarousel = forwardRef(({ projects }, ref) => {
       <div className="relative h-full">
         <div className="absolute w-[50%] sm:w-[20%] top-10 left-0 right-0 ml-auto mr-auto flex justify-between">
           {projects.map(({ id }, index) => (
-            <div
+            <button
               key={id}
-              onClick={() => console.log("yay")}
+              onClick={() => {
+                setPage([index, index]);
+              }}
               className={classNames(
                 index === imageIndex
                   ? "bg-orange-secondary"
                   : "bg-orange-quaternary",
-                "rounded-full w-3 h-3 flex justify-between"
+                "rounded-full w-3 h-3 flex justify-between z-20"
               )}
             />
           ))}

@@ -11,7 +11,7 @@ export const URL = "https://www.rawdev.io/";
 // The description shown in Google Search results and on social media networks
 // Should be max ~150 characters.
 export const META_DESCRIPTION =
-  "At rawDev, we are committed to help small businesses with creating web applications that are aligned with their needs.";
+  "I am a web developer with a background that helps me understand business needs and turn them into the right web applications.";
 
 // The preview image shown in social networks and when sharing on messengers,
 // like WhatsApp and others

@@ -26,6 +26,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <>
       <Head>
+        <title>{TITLE}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <DefaultSeo

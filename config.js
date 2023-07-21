@@ -20,4 +20,4 @@ export const META_DESCRIPTION =
 export const META_IMAGE = "static/assets/meta_image.png";
 
 // The Google Analytics tracking ID
-export const GA_TRACKING_ID = "TODO";
+export const GA_TRACKING_ID = "G-YCW7P507ER";

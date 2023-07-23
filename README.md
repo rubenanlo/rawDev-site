@@ -22,11 +22,17 @@ relevant and important features.
       that end, I will have one single file with text for each component;
       another file with animations for each component
 - [ ] Add tests
-- [ ] Add google analytics
-- [ ] Add SEO functionality
+- [x] Add google analytics
+- [x] Add SEO functionality
 - [ ] Link to a medium article my experience (optional)
-- [ ] Add navigation dots for project carousel
+- [x] Add navigation dots for project carousel
 - [x] Add loading component for better user experience in contact form
+- [ ] Check verify email functionality
+- [ ] CHeck alternatives to nodemailer
+      ([sendGrid](https://docs.sendgrid.com/for-developers/sending-email/api-getting-started),
+      [rapid api](https://rapidapi.com/tobidaramola77/api/mail-man/) )
+- [ ] Add functionality: if email exists when submitting a form, then send the
+      user to a page that says that the email already exists.
 
 ## Images
 

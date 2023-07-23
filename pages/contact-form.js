@@ -46,6 +46,11 @@ const ContactForm = () => {
       });
       setIsLoading(false);
       setHasSubmittedForm(true);
+    }
+    if (data.message === "Email already exists") {
+      setIsLoading(false);
+      setHasSubmittedForm(false);
+      router.push("/already-submitted");
     } else {
       console.log("Error:", data);
     }

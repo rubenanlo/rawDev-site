@@ -27,7 +27,7 @@ export default function ConfirmEmailNotification() {
           transition={{ duration: 0.5 }}
           className="fixed inset-0 z-10 overflow-y-auto"
         >
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
               <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                 <button

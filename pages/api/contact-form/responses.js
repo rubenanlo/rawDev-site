@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       }
 
       // Email doesn't exist, insert the data into the collection
-      const insertionPromise = collection.insertOne(body);
+      const newUser = collection.insertOne(body);
 
       // Send the verification emails in parallel
       const emailPromises = [
@@ -30,10 +30,10 @@ export default async function handler(req, res) {
       ];
 
       // Wait for both the insertion and email sending to complete
-      await Promise.all([...emailPromises, insertionPromise]);
+      await Promise.all([...emailPromises, newUser]);
 
       // Get the result of the insertion operation
-      const result = await insertionPromise;
+      const result = await newUser;
 
       // Send a success response with the result data
       res.status(200).json({ success: true, data: result });

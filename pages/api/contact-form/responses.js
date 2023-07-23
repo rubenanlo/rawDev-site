@@ -21,11 +21,19 @@ export default async function handler(req, res) {
       }
 
       // Email doesn't exist, insert the data into the collection
-      const result = await collection.insertOne(body);
+      const insertionPromise = collection.insertOne(body);
 
-      // Send the verification emails
-      await sendEmail({ ...body, admin: false });
-      await sendEmail({ ...body, admin: true });
+      // Send the verification emails in parallel
+      const emailPromises = [
+        sendEmail({ ...body, admin: false }),
+        sendEmail({ ...body, admin: true }),
+      ];
+
+      // Wait for both the insertion and email sending to complete
+      await Promise.all([...emailPromises, insertionPromise]);
+
+      // Get the result of the insertion operation
+      const result = await insertionPromise;
 
       // Send a success response with the result data
       res.status(200).json({ success: true, data: result });

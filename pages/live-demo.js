@@ -1,5 +1,5 @@
-const LiveDemo = () => {
-  return <div>live-demo</div>;
-};
+import UnderConstruction from "components/404/UnderConstruction";
+
+const LiveDemo = () => <UnderConstruction />;
 
 export default LiveDemo;

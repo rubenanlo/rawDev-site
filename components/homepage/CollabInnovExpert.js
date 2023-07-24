@@ -104,11 +104,7 @@ const CollabInnovExpert = () => {
               <div className="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-3 lg:flex-row lg:items-center">
                 <div className="lg:min-w-0 lg:flex-1 ">
                   <p className="mt-1 text-base leading-7 text-gray-400 text-center">
-                    Want to learn more about{" "}
-                    <span className="text-orange-tertiary text-2xl">
-                      rawDev
-                    </span>{" "}
-                    ? click{" "}
+                    Want to learn more about us ? click{" "}
                     <Link
                       href="/about"
                       className="text-orange-tertiary underline underline-offset-4 text-2xl"

@@ -25,7 +25,7 @@ const navigation = {
     },
     {
       name: "Linkedin",
-      href: "#https://www.linkedin.com/in/ruben-andino/",
+      href: "https://www.linkedin.com/in/ruben-andino/",
       icon: LINKEDIN,
     },
   ],

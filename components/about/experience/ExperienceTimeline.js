@@ -64,6 +64,7 @@ const ExperienceTimeline = ({ timeline }) => {
             </motion.div>
           </div>
         ))}
+        <div id="project-portfolio" />
       </div>
     </div>
   );

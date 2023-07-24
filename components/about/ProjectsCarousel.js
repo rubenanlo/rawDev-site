@@ -71,10 +71,7 @@ const ProjectCarousel = forwardRef(({ projects }, ref) => {
   );
 
   return (
-    <div
-      id="project-portfolio"
-      className="bg-white h-[41rem] xs:h-[34rem] sm:h-[34rem] lg:h-[36rem] overflow-hidden"
-    >
+    <div className="bg-white h-[41rem] xs:h-[34rem] sm:h-[34rem] lg:h-[36rem] overflow-hidden">
       <div className="relative h-full">
         <div className="absolute w-[50%] sm:w-[20%] top-10 left-0 right-0 ml-auto mr-auto flex justify-between">
           {projects.map(({ id }, index) => (

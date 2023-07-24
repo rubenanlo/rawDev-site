@@ -8,12 +8,11 @@ const AlreadySubmitted = () => (
           You have submitted a form already!
         </h2>
         <p className="mt-6 text-lg leading-8 text-gray-400 text-center">
-          A user can only submit one form. If you verified your email, I will
-          get back to you as soon as possible. Even if you missed anything in
-          your original one!.
+          You can only submit one form I&apos;m afraid.
         </p>
         <p className="mt-6 text-lg leading-8 text-gray-400 text-center">
-          In the meantime, please feel free to keep snooping around the website.
+          But, hey! If you verified your email, I will get back to you as soon
+          as I can. Even if you missed anything in your original one!
         </p>
       </div>
     </div>

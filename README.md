@@ -6,6 +6,7 @@ relevant and important features.
 ## Upcoming tasks
 
 - [x] Form submission with email validation
+- [x] Add authentication to the website
 - [x] Responsive design
 - [x] Animations
 - [ ] A dashboard with API calls to GitHub (upcoming)
@@ -14,8 +15,9 @@ relevant and important features.
 - [ ] A dashboard for admin that will include: 1) RUD functionality for list of
       contacted people (recruiters and clients); 2) RUD functionality to change the
       text of the CV.
-      Check this for get requests: https://www.mongodb.com/developer/videos/how-to-integrate-vercel---mongodb-step-by-step/
-- [ ] Refactor de code to reduce repetitive code
+      Check this for get requests:
+      https://www.mongodb.com/developer/videos/how-to-integrate-vercel---mongodb-step-by-step/
+      Also, check this tailwind component for adding new users: https://tailwindui.com/components/application-ui/page-examples/settings-screens
 - [ ] Make sure each component has a single responsibility (e.g., the
       `ContactForm` component should only be responsible for the form, not for
       the animation, the same goes for the others e.g., `AboutMe` component). To
@@ -25,14 +27,12 @@ relevant and important features.
 - [x] Add google analytics
 - [x] Add SEO functionality
 - [ ] Link to a medium article my experience (optional)
-- [x] Add navigation dots for project carousel
 - [x] Add loading component for better user experience in contact form
-- [ ] Check verify email functionality
+- [x] Email verification system when submitting a form. Functionality to allow
+      only one for submission per user.
 - [ ] CHeck alternatives to nodemailer
       ([sendGrid](https://docs.sendgrid.com/for-developers/sending-email/api-getting-started),
       [rapid api](https://rapidapi.com/tobidaramola77/api/mail-man/) )
-- [ ] Add functionality: if email exists when submitting a form, then send the
-      user to a page that says that the email already exists.
 
 ## Images
 
@@ -112,3 +112,11 @@ as in the yaml file with lowercase. For importing the icon into the
 icon called `LINK` in the yaml file, you need to import the icon as `LINK` in
 the `exportImages` helper and save the file as `link.svg` in the
 `public/static/assets` directory.
+
+## Lessons learnt:
+
+- When using mongoDB and vercel, it's better to integrate any environment
+  variables through the integration of mongodb directly from vercel.
+
+- For nodemailer to work with vercel, I had to turn the transport into a
+  promise. See code in the helpers directory.

@@ -89,7 +89,7 @@ const Introduction = () => {
                     Contact me
                   </Link>
                   <Link
-                    href="/projects"
+                    href="/about#project-portfolio"
                     className="text-sm font-semibold leading-6 text-gray-100"
                   >
                     Project portfolio <span aria-hidden="true">→</span>

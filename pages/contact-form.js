@@ -58,6 +58,7 @@ const ContactForm = () => {
 
   return (
     <AppLayoutWithNavbar>
+      {isLoading && <Loading />}
       {hasSubmittedForm && <ConfirmEmailNotification />}
       <BannerTop />
       <div className="py-24 sm:py-40 px-10 space-y-10 divide-y divide-gray-900/10 max-w-7xl mx-auto">
@@ -289,7 +290,6 @@ const ContactForm = () => {
               </button>
             </div>
           </form>
-          {isLoading && <Loading />}
         </div>
       </div>
     </AppLayoutWithNavbar>

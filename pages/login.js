@@ -78,7 +78,7 @@ const Login = () => {
                       <div className="border-b w-3" />
                       <label
                         htmlFor="password"
-                        className="block text-sm font-medium leading-6 text-gray-400 px-2 max-w-max"
+                        className="block shrink-0 text-sm font-medium leading-6 text-gray-400 px-2 max-w-max"
                       >
                         Password
                       </label>

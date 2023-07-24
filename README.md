@@ -6,6 +6,7 @@ relevant and important features.
 ## Upcoming tasks
 
 - [x] Form submission with email validation
+- [x] Add authentication to the website
 - [x] Responsive design
 - [x] Animations
 - [ ] A dashboard with API calls to GitHub (upcoming)

@@ -48,13 +48,17 @@ const Login = () => {
                   }}
                 >
                   <div>
-                    <label
-                      htmlFor="username"
-                      className="block text-sm font-medium leading-6 text-gray-400 bg-gradient-to-r from-[#101B2C] to-[#102033] relative top-5 left-2 px-2 max-w-max"
-                    >
-                      Email address
-                    </label>
-                    <div className="mt-2">
+                    <div className="flex items-center relative top-[1.27rem]">
+                      <div className="border-b w-3" />
+                      <label
+                        htmlFor="username"
+                        className="block shrink-0 text-sm font-medium leading-6 text-gray-400 px-2"
+                      >
+                        Email address
+                      </label>
+                      <div className="border-b w-full" />
+                    </div>
+                    <div className="mt-2 rounded-b-sm border-b border-x">
                       <input
                         onChange={(e) => {
                           setEmail(e.target.value);
@@ -64,19 +68,24 @@ const Login = () => {
                         type="email"
                         autoComplete="email"
                         required
-                        className="block w-full rounded-sm border-0 py-1.5 shadow-sm bg-transparent ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6 text-gray-50"
+                        className="block border-none w-full py-1.5 shadow-sm bg-transparent placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 text-gray-50"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium leading-6 text-gray-400 bg-gradient-to-r from-[#101B2C] to-[#101E31] relative top-5 left-2 px-2 max-w-max"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-2">
+                    <div className="flex items-center relative top-[1.27rem]">
+                      <div className="border-b w-3" />
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-medium leading-6 text-gray-400 px-2 max-w-max"
+                      >
+                        Password
+                      </label>
+                      <div className="border-b w-full" />
+                    </div>
+
+                    <div className="mt-2 border-b border-x rounded-sm">
                       <input
                         onChange={(e) => {
                           setPassword(e.target.value);
@@ -86,7 +95,7 @@ const Login = () => {
                         type="password"
                         autoComplete="current-password"
                         required
-                        className="block w-full rounded-sm border-0 py-1.5 shadow-sm bg-transparent ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6 text-gray-50"
+                        className="block w-full border-none py-1.5 shadow-sm bg-transparent placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6 text-gray-50"
                       />
                     </div>
                   </div>

@@ -154,7 +154,7 @@ const Navbar = () => {
           transition={navbarInAbout.transition}
           onMouseEnter={() => setOpenNavbar(true)}
           onMouseLeave={() => setOpenNavbar(false)}
-          className="fixed w-screen flex justify-center cursor-pointer z-30"
+          className="fixed w-screen flex justify-center cursor-pointer z-40"
         >
           <button className="bg-orange-tertiary/40 px-5 rounded-b-lg">
             <Bars3Icon className="h-6 text-gray-800" />

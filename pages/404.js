@@ -1,4 +1,4 @@
-import NotFound from "components/404/NotFound";
+import NotFound from "components/error/NotFound";
 
 const Error = () => <NotFound />;
 

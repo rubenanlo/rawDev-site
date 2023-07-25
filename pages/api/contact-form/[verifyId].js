@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     }
 
     // Perform a server-side redirect
-    res.writeHead(302, { Location: "/verification" });
+    res.writeHead(302, { Location: "/contact-form/verification" });
     res.end();
     // res.redirect doesn't work with vercel in production. That is why we are
     // using res.writeHead and res.end instead

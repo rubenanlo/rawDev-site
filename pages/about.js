@@ -35,10 +35,12 @@ const About = ({ projects, experience }) => {
   );
 };
 
+const component = About.name;
+
 export const getStaticProps = async () => ({
   props: {
-    projects: getProjects(),
-    experience: { timeline: getTimeline() },
+    projects: getProjects(component),
+    experience: { timeline: getTimeline(component) },
   },
 });
 

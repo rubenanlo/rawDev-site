@@ -50,12 +50,15 @@ const getUpdatedTechStack = ({ techStack }) => {
   }
 };
 
-export const getProjects = () => {
+export const getProjects = (component) => {
   const subfolder = getProjects.name.replace("get", "").toLowerCase();
-  return getFileNames(subfolder)
+  return getFileNames(component, subfolder)
     .map((fileName) => {
       const project = yaml.load(
-        fs.readFileSync(`${directory(subfolder)}/${fileName}.yaml`, "utf8")
+        fs.readFileSync(
+          `${directory(component, subfolder)}/${fileName}.yaml`,
+          "utf8"
+        )
       );
       return {
         ...project,

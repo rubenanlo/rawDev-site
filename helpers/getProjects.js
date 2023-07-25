@@ -1,26 +1,12 @@
 import fs from "fs";
-import path from "path";
 import yaml from "js-yaml";
 import { images } from "helpers/exportImages";
-
-const directory = path.join(
-  process.cwd(),
-  "public",
-  "static",
-  "about",
-  "projects"
-);
+import { directory, getFileNames } from "helpers/getFile";
 
 // Get the distinct image keys without size suffixes
 const imagesArr = [
   ...new Set(Object.keys(images).map((key) => key.replace(/_SM|_LG|_MD/g, ""))),
 ];
-
-const getFileNames = () =>
-  fs
-    .readdirSync(directory)
-    .filter((file) => file.endsWith(".yaml"))
-    .map((file) => file.replace(".yaml", ""));
 
 const getCoverImage = (fileName) => {
   const coverImage = imagesArr.find((img) => fileName.toUpperCase() === img);
@@ -43,9 +29,9 @@ const getCoverImage = (fileName) => {
   }
 };
 
-const getUpdatedLinks = (project) => {
+const getUpdatedLinks = ({ links }) => {
   try {
-    return project.links.map(
+    return links?.map(
       ({ icon, alt, ...rest }) =>
         images[icon] && { icon: images[icon], alt, ...rest }
     );
@@ -54,9 +40,9 @@ const getUpdatedLinks = (project) => {
   }
 };
 
-const getUpdatedTechStack = (project) => {
+const getUpdatedTechStack = ({ techStack }) => {
   try {
-    return project.techStack.map(
+    return techStack.map(
       ({ icon, alt }) => images[icon] && { icon: images[icon], alt }
     );
   } catch (error) {
@@ -64,11 +50,11 @@ const getUpdatedTechStack = (project) => {
   }
 };
 
-export const getProjects = () =>
-  getFileNames()
+export const getProjects = (subfolder) =>
+  getFileNames(subfolder)
     .map((fileName) => {
       const project = yaml.load(
-        fs.readFileSync(`${directory}/${fileName}.yaml`, "utf8")
+        fs.readFileSync(`${directory(subfolder)}/${fileName}.yaml`, "utf8")
       );
       return {
         ...project,

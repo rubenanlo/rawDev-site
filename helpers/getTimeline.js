@@ -3,8 +3,9 @@ import yaml from "js-yaml";
 import dayjs from "dayjs";
 import { directory, getFileNames } from "helpers/getFile";
 
-export const getTimeline = (subfolder) =>
-  getFileNames(subfolder)
+export const getTimeline = () => {
+  const subfolder = getTimeline.name.replace("get", "").toLowerCase();
+  return getFileNames(subfolder)
     .reduce(
       (acc, fileName) => [
         ...acc,
@@ -17,3 +18,4 @@ export const getTimeline = (subfolder) =>
       []
     )
     .sort((a, b) => dayjs(b.dateTime) - dayjs(a.dateTime));
+};

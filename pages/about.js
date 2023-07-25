@@ -37,8 +37,8 @@ const About = ({ projects, experience }) => {
 
 export const getStaticProps = async () => ({
   props: {
-    projects: getProjects("projects"),
-    experience: { timeline: getTimeline("timeline") },
+    projects: getProjects(),
+    experience: { timeline: getTimeline() },
   },
 });
 

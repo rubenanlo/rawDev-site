@@ -46,12 +46,13 @@ const getUpdatedTechStack = ({ techStack }) => {
       ({ icon, alt }) => images[icon] && { icon: images[icon], alt }
     );
   } catch (error) {
-    console.log("You forgot to add the techStack for this project");
+    console.log("You forgot to add a techStack");
   }
 };
 
-export const getProjects = (subfolder) =>
-  getFileNames(subfolder)
+export const getProjects = () => {
+  const subfolder = getProjects.name.replace("get", "").toLowerCase();
+  return getFileNames(subfolder)
     .map((fileName) => {
       const project = yaml.load(
         fs.readFileSync(`${directory(subfolder)}/${fileName}.yaml`, "utf8")
@@ -64,3 +65,4 @@ export const getProjects = (subfolder) =>
       };
     })
     .sort((a, b) => a.id - b.id);
+};

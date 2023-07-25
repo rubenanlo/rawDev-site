@@ -1,5 +1,5 @@
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
-import { getAutomaticResponse } from "../../helpers/getAutomaticResponse";
+import { getAutomaticResponse } from "helpers/getAutomaticResponse";
 
 const Response = ({ response: { title, paragraph } }) => (
   <AppLayoutWithNavbar>

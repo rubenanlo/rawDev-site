@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const NotFound = () => (
-  <main className="relative isolate h-screen bg-error bg-no-repeat bg-cover">
+  <main className="relative isolate h-screen bg-NotFound bg-no-repeat bg-cover">
     <div className="bg-orange-tertiary/40 h-full">
       <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
         <p className="text-base font-semibold leading-8 text-gray-100">404</p>

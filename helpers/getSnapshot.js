@@ -1,6 +1,6 @@
 import fs from "fs";
 import yaml from "js-yaml";
-import { getUpdatedIcons } from "helpers/exportImages";
+import { getUpdatedIcons } from "helpers/getUpdatedIcons";
 import { directory } from "helpers/getFile";
 
 export const getSnapshot = (component) => {

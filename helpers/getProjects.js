@@ -1,6 +1,7 @@
 import fs from "fs";
 import yaml from "js-yaml";
-import { images, getUpdatedIcons } from "helpers/exportImages";
+import { images } from "helpers/exportImages";
+import { getUpdatedIcons } from "helpers/getUpdatedIcons";
 import { directory, getFileNames } from "helpers/getFile";
 
 // Get the distinct image keys without size suffixes

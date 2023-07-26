@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "optimize": "cd helpers && chmod +x optimizeImages.sh && ./optimizeImages.sh && cd ..",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "cypress": "cypress open",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "optimize": "cd helpers && chmod +x optimizeImages.sh && ./optimizeImages.sh && cd ..",
+    "import":"node ./helpers/setNewImages"
   },
   "dependencies": {
     "@babel/core": "^7.20.5",

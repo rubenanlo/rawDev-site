@@ -25,6 +25,8 @@ import TAILWIND from "static/assets/tailwind.svg";
 import GITHUB from "static/assets/github.svg";
 import LINK from "static/assets/link.svg";
 import SHELL from "static/assets/shell.svg";
+import VSCODE from "static/assets/vscode.svg";
+import GIT from "static/assets/git.svg";
 
 export const images = {
   RAWDEV_LG,
@@ -54,4 +56,16 @@ export const images = {
   GITHUB,
   LINK,
   SHELL,
+  VSCODE,
+  GIT,
+};
+
+export const getUpdatedIcons = (icons) => {
+  try {
+    return icons?.map(
+      ({ icon, ...rest }) => images[icon] && { icon: images[icon], ...rest }
+    );
+  } catch (error) {
+    console.log("There is an issue at rendering the icons");
+  }
 };

@@ -1,6 +1,6 @@
 import fs from "fs";
 import yaml from "js-yaml";
-import { images } from "helpers/exportImages";
+import { images, getUpdatedIcons } from "helpers/exportImages";
 import { directory, getFileNames } from "helpers/getFile";
 
 // Get the distinct image keys without size suffixes
@@ -29,32 +29,11 @@ const getCoverImage = (fileName) => {
   }
 };
 
-const getUpdatedLinks = ({ links }) => {
-  try {
-    return links?.map(
-      ({ icon, alt, ...rest }) =>
-        images[icon] && { icon: images[icon], alt, ...rest }
-    );
-  } catch (error) {
-    console.log("There is an issue at rendering the links");
-  }
-};
-
-const getUpdatedTechStack = ({ techStack }) => {
-  try {
-    return techStack.map(
-      ({ icon, alt }) => images[icon] && { icon: images[icon], alt }
-    );
-  } catch (error) {
-    console.log("You forgot to add a techStack");
-  }
-};
-
 export const getProjects = (component) => {
   const subfolder = getProjects.name.replace("get", "").toLowerCase();
   return getFileNames(component, subfolder)
     .map((fileName) => {
-      const project = yaml.load(
+      const { techStack, links, ...project } = yaml.load(
         fs.readFileSync(
           `${directory(component, subfolder)}/${fileName}.yaml`,
           "utf8"
@@ -63,8 +42,10 @@ export const getProjects = (component) => {
       return {
         ...project,
         ...getCoverImage(fileName),
-        techStack: getUpdatedTechStack(project),
-        ...(getUpdatedLinks(project) && { links: getUpdatedLinks(project) }),
+        techStack: getUpdatedIcons(techStack),
+        ...(getUpdatedIcons(links) && {
+          links: getUpdatedIcons(links),
+        }),
       };
     })
     .sort((a, b) => a.id - b.id);

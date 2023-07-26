@@ -36,7 +36,7 @@ const About = ({ projects, experience }) => {
   );
 };
 
-const component = About.name;
+const component = About.name.toLowerCase();
 
 export const getStaticProps = async () => ({
   props: {

@@ -1,4 +1,4 @@
-import { useRef, useState, useContext } from "react";
+import { useRef, useState, useContext, Fragment } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
@@ -119,9 +119,8 @@ const ExperienceSnapshot = ({
                 </p>
                 <div className="mt-2 text-base leading-7 grid grid-cols-3 items-center gap-y-3">
                   {highlightsDiffPattern.techStack.map(({ icon, alt }) => (
-                    <>
+                    <Fragment key={alt}>
                       <Image
-                        key={icon}
                         src={icon}
                         alt={alt}
                         className="w-7 cursor-pointer sm:mx-0"
@@ -138,7 +137,7 @@ const ExperienceSnapshot = ({
                           {description}
                         </div>
                       )}
-                    </>
+                    </Fragment>
                   ))}
                 </div>
               </div>

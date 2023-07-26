@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 const Splash = () => {
@@ -53,7 +54,7 @@ const Splash = () => {
         transition={acronymAnimation.transition}
       />
       {restOfCharacters.map((word, index) => (
-        <>
+        <Fragment key={word}>
           <motion.p
             animate={{
               ...acronymAnimation.animate,
@@ -71,7 +72,7 @@ const Splash = () => {
           >
             {word}
           </motion.p>
-        </>
+        </Fragment>
       ))}
     </h1>
   );

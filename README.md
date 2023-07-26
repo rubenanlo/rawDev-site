@@ -3,10 +3,12 @@
 This document explains how to store the data for the website, along with other
 relevant and important features.
 
-## Upcoming tasks
+## Main features
 
 - [x] Form submission with email validation
 - [x] Add authentication to the website
+- [x] Add automatization of image import
+- [x] Add function to optimize images
 - [x] Responsive design
 - [x] Animations
 - [ ] A dashboard with API calls to GitHub (upcoming)
@@ -37,6 +39,29 @@ relevant and important features.
 ## Images
 
 The images need to be stored in the `/public/static/assets` directory.
+
+It is important to note that the images need to be optimized before importing.
+
+Also the filename for images should only be one word and never use '-' except
+for when you are specifying the size of the image (e.g., rawdev-sm.png). Further
+down in this documentation we explain the relevance of the image size (e.g., for projects).
+
+### Optimizing images
+
+In order to optimize images, update the file `optimize.config.json` with either
+the whole assets directory or single files. In either case, please add the full
+directory path (e.g., "public/static/assets/collab-1.webp" - if a single file;
+"public/static/assets" - if a full directory). Then, run the following command
+in the terminal:
+
+```
+npm run optimize
+```
+
+### Importing images
+
+Once you have optimized the images, run the following script in the terminal to
+generate the corresponding import statements in the helpers function `exportImages.js`
 
 ## Projects
 

@@ -1,26 +1,13 @@
 import fs from "fs";
-import path from "path";
 import yaml from "js-yaml";
 import { images } from "helpers/exportImages";
-
-const directory = path.join(
-  process.cwd(),
-  "public",
-  "static",
-  "about",
-  "projects"
-);
+import { getUpdatedIcons } from "helpers/getUpdatedIcons";
+import { directory, getFileNames } from "helpers/getFile";
 
 // Get the distinct image keys without size suffixes
 const imagesArr = [
   ...new Set(Object.keys(images).map((key) => key.replace(/_SM|_LG|_MD/g, ""))),
 ];
-
-const getFileNames = () =>
-  fs
-    .readdirSync(directory)
-    .filter((file) => file.endsWith(".yaml"))
-    .map((file) => file.replace(".yaml", ""));
 
 const getCoverImage = (fileName) => {
   const coverImage = imagesArr.find((img) => fileName.toUpperCase() === img);
@@ -43,38 +30,24 @@ const getCoverImage = (fileName) => {
   }
 };
 
-const getUpdatedLinks = (project) => {
-  try {
-    return project.links.map(
-      ({ icon, alt, ...rest }) =>
-        images[icon] && { icon: images[icon], alt, ...rest }
-    );
-  } catch (error) {
-    console.log("There is an issue at rendering the links");
-  }
-};
-
-const getUpdatedTechStack = (project) => {
-  try {
-    return project.techStack.map(
-      ({ icon, alt }) => images[icon] && { icon: images[icon], alt }
-    );
-  } catch (error) {
-    console.log("You forgot to add the techStack for this project");
-  }
-};
-
-export const getProjects = () =>
-  getFileNames()
+export const getProjects = (component) => {
+  const subfolder = getProjects.name.replace("get", "").toLowerCase();
+  return getFileNames(component, subfolder)
     .map((fileName) => {
-      const project = yaml.load(
-        fs.readFileSync(`${directory}/${fileName}.yaml`, "utf8")
+      const { techStack, links, ...project } = yaml.load(
+        fs.readFileSync(
+          `${directory(component, subfolder)}/${fileName}.yaml`,
+          "utf8"
+        )
       );
       return {
         ...project,
         ...getCoverImage(fileName),
-        techStack: getUpdatedTechStack(project),
-        ...(getUpdatedLinks(project) && { links: getUpdatedLinks(project) }),
+        techStack: getUpdatedIcons(techStack),
+        ...(getUpdatedIcons(links) && {
+          links: getUpdatedIcons(links),
+        }),
       };
     })
     .sort((a, b) => a.id - b.id);
+};

@@ -50,7 +50,7 @@ const ContactForm = () => {
     if (data.message === "Email already exists") {
       setIsLoading(false);
       setHasSubmittedForm(false);
-      router.push("/already-submitted");
+      router.push("/contact-form/already-submitted");
     } else {
       console.log("Error:", data);
     }

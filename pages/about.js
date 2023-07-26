@@ -7,7 +7,8 @@ import Experience from "components/about/experience/Experience";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import Contact from "components/about/Contact";
 import { getProjects } from "helpers/getProjects";
-import { getExperienceTimeline } from "helpers/getExperienceTimeline";
+import { getTimeline } from "helpers/getTimeline";
+import { getSnapshot } from "helpers/getSnapshot";
 
 const About = ({ projects, experience }) => {
   const ref = {
@@ -35,10 +36,15 @@ const About = ({ projects, experience }) => {
   );
 };
 
+const component = About.name.toLowerCase();
+
 export const getStaticProps = async () => ({
   props: {
-    projects: getProjects(),
-    experience: { timeline: getExperienceTimeline() },
+    projects: getProjects(component),
+    experience: {
+      timeline: getTimeline(component),
+      snapshot: getSnapshot(component),
+    },
   },
 });
 

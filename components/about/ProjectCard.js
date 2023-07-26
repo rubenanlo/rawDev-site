@@ -40,9 +40,9 @@ const ProjectCard = ({
                 <div className="flex gap-x-2.5">
                   {techStack.map(({ icon, alt }) => (
                     <Image
-                      key={icon}
+                      key={alt}
                       src={icon}
-                      alt="techstack"
+                      alt={alt}
                       className="w-5"
                       onMouseEnter={() => {
                         setDescription(alt);
@@ -70,7 +70,7 @@ const ProjectCard = ({
                   <div className="flex gap-x-3">
                     {links?.map(({ href, icon, target, alt }) => (
                       <Link
-                        key={icon}
+                        key={alt}
                         className="w-5"
                         href={href}
                         target={target}

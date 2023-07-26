@@ -1,0 +1,34 @@
+intro:
+  title: "My journey"
+  paragraphs:
+    - "Coming from an economics background, I understand that it may not be the most attention-grabbing profile at first. However, as an economist, I seized the opportunity to expand my role and create automation tools to automate processes for my team, ensuring more time for critical thinking and less on repetitive tasks."
+    - "I'm a self-taught developer who values learning from colleagues and user feedback. Transitioning from lengthy code to a modular, component-oriented approach has improved code quality and facilitated better peer reviews."
+highlights:
+  - title: "10+ years"
+    caption: "as an economist in business consulting"
+  - title: "1+ years"
+    caption: "as a web developer"
+    description: "but with over 10 years of experience building data visualizations based on excel following DRY and component oriented approach."
+  - title: "My stack"
+    softStack:
+      - "managing teams & projects"
+      - "client focus"
+    techStack:
+      - icon: NEXT
+        alt: "NextJS"
+      - icon: VSCODE
+        alt: "VSCode"
+      - icon: REACT
+        alt: "ReactJS"
+      - icon: JS
+        alt: "JavaScript"
+      - icon: HTML
+        alt: "HTML"
+      - icon: CSS
+        alt: "CSS"
+      - icon: NODE
+        alt: "node.js"
+      - icon: EXCEL
+        alt: "Microsoft Excel"
+      - icon: GIT
+        alt: "Git"

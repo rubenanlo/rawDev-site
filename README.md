@@ -3,10 +3,12 @@
 This document explains how to store the data for the website, along with other
 relevant and important features.
 
-## Upcoming tasks
+## Main features
 
 - [x] Form submission with email validation
 - [x] Add authentication to the website
+- [x] Add automatization of image import
+- [x] Add function to optimize images
 - [x] Responsive design
 - [x] Animations
 - [ ] A dashboard with API calls to GitHub (upcoming)
@@ -37,6 +39,29 @@ relevant and important features.
 ## Images
 
 The images need to be stored in the `/public/static/assets` directory.
+
+It is important to note that the images need to be optimized before importing.
+
+Also the filename for images should only be one word and never use '-' except
+for when you are specifying the size of the image (e.g., rawdev-sm.png). Further
+down in this documentation we explain the relevance of the image size (e.g., for projects).
+
+### Optimizing images
+
+In order to optimize images, update the file `optimize.config.json` with either
+the whole assets directory or single files. In either case, please add the full
+directory path (e.g., "public/static/assets/collab-1.webp" - if a single file;
+"public/static/assets" - if a full directory). Then, run the following command
+in the terminal:
+
+```
+npm run optimize
+```
+
+### Importing images
+
+Once you have optimized the images, run the following script in the terminal to
+generate the corresponding import statements in the helpers function `exportImages.js`
 
 ## Projects
 
@@ -112,6 +137,26 @@ as in the yaml file with lowercase. For importing the icon into the
 icon called `LINK` in the yaml file, you need to import the icon as `LINK` in
 the `exportImages` helper and save the file as `link.svg` in the
 `public/static/assets` directory.
+
+## Helpers
+
+### Yielding data from yaml files
+
+The way we are yielding the data is by defining the directory dynamically.
+Specifically, you need to define the name of the component (by adding const
+component = XXXX.name in each site we are using a helper to yield data from
+yaml files - e.g., const component = About.name). And pass it as a component
+parameter in the helper function located in getStaticProps.
+
+If there is a subfolder, the existing function would take the function variable
+and replace "get" with "", so that you obtain the name of the folder. Thus, the
+function to get data from a yaml file needs to tie with the folder where the
+yaml file is (e.g., getProjects -> folder name is 'projects') with 'get' in
+front of it (e.g., getProjects).
+
+The helpers getSnapshot and getBriefBio work a bit differently. In here, since
+the files are in the same folder but we need to only yield information from each
+file separately, we rely on the same method as in the paragraph above to get the filename.
 
 ## Lessons learnt:
 

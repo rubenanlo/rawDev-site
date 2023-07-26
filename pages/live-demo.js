@@ -1,4 +1,4 @@
-import UnderConstruction from "components/404/UnderConstruction";
+import UnderConstruction from "components/error/UnderConstruction";
 
 const LiveDemo = () => <UnderConstruction />;
 

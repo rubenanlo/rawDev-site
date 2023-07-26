@@ -43,7 +43,7 @@ const AboutNavbar = ({ isInView }) => {
           className="flex items-center justify-center space-x-10 max-h-fit rounded-lg p-4 w-screen"
         >
           {steps.map((step) => (
-            <li key={step.name} className="">
+            <li key={step.id} className="">
               <AnchorLink
                 href={step.href}
                 to={step.href}

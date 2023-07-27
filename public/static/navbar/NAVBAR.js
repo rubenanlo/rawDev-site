@@ -1,6 +1,5 @@
 import {
   AtSymbolIcon,
-  // CalendarDaysIcon,
   HomeIcon,
   UserIcon,
   CodeBracketIcon,
@@ -26,14 +25,6 @@ export const about = [
     icon: AtSymbolIcon,
   },
 ];
-// callsToAction: [
-// {
-//   name: "Schedule a call",
-//   description: "once we already have exchanged a couple of emails",
-//   href: "https://calendly.com/raw-dev/30min",
-//   icon: CalendarDaysIcon,
-// },
-// ],
 
 export const clientPortal = {
   name: "Client Portal",

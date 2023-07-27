@@ -16,6 +16,6 @@ export const getBio = (component) => {
       ...data,
     };
   } catch (error) {
-    console.log("Unidentified issue");
+    console.log("There is an issue at rendering content for the brief bio");
   }
 };

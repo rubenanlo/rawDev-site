@@ -8,6 +8,8 @@ relevant and important features.
 - [x] Form submission with email validation
 - [x] Add authentication to the website
 - [x] Add automatization of image import
+- [ ] Update automatization of image import byt creating single export variables
+      for ach image
 - [x] Add function to optimize images
 - [x] Responsive design
 - [x] Animations

@@ -51,7 +51,7 @@ const BriefBio = forwardRef(
                       <Link
                         href={href}
                         target={target || ""}
-                        key={name}
+                        key={alt}
                         className="mr-3"
                       >
                         <Image src={icon} alt={alt} className="w-5" />

@@ -1,4 +1,4 @@
-import { images } from "helpers/exportImages";
+import { GITHUB, LINKEDIN } from "helpers/exportImages";
 
 export const navigation = {
   links: [
@@ -14,12 +14,12 @@ export const navigation = {
   // todo: social links are duplicated in brief bio and footer
   social: [
     {
-      icon: images.GITHUB,
+      icon: GITHUB,
       alt: "GitHub",
       href: "https://github.com/rubenanlo",
     },
     {
-      icon: images.LINKEDIN,
+      icon: LINKEDIN,
       alt: "Linkedin",
       href: "https://www.linkedin.com/in/ruben-andino/",
     },

@@ -95,7 +95,7 @@ const Login = () => {
                         type="password"
                         autoComplete="current-password"
                         required
-                        className="block w-full border-none py-1.5 shadow-sm bg-transparent placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-tertiary sm:text-sm sm:leading-6 text-gray-50"
+                        className="block w-full border-none py-1.5 shadow-sm bg-transparent placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 text-gray-50"
                       />
                     </div>
                   </div>

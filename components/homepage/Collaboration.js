@@ -39,7 +39,7 @@ const sections = [
   },
 ];
 
-const CollabInnovExpert = () => {
+const Collaboration = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   return (
@@ -122,4 +122,4 @@ const CollabInnovExpert = () => {
   );
 };
 
-export default CollabInnovExpert;
+export default Collaboration;

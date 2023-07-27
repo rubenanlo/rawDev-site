@@ -1,7 +1,7 @@
 import Introduction from "components/homepage/Introduction";
 import Transparency from "components/homepage/Transparency";
 import Integrity from "components/homepage/Integrity";
-import CollabInnovExpert from "components/homepage/CollabInnovExpert";
+import Collaboration from "components/homepage/Collaboration";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 
 const Homepage = () => (
@@ -9,7 +9,7 @@ const Homepage = () => (
     <Introduction />
     <Integrity />
     <Transparency />
-    <CollabInnovExpert />
+    <Collaboration />
   </AppLayoutWithNavbar>
 );
 

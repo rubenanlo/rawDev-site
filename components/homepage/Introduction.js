@@ -2,63 +2,8 @@ import { useContext } from "react";
 import Link from "next/link";
 import CardFlip from "components/cards/CardFlip";
 import { RespContext } from "helpers/responsiveComponent";
-import TRANSPARENCY from "static/assets/transparency.webp";
-import COLLABORATION from "static/assets/collaboration.webp";
-import INNOVATION from "static/assets/innovation.webp";
-import EXPERTISE from "static/assets/expertise.webp";
-import INTEGRITY from "static/assets/integrity.webp";
 
-const images = [
-  {
-    src: INTEGRITY,
-    alt: "integrity",
-    headerPosition: "top",
-    animation: {
-      type: "flip",
-      duration: 2,
-      flipLeft: false,
-    },
-  },
-  {
-    src: TRANSPARENCY,
-    alt: "transparency",
-    headerPosition: "bottom",
-    animation: {
-      type: "drop",
-      duration: 2,
-    },
-  },
-  {
-    src: COLLABORATION,
-    alt: "collaboration",
-    headerPosition: "middle",
-    animation: {
-      type: "drop",
-      drop: 2,
-    },
-  },
-  {
-    src: INNOVATION,
-    alt: "innovation",
-    headerPosition: "middle",
-    animation: {
-      type: "flip",
-      start: 1.5,
-      flipLeft: true,
-    },
-  },
-  {
-    src: EXPERTISE,
-    alt: "expertise",
-    headerPosition: "bottom",
-    animation: {
-      type: "drop",
-      duration: 2,
-    },
-  },
-];
-
-const Introduction = () => {
+const Introduction = ({ images }) => {
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
 

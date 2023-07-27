@@ -63,7 +63,14 @@ npm run optimize
 ### Importing images
 
 Once you have optimized the images, run the following script in the terminal to
-generate the corresponding import statements in the helpers function `exportImages.js`
+generate the corresponding import statements in the helper function
+`exportImages.js`
+
+This helper generates import statements, an `images` object with all the
+imported images, and single export statements for all images located in the
+assets directory. This way, the web dev will be able to import in specific
+components single images from the same file (i.e., `exportImages.js`), also
+import all images through exporting the `images` object for the use of certain helpers.
 
 ## Projects
 
@@ -167,3 +174,19 @@ file separately, we rely on the same method as in the paragraph above to get the
 
 - For nodemailer to work with vercel, I had to turn the transport into a
   promise. See code in the helpers directory.
+
+## Splash component:
+
+If you need to update the text of the animation, you need to update the
+following:
+
+```javascript
+let string = "ruben andino web Developer";
+const acronym = ["r", "a", "w", "Dev"];
+```
+
+For the string, feel free to add whatever string you want to display and create
+an acronym from. For the acronym, you need to add the acronym you want to use in
+the animation. It could be a letter, or a portion of a word.
+
+If you change this, you may need to review the props in the motion tags.

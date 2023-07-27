@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { classNames } from "helpers/setClassNames";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { classNames } from "helpers/setClassNames";
 
 const AboutNavbar = ({ isInView }) => {
   const steps = [

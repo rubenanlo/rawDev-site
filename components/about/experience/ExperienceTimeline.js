@@ -1,7 +1,7 @@
-import dayjs from "dayjs";
-import { motion, useInView } from "framer-motion";
-import { classNames } from "helpers/setClassNames";
 import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import dayjs from "dayjs";
+import { classNames } from "helpers/setClassNames";
 
 const ExperienceTimeline = ({ timeline }) => {
   const ref = useRef(null);

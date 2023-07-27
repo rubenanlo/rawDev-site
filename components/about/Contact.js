@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { forwardRef } from "react";
+import Link from "next/link";
 
 const Contact = forwardRef((props, ref) => (
   <div id="contact" className=" px-6 py-24 sm:py-40 lg:px-8">

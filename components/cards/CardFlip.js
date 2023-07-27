@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 import CardImage from "components/cards/CardImage";
 import { classNames } from "helpers/setClassNames";
 
-const CardFlip = ({ image }) => {
+const CardFlip = ({ image: { src, alt, headerPosition, animation } }) => {
   const [scope, animate] = useAnimate();
   const isInview = useInView(scope, { once: true });
 
-  const flipDirection = (image.animation.flipLeft && -180) || 180;
+  const flipDirection = (animation.flipLeft && -180) || 180;
 
   useEffect(() => {
     isInview &&
-      image.animation?.type === "drop" &&
+      animation?.type === "drop" &&
       animate(scope.current, { y: [-10, 0], opacity: [0, 1] }, { duration: 2 });
   }, [isInview, animate, scope]);
 
@@ -22,44 +22,44 @@ const CardFlip = ({ image }) => {
         <motion.div
           className="bg-no-repeat bg-cover bg-center relative"
           animate={
-            image.animation.type === "flip" && {
+            animation.type === "flip" && {
               rotateY: [0, flipDirection],
             }
           }
           transition={{
             duration: 0.5,
-            delay: image.animation.start || 2,
+            delay: animation.start || 2,
             bounce: 0,
           }}
         >
           {/* front of the card */}
-          <CardImage image={image} bounce="integrity" />
+          <CardImage image={{ src, alt }} bounce="integrity" />
           {/* back of the card */}
         </motion.div>
         <motion.div
           className="absolute flex flex-col justify-start pt-10 pl-2 rounded-xl h-full w-full bg-black [transform:rotateY(180deg)] [backface-visibility:hidden]"
           animate={
-            image.animation.type === "flip" && {
+            animation.type === "flip" && {
               rotateY: [0, flipDirection],
             }
           }
           transition={{
             duration: 0.5,
-            delay: image.animation.start || 2,
+            delay: animation.start || 2,
             bounce: 0,
           }}
         >
           <h2
             className={classNames(
-              image.headerPosition === "middle"
+              headerPosition === "middle"
                 ? "bottom-1/2"
-                : image.headerPosition === "bottom"
+                : headerPosition === "bottom"
                 ? "bottom-10"
                 : "",
               "absolute text-orange-tertiary text-xl"
             )}
           >
-            {image.alt}
+            {alt}
             <p></p>
           </h2>
         </motion.div>

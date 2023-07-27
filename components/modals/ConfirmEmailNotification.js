@@ -6,6 +6,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+
 export default function ConfirmEmailNotification() {
   const [open, setOpen] = useState(true);
   const router = useRouter();

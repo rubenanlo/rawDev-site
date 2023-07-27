@@ -7,6 +7,7 @@ import DATAVIZ_LG from "static/assets/dataviz-lg.gif";
 import DATAVIZ_SM from "static/assets/dataviz-sm.webp";
 import DIAPER_LG from "static/assets/diaper-lg.gif";
 import DIAPER_SM from "static/assets/diaper-sm.webp";
+import EMAIL from "static/assets/email.svg";
 import ERROR from "static/assets/error.webp";
 import EXCEL from "static/assets/excel.svg";
 import EXPERTISE from "static/assets/expertise.webp";
@@ -57,6 +58,7 @@ export const images = {
   DATAVIZ_SM,
   DIAPER_LG,
   DIAPER_SM,
+  EMAIL,
   ERROR,
   EXCEL,
   EXPERTISE,

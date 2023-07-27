@@ -42,17 +42,17 @@ const AboutNavbar = ({ isInView }) => {
           role="list"
           className="flex items-center justify-center space-x-10 max-h-fit rounded-lg p-4 w-screen"
         >
-          {steps.map((step) => (
-            <li key={step.id} className="">
+          {steps.map(({ id, href, isInView }) => (
+            <li key={id} className="">
               <AnchorLink
-                href={step.href}
-                to={step.href}
+                href={href}
+                to={href}
                 smooth="true"
-                offset={150}
+                offset={170}
                 duration={500}
                 delay={1000}
                 className={classNames(
-                  step.isInView
+                  isInView
                     ? "border-orange-tertiary"
                     : "border-gray-200, hover:border-gray-300",
                   "flex flex-col border-b-4  py-2 px-4"
@@ -61,13 +61,13 @@ const AboutNavbar = ({ isInView }) => {
               >
                 <span
                   className={classNames(
-                    step.isInView
+                    isInView
                       ? "text-orange-tertiary"
                       : "text-gray-400 hover:text-gray-500",
                     "text-sm font-medium "
                   )}
                 >
-                  {step.id}
+                  {id}
                 </span>
               </AnchorLink>
             </li>

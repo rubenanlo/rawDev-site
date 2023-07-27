@@ -28,7 +28,19 @@ const setImageProps = (imageNames) =>
     )
     .join("\n");
 
-// Main function to update image imports and object properties
+// Function to generate export statements for each image
+const setExports = (imageNames) =>
+  imageNames
+    .map(
+      (imageName) =>
+        `export { ${imageName
+          .replace(/\..+$/, "")
+          .toUpperCase()
+          .replace(/[^a-zA-Z0-9_]/g, "_")} };`
+    )
+    .join("\n");
+
+// Main function to update image imports, object properties, and export statements
 const setFullImageExport = async () => {
   try {
     // Read the image files from the assets directory
@@ -39,6 +51,9 @@ const setFullImageExport = async () => {
 
     // Generate the image properties for the object
     const imageObjectProperties = setImageProps(imageFiles);
+
+    // Generate the export statements for the images
+    const imageExports = setExports(imageFiles);
 
     // Define the target file where the exportImages.js is located
     const targetFile = path.join("helpers", "exportImages.js");
@@ -62,15 +77,20 @@ const setFullImageExport = async () => {
       `export const images = {\n${imageObjectProperties}};\n`
     );
 
-    // Combine the updated content with new import statements
-    const updatedContent = `${imageImports}\n${updatedContentWithProperties}`;
+    // Combine the updated content with new import and export statements
+    const updatedContent = `${imageImports}\n${updatedContentWithProperties}\n${imageExports}`;
 
     // Write the updated content back to the target file
     await fs.writeFile(targetFile, updatedContent, "utf-8");
 
-    console.log("Updated image imports and object properties successfully!");
+    console.log(
+      "Updated image imports, object properties, and exports successfully!"
+    );
   } catch (error) {
-    console.error("Error updating image imports and object properties:", error);
+    console.error(
+      "Error updating image imports, object properties, and exports:",
+      error
+    );
   }
 };
 

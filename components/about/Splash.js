@@ -43,8 +43,25 @@ const Splash = () => {
     animate: { filter: "blur(0rem)", opacity: 1, scale: 1 },
   };
 
+  const splashAnimation = {
+    // Define the initial state of the entire splash animation
+    // For example, you can set the initial opacity to 0 and then animate it to 1
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.1, delay: 0.5 }, // Adjust the delay as needed
+  };
+
   return (
-    <h1 className="-ml-5 scale-75 sm:scale-100 text-3xl text-orange-tertiary flex justify-center items-center">
+    <motion.h1
+      // This animation is necessary, because when refreshing the page there is
+      // a flickering issue likely due to the initial animations not being
+      // applied to the elements before the JavaScript and animation libraries
+      // fully load
+      initial={splashAnimation.initial}
+      animate={splashAnimation.animate}
+      transition={splashAnimation.transition}
+      className="-ml-5 scale-75 sm:scale-100 text-3xl text-orange-tertiary flex justify-center items-center"
+    >
       <motion.img
         src={logo}
         alt="logo"
@@ -74,7 +91,7 @@ const Splash = () => {
           </motion.p>
         </Fragment>
       ))}
-    </h1>
+    </motion.h1>
   );
 };
 

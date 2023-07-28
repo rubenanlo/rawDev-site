@@ -11,13 +11,14 @@
     "cypress": "cypress open",
     "prepare": "husky install",
     "optimize": "cd helpers && chmod +x optimizeImages.sh && ./optimizeImages.sh && cd ..",
-    "import":"node ./helpers/setNewImages"
+    "import": "node ./helpers/setNewImages"
   },
   "dependencies": {
     "@babel/core": "^7.20.5",
     "@headlessui/react": "^1.7.5",
     "@heroicons/react": "^2.0.13",
     "@tailwindcss/forms": "^0.5.3",
+    "bcryptjs": "^2.4.3",
     "dayjs": "^1.11.9",
     "dotenv": "^16.1.3",
     "eslint-config-prettier": "^8.5.0",

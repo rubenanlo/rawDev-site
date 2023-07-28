@@ -5,10 +5,11 @@ relevant and important features.
 
 ## Main features
 
-- [x] Form submission with email validation
+- [x] Form submission with email validation. Functionality to allow
+      only one submitted form per user.
 - [x] Add authentication to the website
 - [x] Add automatization of image import
-- [ ] Update automatization of image import byt creating single export variables
+- [x] Update automatization of image import byt creating single export variables
       for ach image
 - [x] Add function to optimize images
 - [x] Responsive design
@@ -32,8 +33,6 @@ relevant and important features.
 - [x] Add SEO functionality
 - [ ] Link to a medium article my experience (optional)
 - [x] Add loading component for better user experience in contact form
-- [x] Email verification system when submitting a form. Functionality to allow
-      only one for submission per user.
 - [ ] CHeck alternatives to nodemailer
       ([sendGrid](https://docs.sendgrid.com/for-developers/sending-email/api-getting-started),
       [rapid api](https://rapidapi.com/tobidaramola77/api/mail-man/) )

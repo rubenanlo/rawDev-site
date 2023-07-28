@@ -25,7 +25,7 @@ const Login = () => {
               <p className="mt-2 text-sm leading-6 text-gray-400">
                 Interested in this web app?{" "}
                 <Link
-                  href="#"
+                  href="/contact-form"
                   className="font-semibold text-orange-tertiary hover:text-orange-quaternary"
                 >
                   contact me
@@ -85,7 +85,7 @@ const Login = () => {
                       <div className="border-b w-full" />
                     </div>
 
-                    <div className="mt-2 border-b border-x rounded-sm">
+                    <div className="mt-2 border-b border-x rounded-b-sm">
                       <input
                         onChange={(e) => {
                           setPassword(e.target.value);

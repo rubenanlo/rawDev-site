@@ -167,14 +167,6 @@ The helpers getSnapshot and getBriefBio work a bit differently. In here, since
 the files are in the same folder but we need to only yield information from each
 file separately, we rely on the same method as in the paragraph above to get the filename.
 
-## Lessons learnt:
-
-- When using mongoDB and vercel, it's better to integrate any environment
-  variables through the integration of mongodb directly from vercel.
-
-- For nodemailer to work with vercel, I had to turn the transport into a
-  promise. See code in the helpers directory.
-
 ## Splash component:
 
 If you need to update the text of the animation, you need to update the
@@ -190,3 +182,20 @@ an acronym from. For the acronym, you need to add the acronym you want to use in
 the animation. It could be a letter, or a portion of a word.
 
 If you change this, you may need to review the props in the motion tags.
+
+## Lessons learnt:
+
+- When using mongoDB and vercel, it's better to integrate any environment
+  variables through the integration of mongodb directly from vercel.
+
+- For nodemailer to work with vercel, I had to turn the transport into a
+  promise. See code in the helpers directory.
+
+- In Splash component, there was a flickering issue when reloading the site.
+  This was happening becasue the initial animations were
+  not applied immediately, resulting in a brief display of the initial state of
+  the elements before the animation kicked in. to avoid this issue, we had to
+  create an object with initial, animate, and transition properties to pass them
+  thru props in the motion.h3 tag. The same applied for the aboutNavbar
+  component. For more details on how I solved it, check out commits:
+  dcaea3d4da0b3eff176a46bdf1793913447201db, 70f35b344d7a686af57f50fb6e3fd21a002bb9c5.

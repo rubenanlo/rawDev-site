@@ -5,7 +5,7 @@ async function handler(req, res) {
   //Only POST mothod is accepted
   if (req.method === "POST") {
     //Getting email and password from body
-    const { email, password } = req.body;
+    const { email, password, account } = req.body;
     // TODO: Validate email and password in the frontend
     // //Validate
     // if (!email || !email.includes("@") || !password) {
@@ -24,6 +24,7 @@ async function handler(req, res) {
     const status = await collection.insertOne({
       email,
       password: await hash(password, 12),
+      account,
     });
     //Send success response
     res.status(201).json({ message: "User created", ...status });

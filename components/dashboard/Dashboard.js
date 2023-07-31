@@ -2,12 +2,11 @@ import { Fragment } from "react";
 import { useRecoilState } from "recoil";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import ProfileDropDown from "components/dashboard/sidebar/ProfileDropDown";
-import SearchBar from "components/dashboard/sidebar/SearchBar";
-import ButtonOpenDrawer from "components/dashboard/sidebar/ButtonOpenDrawer";
-import SideBarMobile from "components/dashboard/sidebar/SideBarMobile";
-import SideBarDesktop from "components/dashboard/sidebar/SideBarDesktop";
-import MainContent from "components/dashboard/MainContent";
+import ProfileDropDown from "components/dashboard/navigation/ProfileDropDown";
+import ButtonOpenDrawer from "components/dashboard/navigation/ButtonOpenDrawer";
+import SideBarMobile from "components/dashboard/navigation/SideBarMobile";
+import SideBarDesktop from "components/dashboard/navigation/SideBarDesktop";
+import AdminContent from "components/dashboard/admin-content/AdminContent";
 import { openDrawerSideBar } from "atoms/openDrawerSideBar";
 
 const Dashboard = () => {
@@ -84,11 +83,10 @@ const Dashboard = () => {
 
           <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-            <SearchBar />
             <ProfileDropDown />
           </div>
         </div>
-        <MainContent />
+        <AdminContent />
       </div>
     </>
   );

@@ -21,15 +21,15 @@ const SideBarDesktop = () => {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-50 text-lime-600"
-                            : "text-gray-700 hover:text-lime-600 hover:bg-gray-50",
+                            ? "bg-gray-50 text-orange-secondary"
+                            : "text-gray-700 hover:text-orange-secondary hover:bg-gray-50",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                         )}
                       >
                         <item.icon
                           className={classNames(
                             item.current
-                              ? "text-lime-600"
+                              ? "text-orange-secondary"
                               : "text-gray-400 group-hover:text-indigo-600",
                             "h-6 w-6 shrink-0"
                           )}
@@ -52,16 +52,16 @@ const SideBarDesktop = () => {
                         href={team.href}
                         className={classNames(
                           team.current
-                            ? "bg-gray-50 text-lime-600"
-                            : "text-gray-700 hover:text-lime-600 hover:bg-gray-50",
+                            ? "bg-gray-50 text-orange-secondary"
+                            : "text-gray-700 hover:text-orange-secondary hover:bg-gray-50",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                         )}
                       >
                         <span
                           className={classNames(
                             team.current
-                              ? "text-lime-600 border-lime-600"
-                              : "text-gray-400 border-gray-200 group-hover:border-lime-600 group-hover:text-lime-600",
+                              ? "text-orange-secondary border-orange-secondary"
+                              : "text-gray-400 border-gray-200 group-hover:border-orange-secondary group-hover:text-orange-secondary",
                             "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
                           )}
                         >

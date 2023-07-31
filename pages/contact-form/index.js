@@ -26,7 +26,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("/api/contact-form/responses", {
+    const response = await fetch("/api/contact-form/submit-responses", {
       method: "POST",
       body: JSON.stringify(formResponse),
       headers: { "Content-Type": "application/json" },

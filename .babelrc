@@ -13,7 +13,8 @@
           "layouts": "./layouts",
           "helpers": "./helpers",
           "library": "./library",
-          "atoms": "./atoms"
+          "atoms": "./atoms",
+          "api": "./api"
         }
       }
     ]

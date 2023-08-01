@@ -1,18 +1,29 @@
 intro:
   title: "My journey"
   paragraphs:
-    - "Coming from an economics background, I understand that it may not be the most attention-grabbing profile at first. However, as an economist, I seized the opportunity to expand my role and create automation tools to automate processes for my team, ensuring more time for critical thinking and less on repetitive tasks."
+    - "Proven economist adept at leading/mentoring successful teams and managing
+    multimillion-dollar projects, fostering strong connections with management
+    and mentoring staff. Pioneered cutting-edge best practices in data
+    visualizations, economic models, and automation, which led to execution
+    efficiency. Wanting to expand my skillset, I became a
+    full-stack web developer, ready to drive innovation and deliver exceptional
+    results."
     - "I'm a self-taught developer who values learning from colleagues and user feedback. Transitioning from lengthy code to a modular, component-oriented approach has improved code quality and facilitated better peer reviews."
 highlights:
   - title: "10+ years"
-    caption: "as an economist in business consulting"
-  - title: "1+ years"
-    caption: "as a web developer"
-    description: "but with over 10 years of experience building data visualizations based on excel following DRY and component oriented approach."
+    caption: "as a lead data scientist in economics"
+  - title: "2+ years"
+    caption: "as a full stack web developer"
+    description: "with over 10 years of experience building data
+    visualizations based on excel, tableau and alteryx following DRY and component oriented
+    approach."
   - title: "My stack"
     softStack:
-      - "managing teams & projects"
-      - "client focus"
+      - "managing teams"
+      - "leading projects"
+      - "part of hiring committee"
+      - "mentoring"
+      - "communicating with C-suite executives"
     techStack:
       - icon: NEXT
         alt: "NextJS"
@@ -32,3 +43,7 @@ highlights:
         alt: "Microsoft Excel"
       - icon: GIT
         alt: "Git"
+      - icon: TABLEAU
+        alt: "Tableau"
+      - icon: ALTERYX
+        alt: "Alteryx"

@@ -80,8 +80,8 @@ const ExperienceSnapshot = ({
                 key={title}
                 className={classNames(
                   index === 0
-                    ? "sm:w-2/3 lg:w-3/4 lg:max-w-none"
-                    : "lg:w-full ",
+                    ? "sm:w-2/3 lg:w-2/4 lg:max-w-none"
+                    : "sm:w-11/12 lg:w-3/4",
                   "flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-24"
                 )}
               >
@@ -100,24 +100,16 @@ const ExperienceSnapshot = ({
             )
           )}
           {/* third highlight */}
-          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-12 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start">
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-12 rounded-2xl bg-gradient-to-t from-gray-900 p-8 sm:w-full sm:max-w-2xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start">
             <p className="flex-none text-3xl font-bold tracking-tight text-orange-secondary">
               {highlightsDiffPattern.title}
             </p>
             <div>
-              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5 my-10">
-                <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
-                  SoftStack
-                </p>
-                <p className="text-sm leading-7 items-start text-gray-400 text-left">
-                  {highlightsDiffPattern.softStack.join(", ")}
-                </p>
-              </div>
-              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-2 sm:items-center sm:justify-center sm:gap-x-5">
+              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-3 sm:items-center sm:justify-center sm:gap-x-5">
                 <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
                   TechStack
                 </p>
-                <div className="mt-2 text-base leading-7 grid grid-cols-3 items-center gap-y-3">
+                <div className="col-span-2 mt-2 text-base leading-7 grid grid-cols-4 items-center gap-y-3">
                   {highlightsDiffPattern.techStack.map(({ icon, alt }) => (
                     <Fragment key={alt}>
                       <Image
@@ -140,6 +132,16 @@ const ExperienceSnapshot = ({
                     </Fragment>
                   ))}
                 </div>
+              </div>
+
+              <div className="sm:shrink lg:w-full lg:flex-none sm:grid sm:grid-cols-3 sm:items-center sm:justify-center sm:gap-x-5 my-10">
+                <p className="text-lg text-left font-semibold tracking-tight text-gray-100 mb-5 sm:mb-0">
+                  SoftStack
+                </p>
+                <p className="col-span-2 text-sm leading-7 items-start text-gray-400 text-left">
+                  {highlightsDiffPattern.softStack.join(", ")}
+                  {"."}
+                </p>
               </div>
             </div>
           </div>

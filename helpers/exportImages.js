@@ -1,3 +1,4 @@
+import ALTERYX from "static/assets/alteryx.svg";
 import COLLAB_1 from "static/assets/collab-1.webp";
 import COLLAB_2 from "static/assets/collab-2.webp";
 import COLLAB_3 from "static/assets/collab-3.webp";
@@ -43,12 +44,14 @@ import SDGTC_SM from "static/assets/sdgtc-sm.gif";
 import SHELL from "static/assets/shell.svg";
 import STATIC_LG from "static/assets/static-lg.webp";
 import STATIC_SM from "static/assets/static-sm.webp";
+import TABLEAU from "static/assets/tableau.svg";
 import TAILWIND from "static/assets/tailwind.svg";
 import TRANSPARENCY_1 from "static/assets/transparency-1.webp";
 import TRANSPARENCY from "static/assets/transparency.webp";
 import VSCODE from "static/assets/vscode.svg";
 
 export const images = {
+  ALTERYX,
   COLLAB_1,
   COLLAB_2,
   COLLAB_3,
@@ -94,12 +97,13 @@ export const images = {
   SHELL,
   STATIC_LG,
   STATIC_SM,
+  TABLEAU,
   TAILWIND,
   TRANSPARENCY_1,
   TRANSPARENCY,
   VSCODE,
 };
-
+export { ALTERYX };
 export { COLLAB_1 };
 export { COLLAB_2 };
 export { COLLAB_3 };
@@ -145,6 +149,7 @@ export { SDGTC_SM };
 export { SHELL };
 export { STATIC_LG };
 export { STATIC_SM };
+export { TABLEAU };
 export { TAILWIND };
 export { TRANSPARENCY_1 };
 export { TRANSPARENCY };

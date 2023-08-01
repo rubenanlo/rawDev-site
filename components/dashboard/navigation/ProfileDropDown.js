@@ -12,7 +12,7 @@ import { userNavigation } from "static/sidebar/SIDEBAR";
 const ProfileDropDown = () => {
   const { data: session } = useSession();
   return (
-    <div className="flex items-center gap-x-4 lg:gap-x-6">
+    <div className="fixed flex items-center gap-x-4 lg:gap-x-6 mt-5">
       {/* Potential feature to add notifications */}
       <button
         type="button"

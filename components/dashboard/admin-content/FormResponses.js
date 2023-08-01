@@ -22,7 +22,7 @@ const FormResponses = () => {
     <div className="mt-24 flow-root">
       <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 align-middle">
-          <table className="min-w-full border-separate border-spacing-0 text-left whitespace-nowrap">
+          <table className="min-w-full border-spacing-0 text-left whitespace-nowrap">
             <colgroup>
               <col className="w-1/13" />
               <col className="w-full sm:w-4/12" />
@@ -37,37 +37,37 @@ const FormResponses = () => {
                 <th scope="col" className="sticky top-[5.21rem]" />
                 <th
                   scope="col"
-                  className="sticky top-[6rem] backdrop-blur backdrop-filter pb-8 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8"
+                  className="sticky top-[6rem] pb-8 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8"
                 >
                   User
                 </th>
                 <th
                   scope="col"
-                  className="sticky top-[6rem] backdrop-blur backdrop-filter pb-8 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
+                  className="sticky top-[6rem] pb-8 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
                 >
                   Role
                 </th>
                 <th
                   scope="col"
-                  className="sticky top-[6rem] backdrop-blur backdrop-filter hidden pb-8 pl-0 pr-8 font-semibold sm:table-cell"
+                  className="sticky top-[6rem] hidden pb-8 pl-0 pr-8 font-semibold sm:table-cell"
                 >
                   Email
                 </th>
                 <th
                   scope="col"
-                  className="sticky top-[6rem] backdrop-blur backdrop-filter hidden pb-8 pl-0 pr-8 font-semibold sm:table-cell"
+                  className="sticky top-[6rem] hidden pb-8 pl-0 pr-8 font-semibold sm:table-cell"
                 >
                   Website
                 </th>
                 <th
                   scope="col"
-                  className="sticky top-[6rem] backdrop-blur backdrop-filter hidden pb-8 pl-0 pr-8 font-semibold md:table-cell lg:pr-20"
+                  className="sticky top-[6rem] hidden pb-8 pl-0 pr-8 font-semibold md:table-cell lg:pr-20"
                 >
                   Date
                 </th>
                 <th
                   scope="col"
-                  className="sticky top-[6rem] backdrop-blur backdrop-filter hidden pb-8 pl-0 pr-4 text-right font-semibold sm:table-cell sm:pr-6 lg:pr-8"
+                  className="sticky top-[6rem] hidden pb-8 pl-0 pr-4 text-right font-semibold sm:table-cell sm:pr-6 lg:pr-8"
                 >
                   Actions
                 </th>

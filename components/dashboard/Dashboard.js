@@ -75,9 +75,9 @@ const Dashboard = () => {
         </Dialog>
       </Transition.Root>
 
+      <div className="absolute w-full h-40 bg-gradient-to-r from-gray-900  to-blue-primary" />
       <SideBarDesktop />
-      {/* TODO: Check if the overflow-y-hidden works as intended */}
-      <div className="lg:pl-60">
+      <div className="lg:pl-60 ">
         <div className="z-40 flex h-16 shrink-0 items-center gap-x-4 px-4 sm:gap-x-6 sm:px-6 lg:px-8 ">
           <ButtonOpenDrawer />
           <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />

@@ -76,13 +76,12 @@ const Dashboard = () => {
       </Transition.Root>
 
       <SideBarDesktop />
-
-      <div className="lg:pl-72">
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 px-4 sm:gap-x-6 sm:px-6 lg:px-8 ">
+      {/* TODO: Check if the overflow-y-hidden works as intended */}
+      <div className="lg:pl-60">
+        <div className="z-40 flex h-16 shrink-0 items-center gap-x-4 px-4 sm:gap-x-6 sm:px-6 lg:px-8 ">
           <ButtonOpenDrawer />
-
           <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
-          <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+          <div className="flex justify-end flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <ProfileDropDown />
           </div>
         </div>

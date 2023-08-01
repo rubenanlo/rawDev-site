@@ -19,7 +19,7 @@ const FormResponses = () => {
   }, []);
 
   return (
-    <div className="py-10 h-screen border">
+    <div className="py-10 h-screen">
       <table className="relative mt-6 w-full whitespace-nowrap text-left">
         <colgroup>
           <col className="w-1/13" />
@@ -32,40 +32,40 @@ const FormResponses = () => {
         </colgroup>
         <thead className="border-b border-white/10 text-sm leading-6 text-white">
           <tr>
-            <th scope="col" className="sticky top-20" />
+            <th scope="col" className="sticky top-[5.21rem]" />
             <th
               scope="col"
-              className="sticky top-20 py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8"
+              className="sticky top-[5.21rem] py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8"
             >
               User
             </th>
             <th
               scope="col"
-              className="sticky top-20 py-2 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
+              className="sticky top-[5.21rem] py-2 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
             >
               Role
             </th>
             <th
               scope="col"
-              className="sticky top-20 hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
+              className="sticky top-[5.21rem] hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
             >
               Email
             </th>
             <th
               scope="col"
-              className="sticky top-20 hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
+              className="sticky top-[5.21rem] hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
             >
               Website
             </th>
             <th
               scope="col"
-              className="sticky top-20 hidden py-2 pl-0 pr-8 font-semibold md:table-cell lg:pr-20"
+              className="sticky top-[5.21rem] hidden py-2 pl-0 pr-8 font-semibold md:table-cell lg:pr-20"
             >
               Date
             </th>
             <th
               scope="col"
-              className="sticky top-20 hidden py-2 pl-0 pr-4 text-right font-semibold sm:table-cell sm:pr-6 lg:pr-8"
+              className="sticky top-[5.21rem] hidden py-2 pl-0 pr-4 text-right font-semibold sm:table-cell sm:pr-6 lg:pr-8"
             >
               Actions
             </th>

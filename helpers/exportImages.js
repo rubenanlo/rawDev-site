@@ -48,6 +48,7 @@ import TABLEAU from "static/assets/tableau.svg";
 import TAILWIND from "static/assets/tailwind.svg";
 import TRANSPARENCY_1 from "static/assets/transparency-1.webp";
 import TRANSPARENCY from "static/assets/transparency.webp";
+import TRASH from "static/assets/trash.svg";
 import VSCODE from "static/assets/vscode.svg";
 
 export const images = {
@@ -101,8 +102,10 @@ export const images = {
   TAILWIND,
   TRANSPARENCY_1,
   TRANSPARENCY,
+  TRASH,
   VSCODE,
 };
+
 export { ALTERYX };
 export { COLLAB_1 };
 export { COLLAB_2 };
@@ -153,4 +156,5 @@ export { TABLEAU };
 export { TAILWIND };
 export { TRANSPARENCY_1 };
 export { TRANSPARENCY };
+export { TRASH };
 export { VSCODE };

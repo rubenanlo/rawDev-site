@@ -32,7 +32,7 @@ const FormResponses = () => {
               <col className="lg:w-1/12" />
               <col className="lg:w-1/12" />
             </colgroup>
-            <thead className="border-b border-white/10 text-sm leading-6 text-white">
+            <thead className="text-sm leading-6 text-gray-100">
               <tr>
                 <th scope="col" className="sticky top-[5.21rem]" />
                 <th
@@ -40,12 +40,6 @@ const FormResponses = () => {
                   className="sticky top-[6rem] pb-8 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8"
                 >
                   User
-                </th>
-                <th
-                  scope="col"
-                  className="sticky top-[6rem] pb-8 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
-                >
-                  Role
                 </th>
                 <th
                   scope="col"
@@ -59,6 +53,13 @@ const FormResponses = () => {
                 >
                   Website
                 </th>
+                <th
+                  scope="col"
+                  className="sticky top-[6rem] pb-8 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
+                >
+                  Role
+                </th>
+
                 <th
                   scope="col"
                   className="sticky top-[6rem] hidden pb-8 pl-0 pr-8 font-semibold md:table-cell lg:pr-20"
@@ -99,17 +100,10 @@ const FormResponses = () => {
                     </td>
                     <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                       <div className="flex items-center gap-x-4">
-                        <div className="truncate text-sm font-medium leading-6 text-white">
+                        <div className="truncate text-sm font-medium leading-6 text-gray-100">
                           {lastName}
                           {", "}
                           {firstName}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
-                      <div className="flex gap-x-3">
-                        <div className="font-mono text-sm leading-6 text-gray-400">
-                          {type}
                         </div>
                       </div>
                     </td>
@@ -121,7 +115,7 @@ const FormResponses = () => {
                         >
                           {date}
                         </time>
-                        <div className="hidden text-white sm:block">
+                        <div className="hidden text-gray-100 sm:block">
                           {email}
                         </div>
                       </div>
@@ -129,6 +123,14 @@ const FormResponses = () => {
                     <td className="hidden py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20">
                       {website}
                     </td>
+                    <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
+                      <div className="flex gap-x-3">
+                        <div className="font-mono text-sm leading-6 text-gray-400">
+                          {type}
+                        </div>
+                      </div>
+                    </td>
+
                     <td className="hidden py-4 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 sm:table-cell sm:pr-6 lg:pr-8">
                       <time dateTime={date}>{date}</time>
                     </td>

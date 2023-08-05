@@ -9,11 +9,11 @@ social:
   - icon: EMAIL
     href: /contact-form
     alt: Email
-  - icon: LINKEDIN
-    href: https://www.linkedin.com/in/ruben-andino/
-    target: _blank
-    alt: Linkedin
   - icon: GITHUB
     href: https://github.com/rubenanlo
     target: _blank
     alt: GitHub
+  - icon: LINKEDIN
+    href: https://www.linkedin.com/in/ruben-andino/
+    target: _blank
+    alt: Linkedin

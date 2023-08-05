@@ -49,6 +49,7 @@ import TAILWIND from "static/assets/tailwind.svg";
 import TRANSPARENCY_1 from "static/assets/transparency-1.webp";
 import TRANSPARENCY from "static/assets/transparency.webp";
 import TRASH from "static/assets/trash.svg";
+import USER from "static/assets/user.svg";
 import VSCODE from "static/assets/vscode.svg";
 
 export const images = {
@@ -103,6 +104,7 @@ export const images = {
   TRANSPARENCY_1,
   TRANSPARENCY,
   TRASH,
+  USER,
   VSCODE,
 };
 
@@ -157,4 +159,5 @@ export { TAILWIND };
 export { TRANSPARENCY_1 };
 export { TRANSPARENCY };
 export { TRASH };
+export { USER };
 export { VSCODE };

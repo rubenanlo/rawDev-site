@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { classNames } from "helpers/setClassNames";
-import { TRASH as trash, EMAIL as sendEmail } from "helpers/exportImages";
+import {
+  TRASH as trash,
+  EMAIL as sendEmail,
+  USER as user,
+} from "helpers/exportImages";
 
 const FormResponses = () => {
   const [responses, setResponses] = useState([]);
@@ -105,8 +109,8 @@ const FormResponses = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="hidden py-4 px-5 text-sm leading-6 text-gray-400 md:table-cell text-center">
-                      <Link target="_blank" href={website || ""}>
+                    <td className="hidden py-4 px-5 text-sm leading-6 text-gray-400 md:table-cell text-center hover:text-gray-100 hover:underline hover:underline-offset-4">
+                      <Link target="_blank" href={`http://${website}` || ""}>
                         {website}
                       </Link>
                     </td>
@@ -118,12 +122,17 @@ const FormResponses = () => {
                     <td className="hidden py-4 px-5 text-center text-sm leading-6 text-gray-400 sm:table-cell">
                       <time dateTime={date}>{date}</time>
                     </td>
-                    <td className="py-4 text-center text-sm leading-6 text-gray-400 sm:table-cell">
-                      <div className="flex justify-center gap-x-3">
-                        <Link href={`mailto:${email}`}>
+                    <td className="py-4 px-5 text-center text-sm leading-6 text-gray-400 sm:table-cell">
+                      <div className="flex justify-center gap-x-5">
+                        {role === "client" && (
+                          <Link href={`mailto:${email}`} className="w-4">
+                            <Image src={user} alt="email" />
+                          </Link>
+                        )}
+                        <Link href={`mailto:${email}`} className="w-4">
                           <Image src={sendEmail} alt="email" />
                         </Link>
-                        <button>
+                        <button className="w-4">
                           <Image src={trash} alt="trash" />
                         </button>
                       </div>

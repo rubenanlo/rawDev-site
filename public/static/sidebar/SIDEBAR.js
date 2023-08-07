@@ -1,11 +1,18 @@
 // this is to store the data for the sidebar
 
-export const teams = [
+export const sections = [
   {
     id: 1,
-    name: "Your GitHub Projects",
+    name: "Dashboard",
+    href: "dashboard",
+    initial: "D",
+    current: false,
+  },
+  {
+    id: 2,
+    name: "Form Responses",
     href: "dashboard/github",
-    initial: "G",
+    initial: "R",
     current: false,
   },
 ];

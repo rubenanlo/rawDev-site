@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import _ from "lodash";
+import { useRecoilState } from "recoil";
 import { classNames } from "helpers/setClassNames";
 import {
   TRASH as trash,
   EMAIL as sendEmail,
   USER as user,
 } from "helpers/exportImages";
+import { openDeleteModalState } from "atoms/openDeleteModal";
+import DeleteEntry from "components/modals/DeleteEntry";
 
 const FormResponses = () => {
   const [responses, setResponses] = useState([]);
+  const [deleteId, setDeleteId] = useState("");
+  // recoil state for modal open/close is in atoms/openDeleteModal.js
+  const [openDeleteModal, setOpenDeleteModal] =
+    useRecoilState(openDeleteModalState);
 
   const handleRetrieve = async () => {
     const response = await fetch("/api/contact-form/retrieve-responses", {
@@ -23,9 +31,7 @@ const FormResponses = () => {
 
   useEffect(() => {
     handleRetrieve();
-  }, []);
-
-  console.log(responses);
+  }, [responses]);
 
   return (
     <div className="mt-24 flow-root ">
@@ -86,8 +92,9 @@ const FormResponses = () => {
                   website,
                   verified,
                   date,
+                  _id,
                 }) => (
-                  <tr key={email}>
+                  <tr key={_id}>
                     <td className="">
                       <div
                         className={classNames(
@@ -109,9 +116,13 @@ const FormResponses = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="hidden py-4 px-5 text-sm leading-6 text-gray-400 md:table-cell text-center hover:text-gray-100 hover:underline hover:underline-offset-4">
-                      <Link target="_blank" href={`http://${website}` || ""}>
-                        {website}
+                    <td className="hidden py-4 px-5 text-sm leading-6 text-gray-400 md:table-cell text-center">
+                      <Link
+                        target="_blank"
+                        href={`http://${website}` || ""}
+                        className=" hover:text-gray-100 hover:underline hover:underline-offset-4"
+                      >
+                        {_.truncate(website, { length: 15 })}
                       </Link>
                     </td>
                     <td className="hidden py-4 px-5 sm:table-cell text-center">
@@ -125,14 +136,20 @@ const FormResponses = () => {
                     <td className="py-4 px-5 text-center text-sm leading-6 text-gray-400 sm:table-cell">
                       <div className="flex justify-center gap-x-5">
                         {role === "client" && (
-                          <Link href={`mailto:${email}`} className="w-4">
-                            <Image src={user} alt="email" />
-                          </Link>
+                          <button className="w-4">
+                            <Image src={user} alt="user" />
+                          </button>
                         )}
                         <Link href={`mailto:${email}`} className="w-4">
                           <Image src={sendEmail} alt="email" />
                         </Link>
-                        <button className="w-4">
+                        <button
+                          className="w-4"
+                          onClick={() => {
+                            setOpenDeleteModal(true);
+                            setDeleteId(_id);
+                          }}
+                        >
                           <Image src={trash} alt="trash" />
                         </button>
                       </div>
@@ -142,6 +159,7 @@ const FormResponses = () => {
               )}
             </tbody>
           </table>
+          {openDeleteModal && <DeleteEntry id={deleteId} />}
         </div>
       </div>
     </div>

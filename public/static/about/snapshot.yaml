@@ -2,7 +2,9 @@ intro:
   title: "My journey"
   paragraphs:
     - "As an economist, I oversaw complex data models and visualizations to determine pricing between related entities. I managed projects for clients boasting $200B+ in revenue, mentored teams, contributed to the hiring process, liaised with C-suite executives, and established best practices for creating data visualizations and models. Eager to expand my expertise, I transitioned into a full-stack web developer role to deliver bespoke web applications aligned with business needs."
-    - "I'm a self-taught developer who values learning from colleagues and user feedback. Transitioning from lengthy code to a modular, component-oriented approach has improved code quality and facilitated better peer reviews."
+    - "I'm a self-taught developer who values learning from colleagues and user
+    feedback. As a result, I transitioned from lengthy code to a modular, component-oriented
+    approach, which has improved my code quality and facilitated better peer reviews."
 highlights:
   - title: "10+ years"
     caption: "as a lead data scientist in economics"

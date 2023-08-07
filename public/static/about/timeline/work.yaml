@@ -11,7 +11,8 @@
   techStack: "NextJS, Tailwind, styled components, MongoDB, Node.js, Express"
   dateTime: "2022-08"
 - name: "Lead Data Scientist - Economist, Baker McKenzie (Paris, France)"
-  description: "Created a repository of documents possible to update automatically."
+  description: "Apart from creating several data visualizations, I created a repository of
+  documents with filters."
   techStack: "Microsoft Excel, Tableau, Alteryx"
   dateTime: "2021-09"
 - name: "Lead Data Scientist - Economist, PwC (New York, USA)"
@@ -26,6 +27,7 @@
   techStack: "Microsoft Excel"
   dateTime: "2011-05"
 - name: "Data Scientist - Economist, Deloitte (Barcelona, Spain)"
-  description: "Designed a data visualization for a benchmarking analysis, which allows a 6% reduction of costs"
+  description: "Designed a data visualization for a benchmarking analysis, which
+  still creates a 6% reduction of costs"
   techStack: "Microsoft Excel"
   dateTime: "2008-09"

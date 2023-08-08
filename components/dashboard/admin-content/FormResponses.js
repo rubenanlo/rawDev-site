@@ -7,13 +7,13 @@ import DeleteEntry from "components/modals/DeleteEntry";
 import { classNames } from "helpers/setClassNames";
 import { handleRetrieve } from "helpers/handleDataFromDatabase";
 import { handleSelectEntries } from "helpers/selectEntries";
+import { handleDelete } from "helpers/handleDataFromDatabase";
 import {
   TRASH as trash,
   EMAIL as sendEmail,
   USER as user,
 } from "helpers/exportImages";
 import { openDeleteModalState } from "atoms/openDeleteModal";
-import { handleDelete } from "../../../helpers/handleDataFromDatabase";
 
 const FormResponses = () => {
   const [responses, setResponses] = useState([]);

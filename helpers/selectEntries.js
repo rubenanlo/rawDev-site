@@ -1,4 +1,4 @@
-export const handleDeleteArray = (
+export const handleSelectEntries = (
   deleteIdArray,
   responses,
   setDeleteIdArray,

@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import DeleteEntry from "components/modals/DeleteEntry";
 import { classNames } from "helpers/setClassNames";
 import { handleRetrieve } from "helpers/handleDataFromDatabase";
-import { handleDeleteArray } from "helpers/selectEntries";
+import { handleSelectEntries } from "helpers/selectEntries";
 import {
   TRASH as trash,
   EMAIL as sendEmail,
@@ -85,19 +85,28 @@ const FormResponses = () => {
                   </th>
                   <th
                     scope="col"
-                    className="sticky top-[6rem] pb-8 font-semibold md:table-cell text-center cursor-pointer"
+                    className="sticky top-[6rem] pb-8 font-semibold md:table-cell text-center"
                   >
                     <div
-                      className="border h-4 w-4 rounded-full bg-white mr-10"
+                      className="border h-4 w-4 rounded-full bg-transparent mr-10 flex items-center justify-center cursor-pointer"
                       onClick={() =>
-                        handleDeleteArray(
+                        handleSelectEntries(
                           deleteIdArray,
                           responses,
                           setDeleteIdArray,
                           true
                         )
                       }
-                    />
+                    >
+                      <div
+                        className={classNames(
+                          deleteIdArray.length === responses.length
+                            ? "bg-orange-tertiary"
+                            : "bg-transparent",
+                          "w-2 h-2  rounded-full"
+                        )}
+                      />
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -175,9 +184,11 @@ const FormResponses = () => {
                       </td>
                       <td>
                         <div
-                          className="border h-4 w-4 rounded-full bg-white mr-10 cursor-pointer"
+                          className={
+                            "border h-4 w-4 rounded-full mr-10 cursor-pointer flex justify-center items-center"
+                          }
                           onClick={() =>
-                            handleDeleteArray(
+                            handleSelectEntries(
                               deleteIdArray,
                               responses,
                               setDeleteIdArray,
@@ -185,7 +196,16 @@ const FormResponses = () => {
                               _id
                             )
                           }
-                        />
+                        >
+                          <div
+                            className={classNames(
+                              deleteIdArray.includes(_id)
+                                ? "bg-orange-tertiary"
+                                : "bg-transparent",
+                              "w-2 h-2  rounded-full"
+                            )}
+                          />
+                        </div>
                       </td>
                     </tr>
                   )

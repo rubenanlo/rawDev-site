@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useRecoilState } from "recoil";
 import { openDeleteModalState } from "atoms/openDeleteModal";
+import { handleDelete } from "../../helpers/handleDataFromDatabase";
 
 export default function DeleteEntry({ id }) {
   const [openDeleteModal, setOpenDeleteModal] =
@@ -17,15 +18,6 @@ export default function DeleteEntry({ id }) {
     animate: { scale: 1 },
     exit: { scale: 0 },
     transition: { duration: 0.5 },
-  };
-
-  const deleteResponse = (id) => {
-    fetch("/api/contact-form/delete-responses", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
-    });
-    setOpenDeleteModal(false);
   };
 
   return (
@@ -88,7 +80,10 @@ export default function DeleteEntry({ id }) {
                 <button
                   type="button"
                   className="w-32 rounded-md bg-red-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={() => deleteResponse(id)}
+                  onClick={() => {
+                    handleDelete(id);
+                    setOpenDeleteModal(false);
+                  }}
                 >
                   Delete
                 </button>

@@ -2,7 +2,6 @@ import { connectToDatabase } from "helpers/connectDb";
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
-  console.log(req.body);
   const { id } = req.body;
 
   if (req.method === "DELETE") {

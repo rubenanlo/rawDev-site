@@ -27,6 +27,7 @@ export default function DeleteEntry({ id, setSingleDeleteId }) {
         className="relative z-20"
         onClose={() => {
           setOpenDeleteModal(false);
+          setSingleDeleteId(null);
         }}
       >
         <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />

@@ -9,7 +9,7 @@ import { useRecoilState } from "recoil";
 import { openDeleteModalState } from "atoms/openDeleteModal";
 import { handleDelete } from "../../helpers/handleDataFromDatabase";
 
-export default function DeleteEntry({ id }) {
+export default function DeleteEntry({ id, setSingleDeleteId }) {
   const [openDeleteModal, setOpenDeleteModal] =
     useRecoilState(openDeleteModalState);
 
@@ -73,6 +73,7 @@ export default function DeleteEntry({ id }) {
                   className="w-32 rounded-md border border-ray-400 px-3.5 py-2.5 text-sm font-semibold text-gray-500 shadow-sm hover:bg-gray-50"
                   onClick={() => {
                     setOpenDeleteModal(false);
+                    setSingleDeleteId("");
                   }}
                 >
                   Cancel

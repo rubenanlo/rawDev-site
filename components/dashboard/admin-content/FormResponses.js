@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import _ from "lodash";
 import { useRecoilState } from "recoil";
+import { AnimatePresence, motion } from "framer-motion";
 import DeleteEntry from "components/modals/DeleteEntry";
 import { classNames } from "helpers/setClassNames";
 import { handleRetrieve } from "helpers/handleDataFromDatabase";
 import { handleSelectEntries } from "helpers/selectEntries";
-import { handleDelete } from "helpers/handleDataFromDatabase";
 import {
   TRASH as trash,
   EMAIL as sendEmail,
@@ -24,6 +24,8 @@ const FormResponses = () => {
     useRecoilState(openDeleteModalState);
   const apiEndpoint = "contact-form/retrieve-responses";
 
+  const idDelete = singleDeleteId || deleteIdArray;
+
   useEffect(
     () => async () => {
       const { data } = await handleRetrieve(apiEndpoint);
@@ -35,22 +37,64 @@ const FormResponses = () => {
   return (
     <>
       {/* modal to delete entry/ies */}
-      {openDeleteModal && <DeleteEntry id={singleDeleteId} />}
+      {openDeleteModal && (
+        <DeleteEntry id={idDelete} setSingleDeleteId={setSingleDeleteId} />
+      )}
       <div className="mt-24 flow-root ">
         <div className="-my-2">
           <div className="inline-block min-w-full py-2 align-middle">
             <table className="min-w-full border-spacing-0 whitespace-nowrap">
               <colgroup>
                 <col className="w-1/13" />
-                <col className="w-full sm:w-3/12" />
-                <col className="lg:w-2/12" />
-                <col className="lg:w-2/12" />
-                <col className="lg:w-1/12" />
-                <col className="lg:w-5/12" />
                 <col className="w-1/13" />
+                <col className="w-full sm:w-2/12" />
+                <col className="lg:w-2/12" />
+                <col className="lg:w-2/12" />
+                <col className="lg:w-2/12" />
+                <col className="lg:w-5/12" />
               </colgroup>
               <thead className="text-sm leading-6 text-gray-100">
                 <tr>
+                  <th
+                    scope="col"
+                    className="sticky top-[6rem] pb-8 font-semibold md:table-cell flex flex-col"
+                  >
+                    <div
+                      className="border border-gray-500 h-4 w-4 rounded-sm bg-transparent flex items-center justify-center cursor-pointer"
+                      onClick={() =>
+                        handleSelectEntries(
+                          deleteIdArray,
+                          responses,
+                          setDeleteIdArray,
+                          true
+                        )
+                      }
+                    >
+                      <div
+                        className={classNames(
+                          deleteIdArray.length === responses.length
+                            ? "bg-orange-tertiary"
+                            : "bg-transparent",
+                          "w-2 h-2"
+                        )}
+                      />
+                    </div>
+                    <AnimatePresence>
+                      {(singleDeleteId || deleteIdArray.length > 0) &&
+                        !openDeleteModal && (
+                          <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            animate={{ y: [-10, 0], opacity: [0, 0.7] }}
+                            exit={{ y: [0, -10], opacity: [0.7, 0] }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute left-6 -top-0 text-xs text-gray-100 bg-red-800 px-2 py-1 rounded-sm"
+                            onClick={() => setOpenDeleteModal(true)}
+                          >
+                            Delete
+                          </motion.button>
+                        )}
+                    </AnimatePresence>
+                  </th>
                   <th scope="col" className="sticky top-[5.21rem]" />
                   <th
                     scope="col"
@@ -79,34 +123,9 @@ const FormResponses = () => {
                   </th>
                   <th
                     scope="col"
-                    className="sticky top-[6rem] pb-8 font-semibold sm:table-cell text-center"
+                    className="sticky top-[6rem] pb-8 font-semibold sm:table-cell text-left px-5"
                   >
                     Actions
-                  </th>
-                  <th
-                    scope="col"
-                    className="sticky top-[6rem] pb-8 font-semibold md:table-cell text-center"
-                  >
-                    <div
-                      className="border h-4 w-4 rounded-full bg-transparent mr-10 flex items-center justify-center cursor-pointer"
-                      onClick={() =>
-                        handleSelectEntries(
-                          deleteIdArray,
-                          responses,
-                          setDeleteIdArray,
-                          true
-                        )
-                      }
-                    >
-                      <div
-                        className={classNames(
-                          deleteIdArray.length === responses.length
-                            ? "bg-orange-tertiary"
-                            : "bg-transparent",
-                          "w-2 h-2  rounded-full"
-                        )}
-                      />
-                    </div>
                   </th>
                 </tr>
               </thead>
@@ -123,6 +142,31 @@ const FormResponses = () => {
                     _id,
                   }) => (
                     <tr key={_id}>
+                      <td>
+                        <div
+                          className={
+                            "border border-gray-500 h-4 w-4 rounded-sm mr-10 cursor-pointer flex justify-center items-center"
+                          }
+                          onClick={() =>
+                            handleSelectEntries(
+                              deleteIdArray,
+                              responses,
+                              setDeleteIdArray,
+                              false,
+                              _id
+                            )
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              deleteIdArray.includes(_id)
+                                ? "bg-orange-tertiary"
+                                : "bg-transparent",
+                              "w-2 h-2"
+                            )}
+                          />
+                        </div>
+                      </td>
                       <td>
                         <div
                           className={classNames(
@@ -161,8 +205,8 @@ const FormResponses = () => {
                       <td className="hidden py-4 px-5 text-center text-sm leading-6 text-gray-400 sm:table-cell">
                         <time dateTime={date}>{date}</time>
                       </td>
-                      <td className="py-4 px-5 text-center text-sm leading-6 text-gray-400 sm:table-cell">
-                        <div className="flex justify-center gap-x-5">
+                      <td className="py-4 px-5 text-left text-sm leading-6 text-gray-400 sm:table-cell">
+                        <div className="flex justify-start gap-x-5">
                           {role === "client" && (
                             <button className="w-4">
                               <Image src={user} alt="user" />
@@ -182,38 +226,12 @@ const FormResponses = () => {
                           </button>
                         </div>
                       </td>
-                      <td>
-                        <div
-                          className={
-                            "border h-4 w-4 rounded-full mr-10 cursor-pointer flex justify-center items-center"
-                          }
-                          onClick={() =>
-                            handleSelectEntries(
-                              deleteIdArray,
-                              responses,
-                              setDeleteIdArray,
-                              false,
-                              _id
-                            )
-                          }
-                        >
-                          <div
-                            className={classNames(
-                              deleteIdArray.includes(_id)
-                                ? "bg-orange-tertiary"
-                                : "bg-transparent",
-                              "w-2 h-2  rounded-full"
-                            )}
-                          />
-                        </div>
-                      </td>
                     </tr>
                   )
                 )}
               </tbody>
             </table>
           </div>
-          <button onClick={() => handleDelete(deleteIdArray)}>Delete</button>
         </div>
       </div>
     </>

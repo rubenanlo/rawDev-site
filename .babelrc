@@ -14,7 +14,8 @@
           "helpers": "./helpers",
           "library": "./library",
           "atoms": "./atoms",
-          "api": "./api"
+          "api": "./api",
+          "animations": "./animations"
         }
       }
     ]

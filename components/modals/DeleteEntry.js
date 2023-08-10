@@ -85,6 +85,7 @@ export default function DeleteEntry({ id, setSingleDeleteId }) {
                   onClick={() => {
                     handleDelete(id);
                     setOpenDeleteModal(false);
+                    setSingleDeleteId("");
                   }}
                 >
                   Delete

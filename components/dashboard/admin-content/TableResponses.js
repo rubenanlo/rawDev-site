@@ -9,16 +9,14 @@ import {
   EMAIL as sendEmail,
   USER as user,
 } from "helpers/exportImages";
-import { openClose } from "slices/openDeleteModalState";
+import { toggle } from "slices/modalVisibility";
 
 const TableResponses = ({
   responses,
   deleteIdArray,
   setDeleteIdArray,
   dispatch,
-  singleDeleteId,
   openDeleteModal,
-  setSingleDeleteId,
 }) => {
   return (
     <div className="mt-24 flow-root ">
@@ -53,7 +51,8 @@ const TableResponses = ({
                   >
                     <div
                       className={classNames(
-                        deleteIdArray.length === responses.length
+                        responses.length !== 0 &&
+                          deleteIdArray.length === responses.length
                           ? "bg-orange-tertiary"
                           : "bg-transparent",
                         "w-2 h-2"
@@ -61,19 +60,18 @@ const TableResponses = ({
                     />
                   </div>
                   <AnimatePresence>
-                    {(singleDeleteId || deleteIdArray.length > 0) &&
-                      !openDeleteModal && (
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          animate={{ y: [-10, 0], opacity: [0, 0.7] }}
-                          exit={{ y: [0, -10], opacity: [0.7, 0] }}
-                          transition={{ duration: 0.5 }}
-                          className="absolute left-6 -top-0 text-xs text-gray-100 bg-red-800 px-2 py-1 rounded-sm"
-                          onClick={() => dispatch(openClose())}
-                        >
-                          Delete
-                        </motion.button>
-                      )}
+                    {deleteIdArray.length > 0 && !openDeleteModal && (
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        animate={{ y: [-10, 0], opacity: [0, 0.7] }}
+                        exit={{ y: [0, -10], opacity: [0.7, 0] }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute left-6 -top-0 text-xs text-gray-100 bg-red-800 px-2 py-1 rounded-sm"
+                        onClick={() => dispatch(toggle())}
+                      >
+                        Delete
+                      </motion.button>
+                    )}
                   </AnimatePresence>
                 </th>
                 <th scope="col" className="sticky top-[5.21rem]" />
@@ -191,8 +189,8 @@ const TableResponses = ({
                         <button
                           className="w-4"
                           onClick={() => {
-                            dispatch(openClose());
-                            setSingleDeleteId(_id);
+                            dispatch(toggle());
+                            setDeleteIdArray(_id);
                           }}
                         >
                           <Image src={trash} alt="trash" />

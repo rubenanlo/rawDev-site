@@ -6,11 +6,11 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { handleDelete } from "helpers/handleDataFromDatabase";
-import { openClose } from "slices/openDeleteModalState";
+import { toggle } from "slices/modalVisibility";
 
 export default function DeleteEntry({
   id,
-  setSingleDeleteId,
+  setDeleteIdArray,
   openDeleteModal,
   dispatch,
 }) {
@@ -21,8 +21,8 @@ export default function DeleteEntry({
     transition: { duration: 0.5 },
   };
   const handleButtonAction = () => {
-    dispatch(openClose());
-    setSingleDeleteId(null);
+    dispatch(toggle());
+    setDeleteIdArray([]);
   };
 
   return (

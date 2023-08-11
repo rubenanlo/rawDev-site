@@ -7,15 +7,12 @@ import TableResponses from "components/dashboard/admin-content/TableResponses";
 
 const FormResponses = () => {
   const [responses, setResponses] = useState([]);
-  const [singleDeleteId, setSingleDeleteId] = useState("");
   const [deleteIdArray, setDeleteIdArray] = useState([]);
   // recoil state for modal open/close is in atoms/openDeleteModal.js
   const openDeleteModal = useSelector((state) => state.deleteModal.value);
   const dispatch = useDispatch();
 
   const apiEndpoint = "contact-form/retrieve-responses";
-
-  const idDelete = singleDeleteId || deleteIdArray;
 
   useEffect(
     () => async () => {
@@ -31,8 +28,8 @@ const FormResponses = () => {
       {/* modal to delete entry/ies */}
       {openDeleteModal && (
         <DeleteEntry
-          id={idDelete}
-          setSingleDeleteId={setSingleDeleteId}
+          id={deleteIdArray}
+          setDeleteIdArray={setDeleteIdArray}
           dispatch={dispatch}
           openDeleteModal={openDeleteModal}
         />
@@ -42,9 +39,7 @@ const FormResponses = () => {
         deleteIdArray={deleteIdArray}
         setDeleteIdArray={setDeleteIdArray}
         dispatch={dispatch}
-        singleDeleteId={singleDeleteId}
         openDeleteModal={openDeleteModal}
-        setSingleDeleteId={setSingleDeleteId}
       />
     </>
   );

@@ -16,7 +16,7 @@
           "atoms": "./atoms",
           "api": "./api",
           "animations": "./animations",
-          "slices": "./slices",
+          "slices": "./slices"
         }
       }
     ]

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const modalVisibility = createSlice({
-  name: "deleteModal",
+  name: "modalVisibility",
   initialState: {
     value: false,
   },

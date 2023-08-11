@@ -1,8 +1,10 @@
 import { useRef, useState, useContext, Fragment } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import TechStack from "components/modals/TechStack";
 import { classNames } from "helpers/setClassNames";
 import { RespContext } from "helpers/responsiveComponent";
+import { useToggleModal } from "helpers/useRedux";
 
 const ExperienceSnapshot = ({
   snapshot: {
@@ -11,7 +13,7 @@ const ExperienceSnapshot = ({
   },
 }) => {
   const [description, setDescription] = useState("");
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, toggleModal] = useToggleModal();
   const highlightsSamePattern = [highlights[0], highlights[1]];
   const highlightsDiffPattern = highlights[2];
   const useMediaQuery = useContext(RespContext);
@@ -118,16 +120,17 @@ const ExperienceSnapshot = ({
                         className="w-7 cursor-pointer sm:mx-0"
                         onMouseEnter={() => {
                           setDescription(alt);
-                          setOpenModal(true);
+                          toggleModal();
                         }}
                         onMouseLeave={() => {
-                          setOpenModal(false);
+                          toggleModal();
                         }}
                       />
                       {openModal && (
-                        <div className="hidden sm:block absolute -mt-44 bg-orange-quaternary/10 text-gray-900 px-5 py-2 rounded-md">
-                          {description}
-                        </div>
+                        <TechStack
+                          description={description}
+                          className="-mt-44 opacity-10"
+                        />
                       )}
                     </Fragment>
                   ))}

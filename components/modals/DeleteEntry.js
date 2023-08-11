@@ -6,14 +6,14 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { handleDelete } from "helpers/handleDataFromDatabase";
-import { toggle } from "slices/modalVisibility";
 
 export default function DeleteEntry({
   id,
   setDeleteIdArray,
-  openDeleteModal,
-  dispatch,
+  openModal,
+  toggleModal,
 }) {
+  console.log("🚀 ~ file: DeleteEntry.js:16 ~ openModal:", openModal);
   const modalAnimation = {
     initial: { scale: 0 },
     animate: { scale: 1 },
@@ -21,12 +21,12 @@ export default function DeleteEntry({
     transition: { duration: 0.5 },
   };
   const handleButtonAction = () => {
-    dispatch(toggle());
+    toggleModal();
     setDeleteIdArray([]);
   };
 
   return (
-    <Transition.Root show={openDeleteModal} as={Fragment}>
+    <Transition.Root show={openModal} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-50"

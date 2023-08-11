@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { Dialog, Transition } from "@headlessui/react";
 import {
@@ -6,18 +6,19 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
+import { useToggleModal } from "helpers/useRedux";
 
 export default function ConfirmEmailNotification() {
-  const [open, setOpen] = useState(true);
+  const [openModal, toggleModal] = useToggleModal();
   const router = useRouter();
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={openModal} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-50"
         onClose={() => {
-          setOpen;
+          toggleModal();
           router.back();
         }}
       >
@@ -35,7 +36,7 @@ export default function ConfirmEmailNotification() {
                   type="button"
                   className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-quaternary focus:ring-offset-2"
                   onClick={() => {
-                    setOpen(false);
+                    toggleModal();
                     router.back();
                   }}
                 >

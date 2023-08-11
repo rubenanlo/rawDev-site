@@ -9,13 +9,12 @@ import {
   EMAIL as sendEmail,
   USER as user,
 } from "helpers/exportImages";
-import { toggle } from "slices/modalVisibility";
 
 const TableResponses = ({
   responses,
   deleteIdArray,
   setDeleteIdArray,
-  dispatch,
+  toggleModal,
   openDeleteModal,
 }) => {
   return (
@@ -67,7 +66,7 @@ const TableResponses = ({
                         exit={{ y: [0, -10], opacity: [0.7, 0] }}
                         transition={{ duration: 0.5 }}
                         className="absolute left-6 -top-0 text-xs text-gray-100 bg-red-800 px-2 py-1 rounded-sm"
-                        onClick={() => dispatch(toggle())}
+                        onClick={() => toggleModal()}
                       >
                         Delete
                       </motion.button>
@@ -189,7 +188,7 @@ const TableResponses = ({
                         <button
                           className="w-4"
                           onClick={() => {
-                            dispatch(toggle());
+                            toggleModal();
                             setDeleteIdArray(_id);
                           }}
                         >

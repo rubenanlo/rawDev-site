@@ -29,7 +29,7 @@ export default function DeleteEntry({
     <Transition.Root show={openDeleteModal} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-20"
+        className="relative z-50"
         onClose={() => {
           handleButtonAction();
         }}

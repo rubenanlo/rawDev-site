@@ -5,19 +5,24 @@ import {
   ExclamationTriangleIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useRecoilState } from "recoil";
-import { openDeleteModalState } from "atoms/openDeleteModal";
-import { handleDelete } from "../../helpers/handleDataFromDatabase";
+import { handleDelete } from "helpers/handleDataFromDatabase";
+import { openClose } from "slices/openDeleteModalState";
 
-export default function DeleteEntry({ id, setSingleDeleteId }) {
-  const [openDeleteModal, setOpenDeleteModal] =
-    useRecoilState(openDeleteModalState);
-
+export default function DeleteEntry({
+  id,
+  setSingleDeleteId,
+  openDeleteModal,
+  dispatch,
+}) {
   const modalAnimation = {
     initial: { scale: 0 },
     animate: { scale: 1 },
     exit: { scale: 0 },
     transition: { duration: 0.5 },
+  };
+  const handleButtonAction = () => {
+    dispatch(openClose());
+    setSingleDeleteId(null);
   };
 
   return (
@@ -26,8 +31,7 @@ export default function DeleteEntry({ id, setSingleDeleteId }) {
         as="div"
         className="relative z-20"
         onClose={() => {
-          setOpenDeleteModal(false);
-          setSingleDeleteId(null);
+          handleButtonAction();
         }}
       >
         <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
@@ -45,7 +49,7 @@ export default function DeleteEntry({ id, setSingleDeleteId }) {
                   type="button"
                   className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-quaternary focus:ring-offset-2"
                   onClick={() => {
-                    setOpenDeleteModal(false);
+                    handleButtonAction();
                   }}
                 >
                   <span className="sr-only">Close</span>
@@ -73,8 +77,7 @@ export default function DeleteEntry({ id, setSingleDeleteId }) {
                   type="button"
                   className="w-32 rounded-md border border-ray-400 px-3.5 py-2.5 text-sm font-semibold text-gray-500 shadow-sm hover:bg-gray-50"
                   onClick={() => {
-                    setOpenDeleteModal(false);
-                    setSingleDeleteId("");
+                    handleButtonAction();
                   }}
                 >
                   Cancel
@@ -84,8 +87,7 @@ export default function DeleteEntry({ id, setSingleDeleteId }) {
                   className="w-32 rounded-md bg-red-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={() => {
                     handleDelete(id);
-                    setOpenDeleteModal(false);
-                    setSingleDeleteId("");
+                    handleButtonAction();
                   }}
                 >
                   Delete

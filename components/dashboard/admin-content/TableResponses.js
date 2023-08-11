@@ -9,12 +9,13 @@ import {
   EMAIL as sendEmail,
   USER as user,
 } from "helpers/exportImages";
+import { openClose } from "slices/openDeleteModalState";
 
 const TableResponses = ({
   responses,
   deleteIdArray,
   setDeleteIdArray,
-  setOpenDeleteModal,
+  dispatch,
   singleDeleteId,
   openDeleteModal,
   setSingleDeleteId,
@@ -68,7 +69,7 @@ const TableResponses = ({
                           exit={{ y: [0, -10], opacity: [0.7, 0] }}
                           transition={{ duration: 0.5 }}
                           className="absolute left-6 -top-0 text-xs text-gray-100 bg-red-800 px-2 py-1 rounded-sm"
-                          onClick={() => setOpenDeleteModal(true)}
+                          onClick={() => dispatch(openClose())}
                         >
                           Delete
                         </motion.button>
@@ -190,7 +191,7 @@ const TableResponses = ({
                         <button
                           className="w-4"
                           onClick={() => {
-                            setOpenDeleteModal(true);
+                            dispatch(openClose());
                             setSingleDeleteId(_id);
                           }}
                         >

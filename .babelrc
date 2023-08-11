@@ -15,7 +15,8 @@
           "library": "./library",
           "atoms": "./atoms",
           "api": "./api",
-          "animations": "./animations"
+          "animations": "./animations",
+          "slices": "./slices",
         }
       }
     ]

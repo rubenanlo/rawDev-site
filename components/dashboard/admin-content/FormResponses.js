@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useSelector, useDispatch } from "react-redux";
 import DeleteEntry from "components/modals/DeleteEntry";
 import Loading from "components/modals/Loading";
 import { handleRetrieve } from "helpers/handleDataFromDatabase";
-import { openDeleteModalState } from "atoms/openDeleteModal";
-import TableResponses from "./TableResponses";
+import TableResponses from "components/dashboard/admin-content/TableResponses";
 
 const FormResponses = () => {
   const [responses, setResponses] = useState([]);
   const [singleDeleteId, setSingleDeleteId] = useState("");
   const [deleteIdArray, setDeleteIdArray] = useState([]);
   // recoil state for modal open/close is in atoms/openDeleteModal.js
-  const [openDeleteModal, setOpenDeleteModal] =
-    useRecoilState(openDeleteModalState);
+  const openDeleteModal = useSelector((state) => state.deleteModal.value);
+  const dispatch = useDispatch();
+
   const apiEndpoint = "contact-form/retrieve-responses";
 
   const idDelete = singleDeleteId || deleteIdArray;
@@ -30,13 +30,18 @@ const FormResponses = () => {
       {!responses && <Loading />}
       {/* modal to delete entry/ies */}
       {openDeleteModal && (
-        <DeleteEntry id={idDelete} setSingleDeleteId={setSingleDeleteId} />
+        <DeleteEntry
+          id={idDelete}
+          setSingleDeleteId={setSingleDeleteId}
+          dispatch={dispatch}
+          openDeleteModal={openDeleteModal}
+        />
       )}
       <TableResponses
         responses={responses}
         deleteIdArray={deleteIdArray}
         setDeleteIdArray={setDeleteIdArray}
-        setOpenDeleteModal={setOpenDeleteModal}
+        dispatch={dispatch}
         singleDeleteId={singleDeleteId}
         openDeleteModal={openDeleteModal}
         setSingleDeleteId={setSingleDeleteId}

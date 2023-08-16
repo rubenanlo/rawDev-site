@@ -4,7 +4,7 @@
   dateTime: "2022-11"
 - name: "Fullstack Web Developer, rawDev (Paris, France)"
   description: ""
-  techStack: "NextJS, Tailwind, styled components, MongoDB, Node.js, Express"
+  techStack: "NextJS, Tailwind, styled components, MongoDB, Node.js, Express, Redux"
   dateTime: "2022-08"
 - name: "Lead Data Scientist - Economist, Baker McKenzie (Paris, France)"
   description: ""

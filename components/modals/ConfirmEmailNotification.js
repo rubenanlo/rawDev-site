@@ -6,10 +6,10 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
-import { useToggleModal } from "helpers/useRedux";
+import { useToggleContainer } from "helpers/useRedux";
 
 export default function ConfirmEmailNotification() {
-  const [openModal, toggleModal] = useToggleModal();
+  const [openModal, toggleModal] = useToggleContainer("modal");
   const router = useRouter();
 
   return (

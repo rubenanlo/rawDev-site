@@ -3,13 +3,12 @@ import DeleteEntry from "components/modals/DeleteEntry";
 import Loading from "components/modals/Loading";
 import { handleRetrieve } from "helpers/handleDataFromDatabase";
 import TableResponses from "components/dashboard/admin-content/TableResponses";
-import { useToggleModal } from "helpers/useRedux";
+import { useToggleContainer } from "helpers/useRedux";
 
 const FormResponses = () => {
   const [responses, setResponses] = useState([]);
   const [deleteIdArray, setDeleteIdArray] = useState([]);
-  // recoil state for modal open/close is in atoms/openDeleteModal.js
-  const [openModal, toggleModal] = useToggleModal();
+  const [openModal, toggleModal] = useToggleContainer("modal");
   const apiEndpoint = "contact-form/retrieve-responses";
 
   useEffect(

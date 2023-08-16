@@ -13,7 +13,6 @@ export default function DeleteEntry({
   openModal,
   toggleModal,
 }) {
-  console.log("🚀 ~ file: DeleteEntry.js:16 ~ openModal:", openModal);
   const modalAnimation = {
     initial: { scale: 0 },
     animate: { scale: 1 },
@@ -24,6 +23,7 @@ export default function DeleteEntry({
     toggleModal();
     setDeleteIdArray([]);
   };
+  const endpoint = "contact-form/delete-responses";
 
   return (
     <Transition.Root show={openModal} as={Fragment}>
@@ -86,7 +86,7 @@ export default function DeleteEntry({
                   type="button"
                   className="w-32 rounded-md bg-red-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={() => {
-                    handleDelete(id);
+                    handleDelete(id, endpoint);
                     handleButtonAction();
                   }}
                 >

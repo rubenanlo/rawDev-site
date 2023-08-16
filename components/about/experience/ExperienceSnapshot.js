@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import TechStack from "components/modals/TechStack";
 import { classNames } from "helpers/setClassNames";
 import { RespContext } from "helpers/responsiveComponent";
-import { useToggleModal } from "helpers/useRedux";
+import { useToggleContainer } from "helpers/useRedux";
 
 const ExperienceSnapshot = ({
   snapshot: {
@@ -13,7 +13,7 @@ const ExperienceSnapshot = ({
   },
 }) => {
   const [description, setDescription] = useState("");
-  const [openModal, toggleModal] = useToggleModal();
+  const [openModal, toggleModal] = useToggleContainer("modal");
   const highlightsSamePattern = [highlights[0], highlights[1]];
   const highlightsDiffPattern = highlights[2];
   const useMediaQuery = useContext(RespContext);

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useToggleModal } from "helpers/useRedux";
-import TechStack from "../modals/TechStack";
+import { useToggleContainer } from "helpers/useRedux";
+import TechStack from "components/modals/TechStack";
 
 const ProjectCard = ({
   project: {
@@ -17,7 +17,7 @@ const ProjectCard = ({
   },
 }) => {
   const [description, setDescription] = useState("");
-  const [openModal, toggleModal] = useToggleModal();
+  const [openModal, toggleModal] = useToggleContainer("modal");
   return (
     <div className="absolute w-full border-gray-900 h-full z-10">
       <div className="mx-auto max-w-2xl h-full  px-6 lg:px-8">

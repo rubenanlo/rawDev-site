@@ -39,6 +39,7 @@ import RAWDEV_LG from "static/assets/rawdev-lg.gif";
 import RAWDEV_MD from "static/assets/rawdev-md.webp";
 import RAWDEV_SM from "static/assets/rawdev-sm.webp";
 import REACT from "static/assets/react.svg";
+import REDUX from "static/assets/redux.svg";
 import SDGTC_LG from "static/assets/sdgtc-lg.gif";
 import SDGTC_SM from "static/assets/sdgtc-sm.gif";
 import SHELL from "static/assets/shell.svg";
@@ -94,6 +95,7 @@ export const images = {
   RAWDEV_MD,
   RAWDEV_SM,
   REACT,
+  REDUX,
   SDGTC_LG,
   SDGTC_SM,
   SHELL,
@@ -149,6 +151,7 @@ export { RAWDEV_LG };
 export { RAWDEV_MD };
 export { RAWDEV_SM };
 export { REACT };
+export { REDUX };
 export { SDGTC_LG };
 export { SDGTC_SM };
 export { SHELL };

@@ -1,33 +1,24 @@
 - name: "Fullstack Web Developer, SDSN (Paris, France)"
-  description: "Some highlighted features include image optimization, a document
-  repository, DRY code, higher order component, higher order function, rendering
-  components based on screen size."
+  description: ""
   techStack: "NextJS, Tailwind, styled components"
   dateTime: "2022-11"
 - name: "Fullstack Web Developer, rawDev (Paris, France)"
-  description: "Some highlighted created features include a contact form, email
-  verification, user authentication with role discrimination, DRY code, Rest
-  API, image import."
+  description: ""
   techStack: "NextJS, Tailwind, styled components, MongoDB, Node.js, Express"
   dateTime: "2022-08"
 - name: "Lead Data Scientist - Economist, Baker McKenzie (Paris, France)"
-  description: "Apart from creating several data visualizations, I created a repository of
-  documents with filters."
+  description: ""
   techStack: "Microsoft Excel, Tableau, Alteryx"
   dateTime: "2021-09"
 - name: "Lead Data Scientist - Economist, PwC (New York, USA)"
-  description: "Designed and implemented several automation tools as part of
-  financial analyses and data visualizations. Some examples include a tool to turn raw data into formatted
-  tables (reduction of 1,000 hours of work); template creation to merge
-  documents; among others."
+  description: ""
   techStack: "Microsoft Excel, HTML, Javascript, CSS, Tableau, Alteryx"
   dateTime: "2019-05"
 - name: "Lead Data Scientist - Economist, EY (New York, USA)"
-  description: "Designed several data visualization tools including a supply chain analysis (possible to update within seconds), return on investment analysis, benchmarking analyses, among others."
+  description: ""
   techStack: "Microsoft Excel"
   dateTime: "2011-05"
 - name: "Data Scientist - Economist, Deloitte (Barcelona, Spain)"
-  description: "Designed a data visualization for a benchmarking analysis, which
-  still creates a 6% reduction of costs"
+  description: ""
   techStack: "Microsoft Excel"
   dateTime: "2008-09"

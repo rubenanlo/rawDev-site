@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "slices/modalVisibility";
+// import contentSlice from "slices/contentSlice";
+import visibilitySlice from "slices/visibilitySlice";
 
 export default configureStore({
   reducer: {
-    modalVisibility: counterSlice,
+    visibility: visibilitySlice,
+    // data: contentSlice,
   },
 });

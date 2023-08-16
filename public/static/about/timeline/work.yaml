@@ -1,8 +1,10 @@
 - name: "Fullstack Web Developer, SDSN (Paris, France)"
+  current: true
   description: ""
   techStack: "NextJS, Tailwind, styled components"
   dateTime: "2022-11"
 - name: "Fullstack Web Developer, rawDev (Paris, France)"
+  current: true
   description: ""
   techStack: "NextJS, Tailwind, styled components, MongoDB, Node.js, Express, Redux"
   dateTime: "2022-08"

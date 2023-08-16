@@ -12,7 +12,15 @@ const ExperienceTimeline = ({ timeline }) => {
       <div ref={ref} className="overflow-hidden">
         {timeline.map(
           (
-            { name, dateTime, tag, description, description2, techStack },
+            {
+              name,
+              current,
+              dateTime,
+              tag,
+              description,
+              description2,
+              techStack,
+            },
             index
           ) => (
             <div
@@ -53,6 +61,11 @@ const ExperienceTimeline = ({ timeline }) => {
               >
                 <p className="text-lg font-semibold text-orange-tertiary">
                   {name}
+                  {current && (
+                    <span className="ml-2 text-gray-100 text-xs italic bg-gray-900/70 px-2 py-1 rounded-sm">
+                      current
+                    </span>
+                  )}
                 </p>
                 <p className="mt-2 text-base leading-7 text-gray-400">
                   {description}

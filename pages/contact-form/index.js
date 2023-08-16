@@ -5,7 +5,7 @@ import BannerTop from "components/BannerTop";
 import Loading from "components/modals/Loading";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
-import { useToggleModal } from "helpers/useRedux";
+import { useToggleContainer } from "helpers/useRedux";
 
 const ContactForm = () => {
   // Set initial state for form response
@@ -18,7 +18,7 @@ const ContactForm = () => {
     description: "",
     verified: false,
   });
-  const [openModal, toggleModal] = useToggleModal();
+  const [openModal, toggleModal] = useToggleContainer();
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();

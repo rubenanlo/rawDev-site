@@ -7,8 +7,8 @@ export const handleRetrieve = async (endpoint) => {
   return await response.json();
 };
 
-export const handleDelete = (id) =>
-  fetch("/api/contact-form/delete-responses", {
+export const handleDelete = (id, endpoint) =>
+  fetch(`/api/${endpoint}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id }),

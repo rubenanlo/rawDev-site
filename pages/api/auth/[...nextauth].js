@@ -15,6 +15,7 @@ export default NextAuth({
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
+        account: { label: "Account", type: "text" },
       },
       async authorize(credentials) {
         // You need to provide your own logic here that takes the credentials

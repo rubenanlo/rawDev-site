@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -8,6 +8,7 @@ import AboutMenu from "components/navbar/AboutMenu";
 import { RespContext } from "helpers/responsiveComponent";
 import { useToggleContainer } from "helpers/useRedux";
 import { about, clientPortal } from "static/navbar/NAVBAR";
+import { handleOutsideClick } from "helpers/handleOutsideClick";
 
 const Navbar = () => {
   // sets state to open navbar in mobile:
@@ -18,8 +19,9 @@ const Navbar = () => {
   const [closeAll, setCloseAll] = useToggleContainer();
   const fullNavigation = [clientPortal, ...about];
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
-  const { pathname } = useRouter();
 
+  const { pathname } = useRouter();
+  const navbarRef = useRef(null);
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
 
@@ -75,6 +77,7 @@ const Navbar = () => {
 
   useEffect(() => {
     () => !isBreakpoint && setCloseAll();
+    return () => handleOutsideClick(navbarRef, setIsShowingInMobile);
   }, [isBreakpoint, closeAll, setCloseAll]);
 
   return (
@@ -86,6 +89,7 @@ const Navbar = () => {
         onMouseEnter={() => !isBreakpoint && toggleNavbar()}
         onMouseLeave={() => !isBreakpoint && toggleNavbar()}
         className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-50 pb-5"
+        ref={navbarRef}
       >
         <div className="w-screen px-2 sm:px-6 lg:px-10">
           <div className="relative flex h-16 justify-between">

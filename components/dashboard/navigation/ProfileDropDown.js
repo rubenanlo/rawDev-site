@@ -7,9 +7,8 @@ import { BellIcon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { classNames } from "helpers/setClassNames";
-import { userNavigation } from "static/sidebar/SIDEBAR";
 
-const ProfileDropDown = () => {
+const ProfileDropDown = ({ userNavigation }) => {
   const { data: session } = useSession();
   return (
     <div className="flex justify-end flex-1 gap-x-4 self-stretch lg:gap-x-6">

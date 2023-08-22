@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { classNames } from "helpers/setClassNames";
-import { sections } from "static/sidebar/SIDEBAR";
 import Logo from "components/Logo";
 
-const SideBarDesktop = () => (
+const SideBarDesktop = ({ sections }) => (
   <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-60 lg:flex-col">
     {/* Sidebar component, swap this element with another sidebar if you like */}
     <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-transparent px-10 pb-4">

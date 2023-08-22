@@ -10,7 +10,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [account, setAccount] = useState("user");
-  console.log("🚀 ~ file: login.js:13 ~ Login ~ account:", account);
 
   const handleAccountChange = () => {
     account === "user" ? setAccount("admin") : setAccount("user");

@@ -1,7 +1,7 @@
 // pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { verifyCredentials } from "helpers/verifyCredentials";
+// import { verifyCredentials } from "helpers/verifyCredentials";
 
 export default NextAuth({
   providers: [
@@ -26,7 +26,18 @@ export default NextAuth({
         // (i.e., the request IP address)
         // Return object containing user information
         // Return null to indicate authentication failure
-        return ((await verifyCredentials(credentials)) && credentials) || null;
+        const user = {
+          email: process.env.NEXTAUTH_EMAIL,
+          password: process.env.NEXTAUTH_PASSWORD,
+          account: process.env.NEXTAUTH_ACCOUNT,
+        };
+
+        const isValid =
+          credentials.email === user.email &&
+          credentials.password === user.password &&
+          credentials.account === user.account;
+
+        return ((await isValid) && credentials) || null;
       },
     }),
   ],

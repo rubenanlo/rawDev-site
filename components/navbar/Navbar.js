@@ -8,7 +8,7 @@ import AboutMenu from "components/navbar/AboutMenu";
 import { RespContext } from "helpers/responsiveComponent";
 import { useToggleContainer } from "helpers/useRedux";
 import { about, clientPortal } from "static/navbar/NAVBAR";
-import { handleOutsideClick } from "helpers/handleOutsideClick";
+// import { handleOutsideClick } from "helpers/handleOutsideClick";
 
 const Navbar = () => {
   // sets state to open navbar in mobile:
@@ -77,7 +77,7 @@ const Navbar = () => {
 
   useEffect(() => {
     () => !isBreakpoint && setCloseAll();
-    return () => handleOutsideClick(navbarRef, setIsShowingInMobile);
+    // return () => handleOutsideClick(navbarRef, setIsShowingInMobile);
   }, [isBreakpoint, closeAll, setCloseAll]);
 
   return (

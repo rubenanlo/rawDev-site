@@ -18,7 +18,7 @@ const ContactForm = () => {
     description: "",
     verified: false,
   });
-  const [openModal, toggleModal] = useToggleContainer();
+  const [openModal, toggleModal] = useToggleContainer("modal");
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();

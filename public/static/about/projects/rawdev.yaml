@@ -13,6 +13,8 @@ techStack:
     alt: Mongo DB
   - icon: TAILWIND
     alt: Tailwind
+  - icon: REDUX
+    alt: Redux
 links:
   - icon: LINK
     alt: link

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -6,27 +6,35 @@ import { motion } from "framer-motion";
 import Logo from "components/Logo";
 import AboutMenu from "components/navbar/AboutMenu";
 import { RespContext } from "helpers/responsiveComponent";
+import { useToggleContainer } from "helpers/useRedux";
 import { about, clientPortal } from "static/navbar/NAVBAR";
+import { handleOutsideClick } from "helpers/handleOutsideClick";
 
 const Navbar = () => {
-  const [isShowingInMobile, setIsShowingInMobile] = useState(false);
-  const [openNavbar, setOpenNavbar] = useState(false);
+  // sets state to open navbar in mobile:
+  const [isShowingInMobile, setIsShowingInMobile] =
+    useToggleContainer("mobile");
+  // this is to control the behavior of the navbar in the about site:
+  const [openNavbar, toggleNavbar] = useToggleContainer("aboutSite");
+  const [closeAll, setCloseAll] = useToggleContainer();
   const fullNavigation = [clientPortal, ...about];
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
+
+  const { pathname } = useRouter();
+  const navbarRef = useRef(null);
   const useMediaQuery = useContext(RespContext);
   const isBreakpoint = useMediaQuery(640);
-  const router = useRouter();
 
   const navbarInAbout = {
     animation: {
       y:
-        router.pathname === "/about" && !isBreakpoint
+        pathname === "/about" && !isBreakpoint
           ? !openNavbar
             ? [0, -50]
             : [-50, 0]
           : 0,
       opacity:
-        router.pathname === "/about" && !isBreakpoint
+        pathname === "/about" && !isBreakpoint
           ? !openNavbar
             ? [1, 0]
             : [0, 1]
@@ -68,8 +76,9 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    !isBreakpoint && setIsShowingInMobile(false);
-  }, [isShowingInMobile, isBreakpoint]);
+    () => !isBreakpoint && setCloseAll();
+    return () => handleOutsideClick(navbarRef, setIsShowingInMobile);
+  }, [isBreakpoint, closeAll, setCloseAll]);
 
   return (
     <>
@@ -77,16 +86,17 @@ const Navbar = () => {
         as="nav"
         animate={navbarInAbout.animation}
         transition={navbarInAbout.transition}
-        onMouseEnter={() => setOpenNavbar(true)}
-        onMouseLeave={() => setOpenNavbar(false)}
+        onMouseEnter={() => !isBreakpoint && toggleNavbar()}
+        onMouseLeave={() => !isBreakpoint && toggleNavbar()}
         className="fixed bg-gradient-to-r from-gray-900 to-blue-primary z-50 pb-5"
+        ref={navbarRef}
       >
         <div className="w-screen px-2 sm:px-6 lg:px-10">
           <div className="relative flex h-16 justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button */}
               <button
-                onClick={() => setIsShowingInMobile(!isShowingInMobile)}
+                onClick={() => setIsShowingInMobile()}
                 className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 "
               >
                 <span className="sr-only">Open main menu</span>
@@ -136,6 +146,7 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       className="font-semibold text-blue-primary"
+                      onClick={() => setCloseAll()}
                     >
                       {item.name}
                       <span className="absolute inset-0" />
@@ -148,12 +159,13 @@ const Navbar = () => {
           </motion.div>
         )}
       </motion.div>
-      {router.pathname === "/about" && !isBreakpoint && (
+      {/* // this is to control the behavior of the navbar in the about site: */}
+      {pathname === "/about" && !isBreakpoint && (
         <motion.div
           animate={buttonNavbarInAbout.animation}
           transition={navbarInAbout.transition}
-          onMouseEnter={() => setOpenNavbar(true)}
-          onMouseLeave={() => setOpenNavbar(false)}
+          onMouseEnter={() => toggleNavbar()}
+          onMouseLeave={() => toggleNavbar()}
           className="fixed w-screen flex justify-center cursor-pointer z-40"
         >
           <button className="bg-orange-tertiary/40 px-5 rounded-b-lg">

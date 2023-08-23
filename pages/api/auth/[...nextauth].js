@@ -1,7 +1,7 @@
 // pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { verifyCredentials } from "helpers/verifyCredentials";
+// import { verifyCredentials } from "helpers/verifyCredentials";
 
 export default NextAuth({
   providers: [
@@ -15,6 +15,7 @@ export default NextAuth({
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
+        account: { label: "Account", type: "text" },
       },
       async authorize(credentials) {
         // You need to provide your own logic here that takes the credentials
@@ -25,7 +26,18 @@ export default NextAuth({
         // (i.e., the request IP address)
         // Return object containing user information
         // Return null to indicate authentication failure
-        return ((await verifyCredentials(credentials)) && credentials) || null;
+        const user = {
+          email: process.env.NEXTAUTH_EMAIL,
+          password: process.env.NEXTAUTH_PASSWORD,
+          account: process.env.NEXTAUTH_ACCOUNT,
+        };
+
+        const isValid =
+          credentials.email === user.email &&
+          credentials.password === user.password &&
+          credentials.account === user.account;
+
+        return ((await isValid) && credentials) || null;
       },
     }),
   ],

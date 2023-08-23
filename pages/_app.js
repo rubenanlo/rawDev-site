@@ -1,12 +1,13 @@
 import { useEffect } from "react";
+import { Provider } from "react-redux";
 import { Router } from "next/router";
 import Head from "next/head";
 import { TITLE, META_DESCRIPTION, META_IMAGE, URL } from "root/config";
 import { DefaultSeo } from "next-seo";
 import { SessionProvider } from "next-auth/react";
-import { RecoilRoot } from "recoil";
 import { ResponsiveComponent } from "helpers/responsiveComponent";
 import * as gtag from "helpers/gtag";
+import store from "library/store";
 import "tailwindcss/tailwind.css";
 import "styles/globals.css";
 
@@ -36,11 +37,11 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
         twitter={{ cardType: "summary_large_image" }}
       />
       <SessionProvider session={session}>
-        <RecoilRoot>
+        <Provider store={store}>
           <ResponsiveComponent>
             <Component {...pageProps} />
           </ResponsiveComponent>
-        </RecoilRoot>
+        </Provider>
       </SessionProvider>
     </>
   );

@@ -191,10 +191,14 @@ If you change this, you may need to review the props in the motion tags.
   promise. See code in the helpers directory.
 
 - In Splash component, there was a flickering issue when reloading the site.
-  This was happening becasue the initial animations were
+  This was happening because the initial animations were
   not applied immediately, resulting in a brief display of the initial state of
   the elements before the animation kicked in. to avoid this issue, we had to
   create an object with initial, animate, and transition properties to pass them
   thru props in the motion.h3 tag. The same applied for the aboutNavbar
   component. For more details on how I solved it, check out commits:
-  dcaea3d4da0b3eff176a46bdf1793913447201db, 70f35b344d7a686af57f50fb6e3fd21a002bb9c5.
+  dcaea3d4da0b3eff176a46bdf1793913447201db,
+  70f35b344d7a686af57f50fb6e3fd21a002bb9c5.
+
+- In order to fix the first row of a table with css, the sticky position only
+  works with th tags.

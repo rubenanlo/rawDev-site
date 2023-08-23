@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Logo from "components/Logo";
 
 const Loading = () => (
-  <div className="relative z-10">
+  <div className="relative z-50">
     <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
 
     <div className="fixed inset-0 z-10 overflow-y-auto">

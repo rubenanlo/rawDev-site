@@ -1,21 +1,22 @@
-import { useState } from "react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import { classNames } from "helpers/setClassNames";
+import { useToggleContainer } from "helpers/useRedux";
 
 const AboutMenu = ({ about }) => {
-  const [isShowing, setIsShowing] = useState(false);
+  const [openMenu, setToggleMenu] = useToggleContainer("aboutMenu");
+  const [, setCloseAll] = useToggleContainer();
   return (
     <div className="relative h-full">
       <button
-        onMouseEnter={() => setIsShowing(true)}
-        onMouseLeave={() => setIsShowing(false)}
+        onMouseEnter={() => setToggleMenu()}
+        onMouseLeave={() => setToggleMenu()}
         className="inline-flex items-center gap-x-1 h-full border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-orange-quaternary leading-6 hover:border-b-orange-primary"
       >
         <div
           className={classNames(
-            isShowing ? "absolute w-full block h-32" : "hidden"
+            openMenu ? "absolute w-full block h-32" : "hidden"
           )}
         />
 
@@ -23,11 +24,10 @@ const AboutMenu = ({ about }) => {
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>
 
-      {isShowing && (
+      {openMenu && (
         <motion.div
-          onMouseEnter={() => setIsShowing(true)}
-          onMouseLeave={() => setIsShowing(false)}
-          initial={{ opacity: 0 }}
+          onMouseEnter={() => setToggleMenu()}
+          onMouseLeave={() => setToggleMenu()}
           animate={{
             opacity: [0, 1],
             y: [-20, 0],
@@ -51,6 +51,7 @@ const AboutMenu = ({ about }) => {
                       <Link
                         href={item.href}
                         className="font-semibold text-gray-900 hover:text-orange-secondary"
+                        onClick={() => setCloseAll()}
                       >
                         {item.name}
                         <span className="absolute inset-0" />

@@ -1,11 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 import { connectToDatabase } from "helpers/connectDb";
 import { sendEmail } from "helpers/sendEmail";
+import dayjs from "dayjs";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { body } = req;
     body.verifyId = uuidv4();
+    body.date = new dayjs(Date()).format("MMMM D, YYYY");
 
     try {
       const collection = await connectToDatabase("form", "responses");

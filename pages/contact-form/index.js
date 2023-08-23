@@ -5,6 +5,7 @@ import BannerTop from "components/BannerTop";
 import Loading from "components/modals/Loading";
 import AppLayoutWithNavbar from "layouts/AppLayoutWithNavbar";
 import { classNames } from "helpers/setClassNames";
+import { useToggleContainer } from "helpers/useRedux";
 
 const ContactForm = () => {
   // Set initial state for form response
@@ -17,7 +18,7 @@ const ContactForm = () => {
     description: "",
     verified: false,
   });
-  const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+  const [openModal, toggleModal] = useToggleContainer("modal");
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
@@ -26,7 +27,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("/api/contact-form/responses", {
+    const response = await fetch("/api/contact-form/submit-responses", {
       method: "POST",
       body: JSON.stringify(formResponse),
       headers: { "Content-Type": "application/json" },
@@ -45,11 +46,11 @@ const ContactForm = () => {
         verified: false,
       });
       setIsLoading(false);
-      setHasSubmittedForm(true);
+      toggleModal();
     }
     if (data.message === "Email already exists") {
       setIsLoading(false);
-      setHasSubmittedForm(false);
+      // toggleModal();
       router.push("/contact-form/already-submitted");
     } else {
       console.log("Error:", data);
@@ -59,7 +60,7 @@ const ContactForm = () => {
   return (
     <AppLayoutWithNavbar>
       {isLoading && <Loading />}
-      {hasSubmittedForm && <ConfirmEmailNotification />}
+      {openModal && <ConfirmEmailNotification />}
       <BannerTop />
       <div className="py-24 sm:py-40 px-10 space-y-10 divide-y divide-gray-900/10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">

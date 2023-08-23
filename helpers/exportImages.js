@@ -39,6 +39,7 @@ import RAWDEV_LG from "static/assets/rawdev-lg.gif";
 import RAWDEV_MD from "static/assets/rawdev-md.webp";
 import RAWDEV_SM from "static/assets/rawdev-sm.webp";
 import REACT from "static/assets/react.svg";
+import REDUX from "static/assets/redux.svg";
 import SDGTC_LG from "static/assets/sdgtc-lg.gif";
 import SDGTC_SM from "static/assets/sdgtc-sm.gif";
 import SHELL from "static/assets/shell.svg";
@@ -48,6 +49,8 @@ import TABLEAU from "static/assets/tableau.svg";
 import TAILWIND from "static/assets/tailwind.svg";
 import TRANSPARENCY_1 from "static/assets/transparency-1.webp";
 import TRANSPARENCY from "static/assets/transparency.webp";
+import TRASH from "static/assets/trash.svg";
+import USER from "static/assets/user.svg";
 import VSCODE from "static/assets/vscode.svg";
 
 export const images = {
@@ -92,6 +95,7 @@ export const images = {
   RAWDEV_MD,
   RAWDEV_SM,
   REACT,
+  REDUX,
   SDGTC_LG,
   SDGTC_SM,
   SHELL,
@@ -101,8 +105,11 @@ export const images = {
   TAILWIND,
   TRANSPARENCY_1,
   TRANSPARENCY,
+  TRASH,
+  USER,
   VSCODE,
 };
+
 export { ALTERYX };
 export { COLLAB_1 };
 export { COLLAB_2 };
@@ -144,6 +151,7 @@ export { RAWDEV_LG };
 export { RAWDEV_MD };
 export { RAWDEV_SM };
 export { REACT };
+export { REDUX };
 export { SDGTC_LG };
 export { SDGTC_SM };
 export { SHELL };
@@ -153,4 +161,6 @@ export { TABLEAU };
 export { TAILWIND };
 export { TRANSPARENCY_1 };
 export { TRANSPARENCY };
+export { TRASH };
+export { USER };
 export { VSCODE };

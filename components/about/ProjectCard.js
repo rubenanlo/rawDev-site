@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useToggleContainer } from "helpers/useRedux";
+import TechStack from "components/modals/TechStack";
 
 const ProjectCard = ({
   project: {
@@ -15,8 +17,7 @@ const ProjectCard = ({
   },
 }) => {
   const [description, setDescription] = useState("");
-  const [openModal, setOpenModal] = useState(false);
-
+  const [openModal, toggleModal] = useToggleContainer("modal");
   return (
     <div className="absolute w-full border-gray-900 h-full z-10">
       <div className="mx-auto max-w-2xl h-full  px-6 lg:px-8">
@@ -46,17 +47,18 @@ const ProjectCard = ({
                       className="w-5"
                       onMouseEnter={() => {
                         setDescription(alt);
-                        setOpenModal(true);
+                        toggleModal();
                       }}
                       onMouseLeave={() => {
-                        setOpenModal(false);
+                        toggleModal();
                       }}
                     />
                   ))}
                   {openModal && (
-                    <div className="hidden sm:block absolute -mt-14 bg-orange-quaternary text-gray-900 px-5 py-2 rounded-md z-20">
-                      {description}
-                    </div>
+                    <TechStack
+                      description={description}
+                      className="-mt-14 opacity-70"
+                    />
                   )}
                 </div>
               </div>

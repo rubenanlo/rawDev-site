@@ -9,6 +9,11 @@ import LOGIN_IMAGE from "static/assets/login.webp";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [account, setAccount] = useState("user");
+
+  const handleAccountChange = () => {
+    account === "user" ? setAccount("admin") : setAccount("user");
+  };
 
   return (
     <AppLayoutWithoutNavbar>
@@ -42,6 +47,7 @@ const Login = () => {
                     signIn("credentials", {
                       email: email,
                       password: password,
+                      account: account,
                       redirect: true,
                       callbackUrl: "/dashboard",
                     });
@@ -103,16 +109,17 @@ const Login = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <input
-                        id="remember-me"
-                        name="remember-me"
+                        id="account"
+                        name="account"
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-30"
+                        onClick={() => handleAccountChange()}
                       />
                       <label
-                        htmlFor="remember-me"
+                        htmlFor="admin"
                         className="ml-3 block cursor-pointer text-sm leading-6 text-orange-tertiary hover:text-orange-quaternary focus:ring-blue-secondary"
                       >
-                        Remember me
+                        Are you an admin?
                       </label>
                     </div>
 

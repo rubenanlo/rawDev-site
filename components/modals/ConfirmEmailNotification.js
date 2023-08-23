@@ -10,6 +10,7 @@ import { useToggleContainer } from "helpers/useRedux";
 
 export default function ConfirmEmailNotification() {
   const [openModal, toggleModal] = useToggleContainer("modal");
+  const [, setCloseAll] = useToggleContainer();
   const router = useRouter();
 
   return (
@@ -19,6 +20,8 @@ export default function ConfirmEmailNotification() {
         className="relative z-50"
         onClose={() => {
           toggleModal();
+          // TODO: Fix mobile navbar showing up at closing modal
+          setCloseAll();
           router.back();
         }}
       >

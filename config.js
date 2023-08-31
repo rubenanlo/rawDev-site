@@ -17,7 +17,7 @@ export const META_DESCRIPTION =
 // like WhatsApp and others
 // The URL should be absolute, e.g.: https://www.domain.com/static/preview.jpg
 // Recommended size: 1200 x 627
-export const META_IMAGE = "static/assets/meta_image.png";
+export const META_IMAGE = "https://www.rawdev.io/static/assets/meta_image.png";
 
 // The Google Analytics tracking ID
 export const GA_TRACKING_ID = "G-YCW7P507ER";

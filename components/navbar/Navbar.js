@@ -16,7 +16,7 @@ const Navbar = () => {
     useToggleContainer("mobile");
   // this is to control the behavior of the navbar in the about site:
   const [openNavbar, toggleNavbar] = useToggleContainer("aboutSite");
-  const [closeAll, setCloseAll] = useToggleContainer();
+  const [, setCloseAll] = useToggleContainer();
   const fullNavigation = [clientPortal, ...about];
   const MobileBurger = isShowingInMobile ? XMarkIcon : Bars3Icon;
 
@@ -76,9 +76,9 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    () => !isBreakpoint && setCloseAll();
-    // return () => handleOutsideClick(navbarRef, setIsShowingInMobile);
-  }, [isBreakpoint, closeAll, setCloseAll]);
+    setCloseAll();
+    // return () => handleOutsideClick(navbarRef, setIsShowingInMobile(true));
+  }, []);
 
   return (
     <>
